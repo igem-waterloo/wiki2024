@@ -1,4 +1,15 @@
+## Useful commands
+```
+git pull origin dev // pull remote dev branch changes to your local dev branch
+
+git checkout main -> git merge dev // swap to main branch and pull local dev branch cahnges to local main
+
+git pull origin main // pull remote main branch changes to your local main branch
+
+```
+
 # Astro Starter Kit: Basics
+
 
 ```sh
 npm create astro@latest -- --template basics
