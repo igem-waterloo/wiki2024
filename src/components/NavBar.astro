@@ -3,33 +3,70 @@
 ---
 
 <nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">Project</a></li>
-    <li><a href="/contact">Safety</a></li>
-    <li><a href="/contact">Human Practices</a></li>
-    <li><a href="/contact">Awards</a></li>
-  </ul>
+  <div class="team dropdown">
+    <div class="dropbtn">Team 🡳</div>
+    <div class="dropdown-content">
+      <a href="/team">Members</a>
+      <a href="/attributions">Attributions</a>
+    </div>
+  </div> 
+
+  <div class="project dropdown">
+    <div class="dropbtn">Project 🡳</div>
+    <div class="dropdown-content">
+      <a href="/contribution">Contribution</a>
+      <a href="/description">Description</a>
+      <a href="/engineering">Engineering</a>
+    </div>
+  </div> 
+
+  <a href="/team">Safety</a>
+  <a href="/human-practices">Human Practices</a>
+
+  <div class="awards dropdown">
+    <div class="dropbtn">Awards 🡳</div>
+    <div class="dropdown-content">
+      <a href="/education">Education</a>
+      <a href="/model">Model</a>
+      <a href="/software">Software</a>
+    </div>
+  </div> 
 </nav>
 
 <style lang="scss">
   @import '../global.scss';
 
   nav {
-    ul {
-      display: flex;
-      justify-content: right;
-      align-items: right;
-      gap: 1rem;
-      list-style: none;
-      padding: 0.5em 1em;
-      margin: 0;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    gap: 1.5rem;
+    padding: 0.5em 1em;
+    
+    .dropdown {
+      overflow: hidden;
+      
+      .dropdown-content {
+        display: flex;
+        flex-direction: column;        
+        height: 0px !important;
+        opacity: 0;
+        line-height: 2em;
+        font-weight: normal;
+        color: $accent-color-2;
+        position: absolute;
+      }
+
+      &:hover .dropdown-content {
+        // display: flex;
+        // flex-direction: column;
+        height: 5em !important;
+        opacity: 1;
+        @include transition-ease;
+
+      }
 
       a {
-        text-decoration: none;
-        color: $secondary-color;
-        font-weight: 600;
-
         &:hover {
           color: $accent-color-1;
           @include transition-ease;
