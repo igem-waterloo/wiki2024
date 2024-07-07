@@ -2,7 +2,15 @@
 
 ---
 
+
+
+
 <nav>
+  <div class="logo">
+  <a href="/"><img src="imgs/logo.png"></a>
+  </div>
+
+  <div class="navlinks">
   <div class="team dropdown">
     <div class="dropbtn">Team 🡳</div>
     <div class="dropdown-content">
@@ -34,18 +42,33 @@
       <a href="/model">Model</a>
       <a href="/software">Software</a>
     </div>
+    </div>
   </div> 
 </nav>
 
 <style lang="scss">
   @import '../global.scss';
 
+
+
   nav {
+    justify-content: space-between;
+    display: flex;
+    margin-top: 1em;
+
+    .logo {
+    width: 12em;
+    height: 8em;
+    margin-left: 1.5em;
+    }
+
+    .navlinks {
     display: flex;
     justify-content: right;
     align-items: right;
     gap: 1.5rem;
     padding: 0.5em 1em;
+    }
     
     .dropdown {
       overflow: hidden;
