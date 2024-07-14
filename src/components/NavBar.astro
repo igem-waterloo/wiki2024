@@ -2,12 +2,9 @@
 
 ---
 
-
-
-
 <nav>
   <div class="logo">
-  <a href="/"><img src="imgs/logo.png"></a>
+  <a href="/"><img style="" src="imgs/logo.png"></a>
   </div>
 
   <div class="navlinks">
@@ -49,19 +46,23 @@
 <style lang="scss">
   @import '../global.scss';
 
-
-
   nav {
     justify-content: space-between;
     display: flex;
     margin-top: 1em;
 
     .logo {
-    width: 12em;
-    height: 8em;
-    margin-left: 1.5em;
-    border-radius: 24em;
-    background: white;
+      width: 12em;
+      height: 12em;
+      margin-left: 1.5em;
+      border-radius: 20em;
+      background: white;
+
+      img {
+        width: 10.5rem;
+        margin-left: 0.8rem;
+        margin-top: 1rem;
+      }
     }
 
     .navlinks {
@@ -82,7 +83,7 @@
         opacity: 0;
         line-height: 2em;
         font-weight: normal;
-        color: $accent-color-2;
+        color: $primary-color;
         position: absolute;
       }
 
@@ -97,7 +98,7 @@
 
       a {
         &:hover {
-          color: $accent-color-1;
+          color: $accent-color-3;
           @include transition-ease;
         }
         
