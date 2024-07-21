@@ -20,6 +20,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<NavBar></NavBar>
+		<img src="img/bovecotext.png" id="bovtext">
 		<Cloud></Cloud>
 		<slot />
 	</body>
@@ -30,4 +31,11 @@ const { title } = Astro.props;
 	body{
 		background: #a1cad3;
 	}
+
+	#bovtext{
+		width: 12em;
+		height: auto;
+		margin-left: 1.5em;
+	}
+
 </style> 
