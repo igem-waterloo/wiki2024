@@ -85,12 +85,19 @@ const { title } = Astro.props;
       hsla(34, 90%, 69%, 1) 55%,
       hsla(28, 100%, 52%, 1) 100%
     );
+
+    filter: progid:DXImageTransform.Microsoft.gradient(
+      startColorstr='#FFF8E3',
+      endColorstr='#F7BA68',
+      GradientType=1
+    );
     // background: hsla(45, 100%, 95%, 1); background: linear-gradient(180deg, hsla(45, 100%, 95%, 1) 0%, hsla(34, 90%, 69%, 1) 55%, hsla(28, 100%, 52%, 1) 100%); background: -moz-linear-gradient(180deg, hsla(45, 100%, 95%, 1) 0%, hsla(34, 90%, 69%, 1) 55%, hsla(28, 100%, 52%, 1) 100%); background: -webkit-linear-gradient(180deg, hsla(45, 100%, 95%, 1) 0%, hsla(34, 90%, 69%, 1) 55%, hsla(28, 100%, 52%, 1) 100%); filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FFF8E3", endColorstr="#F7BA68", GradientType=1 );
   }
 
   #bovtext {
     width: 12em;
     height: auto;
+    filter: sepia(80%);
     margin-left: 1.5em;
   }
 </style>
