@@ -1,0 +1,118 @@
+---
+// ImageParagraph.astro
+
+interface Props {
+  imageUrl: string;
+  paragraph: string;
+  imageOnLeft: boolean; // Parameter to control image position
+}
+
+const { imageUrl, paragraph, imageOnLeft } = Astro.props;
+---
+
+<div class={`container ${imageOnLeft ? 'image-left' : 'image-right'}`}>
+  <div class="image-wrapper">
+    <img src={imageUrl} alt="Image" />
+  </div>
+  <div class="text-wrapper">
+    <p>{paragraph}</p>
+  </div>
+</div>
+
+<style lang="scss">
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2em auto;
+    max-width: 1200px; // Adjust to fit your layout
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-left {
+    flex-direction: row;
+  }
+
+  .image-right {
+    flex-direction: row-reverse;
+  }
+
+  .image-wrapper,
+  .text-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  .image-left .image-wrapper {
+    animation: slideInFromLeft 1s ease-in forwards;
+  }
+
+  .image-left .text-wrapper {
+    animation: slideInFromRight 1s ease-in forwards;
+  }
+
+  .image-right .image-wrapper {
+    animation: slideInFromRight 1s ease-in forwards;
+  }
+
+  .image-right .text-wrapper {
+    animation: slideInFromLeft 1s ease-in forwards;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .text-wrapper {
+    padding: 1em;
+    text-align: center;
+  }
+
+  .text-wrapper p {
+    margin: 0;
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100vw); /* Start from off-screen left */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100vw); /* Start from off-screen right */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .image-wrapper,
+    .text-wrapper {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+</style>
