@@ -3,44 +3,41 @@
 ---
 
 <nav>
-  <div class="logo">
-  <a href="/"><img style="" src="img/logopixel.png"></a>
-  </div>
-
+  <a href="/"><img style="" src="img/logo-pixelated.png" /></a>
   <div class="navlinks">
-  <div class="team dropdown">
-    <div class="dropbtn">Team 🔽</div>
-    <div class="dropdown-content">
-      <a href="/team">Members</a>
-      <a href="/attributions">Attributions</a>
+    <div class="team dropdown">
+      <div class="dropbtn">Team <b>&#x2C5;</b></div>
+      <div class="dropdown-content">
+        <a href="/team">Members</a>
+        <a href="/attributions">Attributions</a>
+      </div>
     </div>
-  </div> 
 
-  <div class="project dropdown">
-    <div class="dropbtn">Project 🔽</div>
-    <div class="dropdown-content">
-      <a href="/contribution">Contribution</a>
-      <a href="/description">Description</a>
-      <a href="/engineering">Engineering</a>
+    <div class="project dropdown">
+      <div class="dropbtn">Project &#x2C5;</div>
+      <div class="dropdown-content">
+        <a href="/contribution">Contribution</a>
+        <a href="/description">Description</a>
+        <a href="/engineering">Engineering</a>
+      </div>
     </div>
-  </div> 
 
-<div class="project dropdown">
-  <a href="/safety">Safety</a>
+    <div class="project dropdown">
+      <a href="/safety">Safety</a>
+    </div>
+    <div class="project dropdown">
+      <a href="/human-practices">Human Practices</a>
+    </div>
+
+    <div class="awards dropdown">
+      <div class="dropbtn">Awards &#x2C5;</div>
+      <div class="dropdown-content">
+        <a href="/education">Education</a>
+        <a href="/model">Model</a>
+        <a href="/software">Software</a>
+      </div>
+    </div>
   </div>
-  <div class="project dropdown">
-  <a href="/human-practices">Human Practices</a>
-  </div>
-
-  <div class="awards dropdown">
-    <div class="dropbtn">Awards 🔽</div>
-    <div class="dropdown-content">
-      <a href="/education">Education</a>
-      <a href="/model">Model</a>
-      <a href="/software">Software</a>
-    </div>
-    </div>
-  </div> 
 </nav>
 
 <style lang="scss">
@@ -50,40 +47,31 @@
   nav {
     justify-content: space-between;
     display: flex;
-    margin-top: 1em;
-
-    .logo {
-      width: 12em;
-      height: 12em;
+    margin-top: 0.5rem;
+    img {
+      width: 8rem;
       margin-left: 1.5em;
-      border-radius: 20em;
-      background: #c6aa8a;
-
-      img {
-        width: 10.5rem;
-        margin-left: 0.8rem;
-        margin-top: 1rem;
-      }
+      position: absolute;
+      filter: sepia(100%);
     }
-
     .navlinks {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    gap: 1.5rem;
-    padding: 0.5em 1em;
-    font-family: "Pixelify Sans", "Courier New", sans-serif;
+      display: flex;
+      justify-content: right;
+      align-items: right;
+      gap: 1.5rem;
+      padding: 1rem 1rem;
+      font-family: 'Pixelify Sans', 'Courier New', sans-serif;
     }
-    
+
     .dropdown {
       overflow: hidden;
-      
+
       .dropdown-content {
         display: flex;
-        flex-direction: column;        
-        height: 0px !important;
+        flex-direction: column;
+        // height: 0px !important;
         opacity: 0;
-        line-height: 2em;
+        line-height: 1.5em;
         font-weight: normal;
         color: $accent-2;
         position: absolute;
@@ -92,10 +80,9 @@
       &:hover .dropdown-content {
         // display: flex;
         // flex-direction: column;
-        height: 5em !important;
+        // height: 5em !important;
         opacity: 1;
         @include transition-ease;
-
       }
 
       a {
@@ -103,7 +90,7 @@
           color: $accent-1;
           @include transition-ease;
         }
-        
+
         &:focus {
           color: $accent-1;
         }

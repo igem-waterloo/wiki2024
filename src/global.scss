@@ -1,3 +1,27 @@
+/* Custom Fonts */
+
+// Source: https://www.dafont.com/theme.php?cat=101
+@font-face {
+  font-family: 'Farmhouse Goodness';
+  src: url('fonts/Farmhouse Goodness.ttf') format('truetype'), 
+       url('fonts/Farmhouse Goodness.woff') format('woff'), 
+       url('fonts/Farmhouse Goodness.otf') format('opentype');
+  font-stretch: ultra-expanded;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Source: https://www.whatfontis.com/FF_QUARTZO-demo-Bold.font?text=BovEco
+@font-face {
+  font-family: 'Quartzo';
+  src: url('fonts/Quartzo.ttf') format('truetype');
+  font-stretch: ultra-expanded;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Colour Scheme: https://coolors.co/6a6b49-b2b684-e9e1d6-ffffff-000000 */
 $primary: rgb(255, 255, 255);
 $secondary: rgb(0, 0, 0);
@@ -47,7 +71,7 @@ a {
 
 html {
   font-family: system-ui, sans-serif;
-  // background: #13151a;
+  overflow-x: hidden; // for Clouds.astro
 //  background-size: 224px;
 /*  font-family:
   Menlo,
