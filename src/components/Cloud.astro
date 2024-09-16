@@ -5,8 +5,8 @@ const cloudLayers = ['front', 'back'];
 const randType = cloudTypes[Math.floor(Math.random() * cloudTypes.length)];
 const randLayer = cloudLayers[Math.floor(Math.random() * cloudLayers.length)];
 
-const randomizeHorizontal = () => Math.random() * 30 - 10; // between -10 and 20vw
-const randomizeHeight = () => Math.random() * 80 - 15; // between -20 and 30vh
+const randomizeX = () => Math.random() * 30 - 10; // between -10 and 20vw
+const randomizeY = () => Math.random() * 70 + 10; // between 10 and 80vh
 const randomizeSpeed = (min: number, max: number) =>
   Math.random() * (max - min) + min; // in seconds
 // Randomize speed based on layer (front or back)
@@ -19,8 +19,8 @@ const animationDuration =
   src={`img/clouds/${randType}.png`}
   alt=""
   style={`
-    left: ${randomizeHorizontal()}vw; 
-    top: ${randomizeHeight()}vh;
+    left: ${randomizeX()}vw; 
+    top: ${randomizeY()}vh;
     animation-duration: ${animationDuration}s;
   `}
 />
