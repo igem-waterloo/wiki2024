@@ -23,12 +23,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	@import '../global.scss';
 	main {
 		.welcome-text {
-			font-family: 'Quartzo', sans-serif;
 			text-align: center;
 			margin-top: 10rem;
 			z-index: 1;
 
 			h1 {
+				font-family: 'Quartzo', sans-serif;
 				font-size: 10rem;
 			}
 
@@ -37,26 +37,29 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			h3 {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 		}
 
 		.stat1 {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 			align-items: center;
-			gap: 2rem;
+			gap: 6rem;
 			padding: 2rem;
+			margin-top: 10rem;
+			font-weight: bold;
 			background: rgb(48, 64, 52);
 			color: $primary;
+			opacity: 0.7;
 
 			.num {
-				font-size: 20rem;
+				font-size: 18rem;
 			}
 
 			.text {
 				width: 50%;
-				font-size: 3rem;
+				font-size: 2.5rem;
 			}
 		}
 	}
