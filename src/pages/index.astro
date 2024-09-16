@@ -9,6 +9,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<h1>BovEco</h1>
 			<h2>[enter slogan here?]</h2>
 		</div>
+		<div class="stat1">
+			<div class="num">73%.</div>
+			<div class="text">
+				That's the proportion of agricultural methane emissions released by
+				ruminants.
+			</div>
+		</div>
 	</main>
 </HomeLayout>
 
@@ -31,6 +38,25 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 			h3 {
 				font-size: 2rem;
+			}
+		}
+
+		.stat1 {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+			padding: 2rem;
+			background: rgb(48, 64, 52);
+			color: $primary;
+
+			.num {
+				font-size: 20rem;
+			}
+
+			.text {
+				width: 50%;
+				font-size: 3rem;
 			}
 		}
 	}
