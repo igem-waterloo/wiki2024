@@ -5,8 +5,11 @@ const cloudLayers = ['front', 'back'];
 const randType = cloudTypes[Math.floor(Math.random() * cloudTypes.length)];
 const randLayer = cloudLayers[Math.floor(Math.random() * cloudLayers.length)];
 
-const randomizeX = () => Math.random() * 30 - 10; // between -10 and 20vw
-const randomizeY = () => Math.random() * 70 + 10; // between 10 and 80vh
+const randomizeSize = () => Math.random() * 25 + 10; // 10 to 40em
+const randomizeOpacity = () => Math.random() * 0.5 + 0.5; // 0.5 to 1
+const randomizeX = () => Math.random() * 30 - 20; // -10 to 20vw
+const randomizeY = () => Math.random() * 70 + 10; // 10 to 80vh
+// const randomizeZ = () => Math.random() * 10 - 5; // -5 to 5
 const randomizeSpeed = (min: number, max: number) =>
   Math.random() * (max - min) + min; // in seconds
 // Randomize speed based on layer (front or back)
@@ -19,7 +22,9 @@ const animationDuration =
   src={`img/clouds/${randType}.png`}
   alt=""
   style={`
-    left: ${randomizeX()}vw; 
+    width: ${randomizeSize()}em;
+    opacity: ${randomizeOpacity()};
+    left: ${randomizeX()}vw;
     top: ${randomizeY()}vh;
     animation-duration: ${animationDuration}s;
   `}
@@ -29,32 +34,18 @@ const animationDuration =
   @import '../global.scss';
 
   .front {
-    width: 20em;
-    opacity: 0.9;
-    z-index: 1;
     position: absolute;
-    animation: front linear infinite;
+    left: -10vw;
+    animation: moveAcrossScreen linear infinite;
   }
 
   .back {
-    width: 40em;
-    opacity: 0.75;
-    z-index: -1;
     position: absolute;
-    animation: back linear infinite;
+    left: -10vw;
+    animation: moveAcrossScreen linear infinite;
   }
 
-  @keyframes front {
-    0% {
-      transform: translateX(-100vw);
-    }
-    100% {
-      transform: translateX(100vw);
-      opacity: 0;
-    }
-  }
-
-  @keyframes back {
+  @keyframes moveAcrossScreen {
     0% {
       transform: translateX(-100vw);
     }
