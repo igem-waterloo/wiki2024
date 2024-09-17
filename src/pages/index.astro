@@ -16,7 +16,21 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				ruminants.
 			</div>
 		</div>
+		<div class="stat2">
+			<span>
+				<b>One</b> cow produces over <b>100</b> kg of methane a year...
+			</span>
+			<img src="img/burping-cow.gif" alt="Burping Cow" />
+			<span>
+				...now imagine close to <br /><b>1.5 billion</b> cows globally.
+			</span>
+		</div>
 	</main>
+	<div class="stat3">
+		that is
+		<span>73.5</span>
+		million metric tons of enteric methane produced by cattle—globally.
+	</div>
 </HomeLayout>
 
 <style lang="scss">
@@ -60,6 +74,25 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			.text {
 				width: 50%;
 				font-size: 2.5rem;
+			}
+		}
+
+		.stat2 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 2rem;
+			margin-top: 30rem;
+
+			span {
+				text-align: center;
+				width: 31%;
+				margin-top: 2rem;
+			}
+
+			img {
+				width: 50%;
 			}
 		}
 	}
