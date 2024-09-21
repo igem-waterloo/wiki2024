@@ -7,16 +7,31 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	console.log(responsiveNum);
 	let interval = 5000;
 
-	responsiveNum.forEach(num => {
-		let startValue = 0;
-		let endValue = 73.5;
-		let duration = Math.floor(interval / endValue);
-		let counter = setInterval(() => {
-			startValue += 3;
-			num.textContent = startValue.toFixed(1);
-			if (startValue >= endValue) clearInterval(counter);
-		}, duration);
-	});
+	// Entries: all the things that've been observed (intersected, or not)
+	const observer = new IntersectionObserver(
+		entries => {
+			console.log(entries);
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					responsiveNum.forEach(num => {
+						let startValue = 0;
+						let endValue = 73.5;
+						let duration = Math.floor(interval / endValue);
+						let counter = setInterval(() => {
+							startValue += 3;
+							num.textContent = startValue.toFixed(1);
+							if (startValue >= endValue) clearInterval(counter);
+						}, duration);
+					});
+				}
+			});
+		},
+		{
+			threshold: 1, // 100% of element must be visible before animation starts
+		},
+	);
+
+	responsiveNum.forEach(num => observer.observe(num));
 </script>
 
 <HomeLayout title="BovEco">
