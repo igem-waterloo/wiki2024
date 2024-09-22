@@ -62,6 +62,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				<b>One</b> cow produces over <b>100</b> kg of methane a year...
 			</span>
 			<img src="img/burping-cow.gif" alt="Burping Cow" />
+			<img src="img/cliff-edge.png" alt="Cliff Edge" />
+			<img src="img/cliff-column.png" alt="Cliff Column" />
 			<span>
 				...now imagine close to <br /><b>1.5 billion</b> cows globally.
 			</span>
@@ -136,7 +138,30 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			img {
-				width: 50%;
+				position: relative;
+				&:nth-of-type(1) {
+					width: 50%;
+					margin-top: 5rem;
+					position: absolute;
+					right: 0;
+				}
+				&:nth-of-type(2) {
+					// width: 80%;
+					opacity: 0.9;
+					margin-top: 15rem;
+					z-index: -5;
+					position: absolute;
+					right: 0;
+				}
+
+				&:nth-of-type(3) {
+					// width: 80%;
+					opacity: 0.9;
+					margin-top: 41rem;
+					z-index: -5;
+					position: absolute;
+					right: 0.01rem;
+				}
 			}
 		}
 
@@ -151,7 +176,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			font-weight: bold;
 
 			.num {
-				font-size: 8rem;
+				font-size: 18rem;
 			}
 
 			.text {
