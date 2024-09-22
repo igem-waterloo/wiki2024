@@ -3,7 +3,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
 <script>
-	let responsiveNum = document.querySelectorAll('.stat3 span');
+	let responsiveNum = document.querySelectorAll('.stat1 .num, .stat3 .num');
 	console.log(responsiveNum);
 	let interval = 5000;
 
@@ -15,19 +15,28 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				if (entry.isIntersecting) {
 					responsiveNum.forEach(num => {
 						let startValue = 0;
-						let endValue = 73.5;
+						// let endValue = 73;
+						let endValue = num.closest('.stat1') ? 73 : 73.5;
+						// if (num.closest('.stat1')) endValue = 73;
+						// else if (num.closest('.stat3')) endValue = 73.5;
 						let duration = Math.floor(interval / endValue);
 						let counter = setInterval(() => {
-							startValue += 3;
-							num.textContent = startValue.toFixed(1);
+							startValue += num.closest('.stat1') ? 1 : 3.5;
+							// if (num.closest('.stat1')) startValue += 3.5;
+							// num.textContent = startValue.toFixed(1);
+							num.textContent = num.closest('.stat1')
+								? `${startValue.toFixed(0)}%.`
+								: startValue.toFixed(1);
 							if (startValue >= endValue) clearInterval(counter);
 						}, duration);
 					});
+					observer.unobserve(entry.target);
 				}
 			});
 		},
 		{
-			threshold: 1, // 100% of element must be visible before animation starts
+			threshold: 1, // animation starts once 100% of element's visible
+			rootMargin: '200px', // animation starts 100px before element's visible
 		},
 	);
 
@@ -42,7 +51,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<h2>[enter slogan here?]</h2>
 		</div>
 		<div class="stat1">
-			<div class="num">73%.</div>
+			<div class="num">0</div>
 			<div class="text">
 				That's the proportion of agricultural methane emissions released by
 				ruminants.
@@ -59,8 +68,10 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		</div>
 		<div class="stat3">
 			that is
-			<span>0</span>
-			million metric tons of enteric methane produced by cattle—globally.
+			<div class="num">0</div>
+			<div class="text">
+				million metric tons of enteric methane produced by cattle—globally.
+			</div>
 		</div>
 	</main>
 </HomeLayout>
@@ -97,7 +108,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			background: rgb(48, 64, 52);
 			color: $primary;
 			opacity: 0.7;
-			margin-top: 30rem;
+			margin-top: 20rem;
 
 			.num {
 				font-size: 18rem;
@@ -114,7 +125,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			flex-direction: column;
 			align-items: center;
 			font-size: 2rem;
-			margin-top: 30rem;
+			margin-top: 20rem;
 
 			span {
 				text-align: center;
@@ -132,10 +143,20 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.stat3 {
 			display: flex;
 			flex-direction: column;
+			justify-content: center;
 			align-items: center;
-			font-size: 3rem;
-			margin-top: 30rem;
+			text-align: center;
+			font-size: 2.5rem;
+			margin-top: 20rem;
 			font-weight: bold;
+
+			.num {
+				font-size: 8rem;
+			}
+
+			.text {
+				width: 60%;
+			}
 		}
 	}
 </style>
