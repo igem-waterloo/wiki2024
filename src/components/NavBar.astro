@@ -1,20 +1,19 @@
----
-
----
-
 <nav>
   <a href="/"><img style="" src="img/logo.png" /></a>
   <div class="navlinks">
-    <div class="team dropdown">
-      <div class="dropbtn">Team <b>&#11147;</b></div>
+    <div class="dropdown">
+      <div class="dropbtn">
+        Team
+        <span>&#11206;</span>
+      </div>
       <div class="dropdown-content">
         <a href="/team">Members</a>
         <a href="/attributions">Attributions</a>
       </div>
     </div>
 
-    <div class="project dropdown">
-      <div class="dropbtn">Project &#11167;</div>
+    <div class="dropdown">
+      <div class="dropbtn">Project <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/contribution">Contribution</a>
         <a href="/description">Description</a>
@@ -22,14 +21,29 @@
       </div>
     </div>
 
-    <div class="project dropdown">
-      <a href="/safety">Safety</a>
+    <div class="dropdown">
+      <div class="dropbtn">Lab & Design <span>&#11206;</span></div>
+      <div class="dropdown-content">
+        <a href="/design">Design</a>
+        <a href="/experiments">Experiments</a>
+        <a href="/notebook">Notebook</a>
+        <a href="/notebook">Results</a>
+      </div>
     </div>
-    <div class="project dropdown">
+
+    <div class="dropdown">
+      <div class="dropbtn">Math & Modelling <span>&#11206;</span></div>
+      <div class="dropdown-content">
+        <a href="/model">Models</a>
+        <a href="/software">Software</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
       <a href="/human-practices">Human Practices</a>
     </div>
 
-    <div class="awards dropdown">
+    <div class="dropdown">
       <div class="dropbtn">
         Awards
         <span style="position: relative; bottom: 0.15em; font-size: 0.65em"
@@ -65,38 +79,45 @@
       gap: 1.5rem;
       padding: 1rem 1rem;
       // font-family: 'Roboto', 'Courier New', sans-serif;
-    }
 
-    .dropdown {
-      overflow: hidden;
+      .dropdown {
+        overflow: hidden;
 
-      .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        // height: 0px !important;
-        opacity: 0;
-        line-height: 1.5em;
-        font-weight: normal;
-        color: $accent-2;
-        position: absolute;
-      }
+        // Dropdown arrows
+        .dropbtn span {
+          font-size: 0.65em;
+          position: relative;
+          bottom: 0.15em;
+        }
 
-      &:hover .dropdown-content {
-        // display: flex;
-        // flex-direction: column;
-        // height: 5em !important;
-        opacity: 1;
-        @include transition-ease;
-      }
+        .dropdown-content {
+          display: flex;
+          flex-direction: column;
+          // height: 0px !important;
+          opacity: 0;
+          line-height: 1.5em;
+          font-weight: normal;
+          color: $accent-2;
+          position: absolute;
+        }
 
-      a {
-        &:hover {
-          color: $accent-1;
+        &:hover .dropdown-content {
+          // display: flex;
+          // flex-direction: column;
+          // height: 5em !important;
+          opacity: 1;
           @include transition-ease;
         }
 
-        &:focus {
-          color: $accent-1;
+        a {
+          &:hover {
+            color: $accent-1;
+            @include transition-ease;
+          }
+
+          &:focus {
+            color: $accent-1;
+          }
         }
       }
     }
