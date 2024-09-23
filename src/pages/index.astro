@@ -5,7 +5,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 <script>
 	let responsiveNum = document.querySelectorAll('.stat1 .num, .stat3 .num');
 	console.log(responsiveNum);
-	let interval = 5000;
+	let interval = 1000;
 
 	// Entries: all the things that've been observed (intersected, or not)
 	const observer = new IntersectionObserver(
@@ -46,12 +46,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 <HomeLayout title="BovEco">
 	<main>
 		<div class="welcome-text">
+			<img src="img/waterloo-igem.png" alt="Waterloo iGEM Logo" />
 			<h3>Waterloo iGEM Presents...</h3>
 			<h1>BovEco</h1>
-			<h2>[enter slogan here?]</h2>
+			<h2>Fighting climate change, one cow at a time!</h2>
 		</div>
 		<div class="stat1">
-			<div class="num">0</div>
+			<div class="num"></div>
 			<div class="text">
 				That's the proportion of agricultural methane emissions released by
 				ruminants.
@@ -70,7 +71,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		</div>
 		<div class="stat3">
 			that is
-			<div class="num">0</div>
+			<div class="num"></div>
 			<div class="text">
 				million metric tons of enteric methane produced by cattle—globally.
 			</div>
@@ -107,7 +108,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<div>solve methane problem?</div>
 		</div>
 		<div class="bottom">
-			<img src="img/ocean.png" alt="" />
+			<!-- <img src="img/ocean.png" alt="" /> -->
 		</div>
 	</main>
 </HomeLayout>
@@ -116,9 +117,18 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	@import '../global.scss';
 	main {
 		.welcome-text {
-			text-align: center;
-			margin-top: 10rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-family: 'League Spartan', sans-serif;
+			margin-top: 5rem;
 			z-index: 1;
+
+			img {
+				width: 10rem;
+				margin-bottom: 0.75rem;
+			}
 
 			h1 {
 				font-family: 'Quartzo', sans-serif;
@@ -130,7 +140,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			h3 {
-				font-size: 1.5rem;
+				font-size: 2rem;
 			}
 		}
 
@@ -138,8 +148,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			gap: 6rem;
-			padding: 2rem;
+			padding: 3rem;
 			font-weight: bold;
 			background: rgb(48, 64, 52);
 			color: $primary;
@@ -147,12 +156,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			margin-top: 20rem;
 
 			.num {
-				font-size: 18rem;
+				width: 50%;
+				font-size: 15rem;
 			}
 
 			.text {
 				width: 50%;
-				font-size: 2.5rem;
+				font-size: 3rem;
 			}
 		}
 

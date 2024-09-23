@@ -12,12 +12,21 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'League Spartan';
+  src: url('fonts/LeagueSpartan-Medium.ttf') format('truetype');
+  font-stretch: ultra-expanded;
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Source: https://www.whatfontis.com/FF_QUARTZO-demo-Bold.font?text=BovEco
 @font-face {
   font-family: 'Quartzo';
   src: url('fonts/Quartzo.ttf') format('truetype');
   font-stretch: ultra-expanded;
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -70,7 +79,7 @@ a {
 
 
 html {
-  font-family: 'Poppins', 'Roboto', system-ui, sans-serif;
+  font-family: 'League Spartan', 'Roboto', system-ui, sans-serif;
   overflow-x: hidden; // for Clouds.astro
 //  background-size: 224px;
 /*  font-family:
