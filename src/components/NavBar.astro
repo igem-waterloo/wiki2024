@@ -22,7 +22,7 @@
     </div>
 
     <div class="dropdown">
-      <div class="dropbtn">Lab & Design <span>&#11206;</span></div>
+      <div class="dropbtn">Wet Lab <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/design">Design</a>
         <a href="/experiments">Experiments</a>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="dropdown">
-      <div class="dropbtn">Math & Modelling <span>&#11206;</span></div>
+      <div class="dropbtn">Dry Lab <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/model">Models</a>
         <a href="/software">Software</a>
@@ -40,20 +40,9 @@
     </div>
 
     <div class="dropdown">
-      <a href="/human-practices">Human Practices</a>
-    </div>
-
-    <div class="dropdown">
-      <div class="dropbtn">
-        Awards
-        <span style="position: relative; bottom: 0.15em; font-size: 0.65em"
-          >&#11206;
-        </span>
-      </div>
+      <div class="dropbtn">Human Practices <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/education">Education</a>
-        <a href="/model">Model</a>
-        <a href="/software">Software</a>
       </div>
     </div>
   </div>
@@ -63,9 +52,10 @@
   @import '../global.scss';
 
   nav {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     margin-top: 0.5rem;
+    z-index: 10;
     a img {
       width: 8rem;
       margin-left: 1.5em;
@@ -74,20 +64,23 @@
     }
     .navlinks {
       display: flex;
-      justify-content: right;
-      align-items: right;
       gap: 1.5rem;
+      // background: $accent-2;
       padding: 1rem 1rem;
-      // font-family: 'Roboto', 'Courier New', sans-serif;
+      overflow: hidden;
 
       .dropdown {
-        overflow: hidden;
-
-        // Dropdown arrows
-        .dropbtn span {
-          font-size: 0.65em;
-          position: relative;
-          bottom: 0.15em;
+        .dropbtn {
+          background: #677f6c;
+          color: $accent-3;
+          padding: 0.25em;
+          border-radius: 0.25em;
+          // Dropdown arrows
+          span {
+            font-size: 0.65em;
+            position: relative;
+            bottom: 0.15em;
+          }
         }
 
         .dropdown-content {
@@ -95,9 +88,9 @@
           flex-direction: column;
           // height: 0px !important;
           opacity: 0;
-          line-height: 1.5em;
+          line-height: 1.8em;
           font-weight: normal;
-          color: $accent-2;
+          color: $accent-1;
           position: absolute;
         }
 
