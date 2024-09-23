@@ -70,8 +70,10 @@
 
       .dropdown {
         .dropbtn {
-          background: #677f6c;
-          color: $accent-3;
+          // background: #677f6c;
+          background: #2a3b53;
+
+          color: $primary;
           padding: 0.4em;
           border-radius: 0.25em;
 
@@ -90,7 +92,7 @@
           opacity: 0;
           line-height: 1.8em;
           font-weight: normal;
-          color: $accent-1;
+          color: #2a3b53;
           position: absolute;
         }
 
@@ -101,12 +103,13 @@
 
         a {
           &:hover {
-            color: $accent-1;
+            color: #2a3b53;
+
             @include transition-ease;
           }
 
           &:focus {
-            color: $accent-1;
+            color: #2a3b53;
           }
         }
       }
