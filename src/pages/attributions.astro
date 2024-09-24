@@ -1,10 +1,17 @@
 ---
 import TeamLayout from '../layouts/TeamLayout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <TeamLayout title="BovEco-Attributions">
 	<main>
+		<div class="thanks">
+			<h1>Attributions</h1>
+			<div>
+				We would like to thank the following people for their contributions to
+				our project. BovEco wouldn't have been possible without their help!
+				Let's give it up for them!
+			</div>
+		</div>
 		<iframe
 			id="igem-attribution-form"
 			src="https://teams.igem.org/wiki/5118/attributions"
@@ -17,10 +24,28 @@ import Card from '../components/Card.astro';
 	@import '../global.scss';
 
 	main {
+		// display: flex;
+		// flex-direction: column;
+		// align-items: center;
+		// justify-content: center;
+		.thanks {
+			width: 85%;
+			position: relative;
+			left: 6.75rem;
+			margin-top: 5rem;
+			h1 {
+				font-size: 5rem;
+				margin-bottom: 1rem;
+			}
+			div {
+				font-size: 2rem;
+			}
+		}
+
 		iframe {
 			display: block;
 			width: 90%;
-			height: 500vh; // TO DO: set this dynamically
+			height: 200vh; // TO DO: set this dynamically
 			padding: 2rem;
 			border: none;
 			margin: 5rem auto;
