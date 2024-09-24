@@ -1,20 +1,19 @@
----
-
----
-
 <nav>
-  <a href="/"><img style="" src="img/logo-pixelated.png" /></a>
+  <a href="/"><img style="" src="img/logo.png" /></a>
   <div class="navlinks">
-    <div class="team dropdown">
-      <div class="dropbtn">Team <b>&#x2C5;</b></div>
+    <div class="dropdown">
+      <div class="dropbtn">
+        Team
+        <span>&#11206;</span>
+      </div>
       <div class="dropdown-content">
         <a href="/team">Members</a>
         <a href="/attributions">Attributions</a>
       </div>
     </div>
 
-    <div class="project dropdown">
-      <div class="dropbtn">Project &#x2C5;</div>
+    <div class="dropdown">
+      <div class="dropbtn">Project <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/contribution">Contribution</a>
         <a href="/description">Description</a>
@@ -22,19 +21,28 @@
       </div>
     </div>
 
-    <div class="project dropdown">
-      <a href="/safety">Safety</a>
-    </div>
-    <div class="project dropdown">
-      <a href="/human-practices">Human Practices</a>
+    <div class="dropdown">
+      <div class="dropbtn">Wet Lab <span>&#11206;</span></div>
+      <div class="dropdown-content">
+        <a href="/design">Design</a>
+        <a href="/experiments">Experiments</a>
+        <a href="/notebook">Notebook</a>
+        <a href="/notebook">Results</a>
+      </div>
     </div>
 
-    <div class="awards dropdown">
-      <div class="dropbtn">Awards &#x2C5;</div>
+    <div class="dropdown">
+      <div class="dropbtn">Dry Lab <span>&#11206;</span></div>
+      <div class="dropdown-content">
+        <a href="/model">Models</a>
+        <a href="/software">Software</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="dropbtn">Human Practices <span>&#11206;</span></div>
       <div class="dropdown-content">
         <a href="/education">Education</a>
-        <a href="/model">Model</a>
-        <a href="/software">Software</a>
       </div>
     </div>
   </div>
@@ -42,57 +50,67 @@
 
 <style lang="scss">
   @import '../global.scss';
-  @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
   nav {
-    justify-content: space-between;
     display: flex;
+    justify-content: space-between;
     margin-top: 0.5rem;
-    img {
+    z-index: 10;
+    a img {
       width: 8rem;
       margin-left: 1.5em;
-      position: absolute;
-      filter: sepia(100%);
+      position: fixed;
+      filter: sepia(60%);
     }
     .navlinks {
       display: flex;
-      justify-content: right;
-      align-items: right;
       gap: 1.5rem;
       padding: 1rem 1rem;
-      font-family: 'Pixelify Sans', 'Courier New', sans-serif;
-    }
-
-    .dropdown {
       overflow: hidden;
 
-      .dropdown-content {
-        display: flex;
-        flex-direction: column;
-        // height: 0px !important;
-        opacity: 0;
-        line-height: 1.5em;
-        font-weight: normal;
-        color: $accent-2;
-        position: absolute;
-      }
+      .dropdown {
+        .dropbtn {
+          // background: #677f6c;
+          background: #2a3b53;
 
-      &:hover .dropdown-content {
-        // display: flex;
-        // flex-direction: column;
-        // height: 5em !important;
-        opacity: 1;
-        @include transition-ease;
-      }
+          color: $primary;
+          padding: 0.4em;
+          border-radius: 0.25em;
 
-      a {
-        &:hover {
-          color: $accent-1;
+          // Dropdown arrows
+          span {
+            font-size: 0.65em;
+            position: relative;
+            bottom: 0.15em;
+          }
+        }
+
+        .dropdown-content {
+          display: flex;
+          flex-direction: column;
+          // height: 0px !important;
+          opacity: 0;
+          line-height: 1.8em;
+          font-weight: normal;
+          color: #2a3b53;
+          position: absolute;
+        }
+
+        &:hover .dropdown-content {
+          opacity: 1;
           @include transition-ease;
         }
 
-        &:focus {
-          color: $accent-1;
+        a {
+          &:hover {
+            color: #2a3b53;
+
+            @include transition-ease;
+          }
+
+          &:focus {
+            color: #2a3b53;
+          }
         }
       }
     }

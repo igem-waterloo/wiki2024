@@ -2,12 +2,113 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
+<script>
+	let responsiveNum = document.querySelectorAll('.stat1 .num, .stat3 .num');
+	console.log(responsiveNum);
+	let interval = 1000;
+
+	// Entries: all the things that've been observed (intersected, or not)
+	const observer = new IntersectionObserver(
+		entries => {
+			console.log(entries);
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					responsiveNum.forEach(num => {
+						let startValue = 0;
+						// let endValue = 73;
+						let endValue = num.closest('.stat1') ? 73 : 73.5;
+						// if (num.closest('.stat1')) endValue = 73;
+						// else if (num.closest('.stat3')) endValue = 73.5;
+						let duration = Math.floor(interval / endValue);
+						let counter = setInterval(() => {
+							startValue += num.closest('.stat1') ? 1 : 3.5;
+							// if (num.closest('.stat1')) startValue += 3.5;
+							// num.textContent = startValue.toFixed(1);
+							num.textContent = num.closest('.stat1')
+								? `${startValue.toFixed(0)}%.`
+								: startValue.toFixed(1);
+							if (startValue >= endValue) clearInterval(counter);
+						}, duration);
+					});
+					observer.unobserve(entry.target);
+				}
+			});
+		},
+		{
+			threshold: 1, // animation starts once 100% of element's visible
+			rootMargin: '200px', // animation starts 100px before element's visible
+		},
+	);
+
+	responsiveNum.forEach(num => observer.observe(num));
+</script>
+
 <HomeLayout title="BovEco">
 	<main>
 		<div class="welcome-text">
+			<img src="img/waterloo-igem-pixelated.png" alt="Waterloo iGEM Logo" />
 			<h3>Waterloo iGEM Presents...</h3>
 			<h1>BovEco</h1>
-			<h2>[enter slogan here?]</h2>
+			<h2>Fighting climate change, one cow at a time!</h2>
+		</div>
+		<div class="stat1">
+			<div class="num"></div>
+			<div class="text">
+				That's the proportion of agricultural methane emissions released by
+				ruminants.
+			</div>
+		</div>
+		<div class="stat2">
+			<span>
+				<b>One</b> cow produces over <b>100</b> kg of methane a year...
+			</span>
+			<img src="img/burping-cow.gif" alt="Burping Cow" />
+			<img src="img/cliff-edge.png" alt="Cliff Edge" />
+			<img src="img/cliff-column.png" alt="Cliff Column" />
+			<span>
+				...now imagine close to <br /><b>1.5 billion</b> cows globally.
+			</span>
+		</div>
+		<div class="stat3">
+			that is
+			<div class="num"></div>
+			<div class="text">
+				million metric tons of enteric methane produced by cattle—globally.
+			</div>
+		</div>
+		<div class="fact1">
+			<div>As the global population increases,</div>
+			<div>so will the demand for beef and dairy products.</div>
+		</div>
+		<div class="fact2">
+			<p>Methane emissions drive serious environmental issues:</p>
+			<p>
+				accelerating global temperatures, dragrading air quality, and
+				threatening crop growth--all of which impact human and animal health.
+			</p>
+		</div>
+		<div class="fact3">
+			Addressing these CH4 issues is crucial for a healthier planet.
+		</div>
+		<div class="rationale">
+			<div>So why tackle CH4?</div>
+			<img src="" alt="" />
+			<div>
+				Methane has a shorter atmospheric life of 7-12 years compared to other
+				long-lasting GHGs.
+			</div>
+			<div>
+				Reducing methane emissions can lead to quicker reductions in global
+				warming and atmospheric GHG levels.
+			</div>
+		</div>
+		<div class="proposal">
+			<div>So what if...</div>
+			<div>GMO plants used to feed cows could be modified to</div>
+			<div>solve methane problem?</div>
+		</div>
+		<div class="bottom">
+			<!-- <img src="img/ocean.png" alt="" /> -->
 		</div>
 	</main>
 </HomeLayout>
@@ -16,12 +117,25 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 	@import '../global.scss';
 	main {
 		.welcome-text {
-			font-family: 'Quartzo', sans-serif;
-			text-align: center;
-			margin-top: 10rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-family: 'League Spartan', sans-serif;
+			color: #2a3b53;
+			margin-top: 5rem;
 			z-index: 1;
 
+			img {
+				// BovEco Logo
+				width: 10rem;
+				filter: sepia(100%);
+				margin-bottom: 0.75rem;
+				z-index: 15;
+			}
+
 			h1 {
+				font-family: 'Quartzo', sans-serif;
 				font-size: 10rem;
 			}
 
@@ -32,6 +146,95 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			h3 {
 				font-size: 2rem;
 			}
+		}
+
+		.stat1 {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			padding: 3rem;
+			font-weight: bold;
+			background: rgb(48, 64, 52);
+			color: $primary;
+			opacity: 0.9;
+			margin-top: 20rem;
+
+			.num {
+				width: 50%;
+				font-size: 15rem;
+			}
+
+			.text {
+				width: 50%;
+				font-size: 3rem;
+			}
+		}
+
+		.stat2 {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-size: 2rem;
+			margin-top: 20rem;
+
+			span {
+				text-align: center;
+				width: 31%;
+				&:nth-of-type(2) {
+					margin-top: 2rem;
+				}
+			}
+
+			img {
+				position: relative;
+				&:nth-of-type(1) {
+					width: 50%;
+					margin-top: 5rem;
+					position: absolute;
+					right: 0;
+				}
+				&:nth-of-type(2) {
+					// width: 80%;
+					opacity: 0.9;
+					margin-top: 15rem;
+					z-index: -5;
+					position: absolute;
+					right: 0;
+				}
+
+				&:nth-of-type(3) {
+					// width: 80%;
+					opacity: 0.9;
+					margin-top: 41rem;
+					z-index: -5;
+					position: absolute;
+					right: 0.01rem;
+				}
+			}
+		}
+
+		.stat3 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			font-size: 2.5rem;
+			margin-top: 20rem;
+			font-weight: bold;
+
+			.num {
+				font-size: 18rem;
+			}
+
+			.text {
+				width: 60%;
+			}
+		}
+
+		.bottom {
+			position: fixed;
+			bottom: 0;
 		}
 	}
 </style>

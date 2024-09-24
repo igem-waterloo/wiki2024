@@ -3,10 +3,40 @@ import HomeLayout from '../layouts/TeamLayout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<HomeLayout title="BovEco-Attributions" >
+<script type="text/javascript">
+	// iframe height listener script
+	window.addEventListener('message', function (event) {
+		// Make sure the message is coming from the expected origin
+		if (event.origin === 'https://teams.igem.org/wiki/5118/attributions') {
+			const message = event.data;
+			if (message && message.height) {
+				// Set the iframe's height to the height of the content
+				document.getElementById('igem-attribution-form').style.height =
+					`${message.height}px`;
+			}
+		}
+	});
+</script>
+<HomeLayout title="BovEco-Attributions">
 	<main>
-		<div>
-
-		</div>
+		<iframe
+			id="igem-attribution-form"
+			src="https://teams.igem.org/wiki/5118/attributions"
+		>
+		</iframe>
 	</main>
 </HomeLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	iframe {
+		display: block;
+		width: 90vw;
+		// height: 300vh;
+		// height: auto;
+		padding: 2rem;
+		border: none;
+		margin: 5em auto;
+	}
+</style>
