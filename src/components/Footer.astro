@@ -16,18 +16,32 @@
       </a>
     </div>
   </div>
-  <div class="right"></div>
-  <div>
-    © 2024 - Content on this site is licensed under a
-    <a href="https://creativecommons.org/licenses/by/4.0/">
-      Creative Commons Attribution 4.0 International license.
-    </a>
-  </div>
-  <div>
-    The repository used to create this website is available at
-    <a href="https://gitlab.igem.org/2024/waterloo" target="_blank">
-      https://gitlab.igem.org/2024/waterloo
-    </a>
+  <div class="right">
+    <div class="sponsor-logos">
+      <!-- TO DO: add links to their sites on click? -->
+      <img src="img/sponsors/cbb.png" alt="CBB" />
+      <img src="img/sponsors/gras.png" alt="GRAS" />
+      <img src="img/sponsors/idt.png" alt="IDT" />
+      <img src="img/sponsors/mef.png" alt="MEF" />
+      <img src="img/sponsors/science-society.png" alt="Science Society" />
+      <img src="img/sponsors/snapgene.png" alt="SnapGene" />
+      <img src="img/sponsors/wcmr.png" alt="WCMR" />
+      <img src="img/sponsors/weef.png" alt="WEEF" />
+    </div>
+    <div class="footer-info">
+      <div>
+        © 2024 - Content on this site is licensed under a
+        <a href="https://creativecommons.org/licenses/by/4.0/">
+          Creative Commons Attribution 4.0 International license.
+        </a>
+      </div>
+      <div>
+        The repository used to create this website is available at
+        <a href="https://gitlab.igem.org/2024/waterloo" target="_blank">
+          https://gitlab.igem.org/2024/waterloo
+        </a>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -36,15 +50,66 @@
 
   footer {
     display: flex;
-    justify-content: space-between;
-    background: $accent-2;
-    padding: 1rem 0;
+    padding: 0.5rem 2rem;
     font-size: 0.8rem;
-    color: black;
+    color: brown;
+    border-top: 3px solid brown;
 
     .left {
       display: flex;
-      border-right: 1px solid black;
+      align-items: center;
+      border-right: 2px solid brown;
+      margin-right: 1.5rem;
+
+      img {
+        margin-right: 1.5rem;
+      }
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        img {
+          width: 2.5em;
+          height: 2.5em;
+
+          &:hover {
+            opacity: 0.5;
+            @include transition-ease;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+
+      .sponsor-logos {
+        display: flex;
+        gap: 1rem;
+
+        img {
+          // width: 100%;
+          object-fit: contain;
+          max-width: 6rem;
+        }
+      }
+
+      .footer-info {
+        text-align: center;
+
+        div {
+          margin-bottom: 0.5rem;
+        }
+
+        a:hover {
+          color: $primary;
+          @include transition-ease;
+        }
+      }
     }
   }
 </style>
