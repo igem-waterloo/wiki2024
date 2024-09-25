@@ -1,15 +1,23 @@
 ---
 import TeamLayout from '../layouts/TeamLayout.astro';
+import Card from '../components/Card.astro';
 ---
 
 <TeamLayout title="BovEco-Attributions">
 	<main>
 		<div class="thanks">
 			<h1>Attributions</h1>
-			<div>
-				We would like to thank the following people for their contributions to
+			<!-- <Card
+				title="Thank you!"
+				body=`We'd like to thank the following people for their contributions to
 				our project. BovEco wouldn't have been possible without their help!
-				Let's give it up for them!
+				Let's give it up for them!`
+				`
+			/> -->
+			<div class="thanks">
+				We'd like to thank the following people for their contributions to our
+				project. BovEco wouldn't have been possible without their help! Let's
+				give it up for them!
 			</div>
 		</div>
 		<iframe
@@ -24,21 +32,20 @@ import TeamLayout from '../layouts/TeamLayout.astro';
 	@import '../global.scss';
 
 	main {
-		// display: flex;
-		// flex-direction: column;
-		// align-items: center;
-		// justify-content: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		.thanks {
 			width: 85%;
+			height: auto;
 			position: relative;
-			left: 6.75rem;
+			// left: 6.75rem;
 			margin-top: 5rem;
 			h1 {
 				font-size: 5rem;
-				margin-bottom: 1rem;
 			}
 			div {
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
 		}
 
@@ -48,7 +55,7 @@ import TeamLayout from '../layouts/TeamLayout.astro';
 			height: 200vh; // TO DO: set this dynamically
 			padding: 2rem;
 			border: none;
-			margin: 5rem auto;
+			margin: 1rem auto;
 		}
 	}
 </style>
