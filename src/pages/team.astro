@@ -1,12 +1,20 @@
 ---
-import HomeLayout from '../layouts/TeamLayout.astro';
+import TeamLayout from '../layouts/TeamLayout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<HomeLayout title="BovEco-Members" >
+<TeamLayout title="BovEco-Members">
 	<main>
 		<div>
-
+			<div class="heading">MEET THE TEAM!</div>
 		</div>
 	</main>
-</HomeLayout>
+</TeamLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	div {
+		height: 400vh;
+	}
+</style>
