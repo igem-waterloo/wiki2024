@@ -210,7 +210,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					margin-top: 41rem;
 					z-index: -5;
 					position: absolute;
-					right: 0.01rem;
+					right: -3rem;
 				}
 			}
 		}
@@ -227,6 +227,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 			.num {
 				font-size: 18rem;
+				margin-top: 1.5rem;
+				margin-bottom: -1rem;
 			}
 
 			.text {
@@ -234,9 +236,71 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 		}
 
+		.fact1 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 3rem;
+			margin-top: 20rem;
+
+			div {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.fact2 {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 3rem;
+			margin-top: 20rem;
+
+			p {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.fact3 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 3rem;
+			margin-top: 20rem;
+		}
+
+		.rationale {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 3rem;
+			margin-top: 20rem;
+
+			div {
+				margin-bottom: 1rem;
+			}
+		}
+
+		.proposal {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			font-size: 3rem;
+			margin-top: 20rem;
+
+			div {
+				margin-bottom: 1rem;
+			}
+		}
+
 		.bottom {
-			position: fixed;
-			bottom: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20rem;
 		}
 	}
 </style>
