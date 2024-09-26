@@ -3,18 +3,77 @@ import TeamLayout from '../layouts/TeamLayout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<TeamLayout title="BovEco-Members">
+<TeamLayout title="BovEco - Members">
 	<main>
-		<div>
-			<div class="heading">MEET THE TEAM!</div>
-		</div>
+		<section class="hero">
+			<div class="left">
+				<h1>MEET THE TEAM!</h1>
+				<div class="cloud">
+					<img src="img/clouds/cloud5.png" alt="Big Cloud" />
+					<div class="jump">
+						<a href="#l&d"> Lab & Design</a>
+						<a href="#m&m">Math & Modelling</a>
+						<a href="#hp">Human Practices</a>
+					</div>
+				</div>
+			</div>
+			<div class="right">hi lol</div>
+			<img src="img/walking-cow.gif" alt="" />
+		</section>
+		<section id="l&d"></section>
+		<section id="m&m"></section>
+		<section id="hp"></section>
 	</main>
 </TeamLayout>
 
 <style lang="scss">
 	@import '../global.scss';
 
-	div {
-		height: 400vh;
+	main {
+		.hero {
+			display: flex;
+			gap: 5rem;
+			margin-top: 5rem;
+			.left {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				h1 {
+					font-size: 3rem;
+				}
+
+				.cloud {
+					width: 100%;
+					position: relative;
+
+					img {
+						width: 100rem;
+						position: absolute;
+					}
+					.jump {
+						display: flex;
+						flex-direction: column;
+						gap: 1rem;
+						// position: absolute;
+						a {
+							font-size: 1.5rem;
+							color: white;
+							@include transition-ease;
+							&:hover {
+								color: darkgreen;
+							}
+						}
+					}
+				}
+				img {
+				}
+			}
+
+			.right {
+				width: 100%;
+				background: darkgreen;
+			}
+		}
 	}
 </style>

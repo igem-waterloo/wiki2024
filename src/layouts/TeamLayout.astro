@@ -1,5 +1,6 @@
 ---
 import CursorParticles from '../components/CursorParticles.astro';
+import Cloud from '../components/Cloud.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 
@@ -16,12 +17,13 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/imgs/icon.png" />
+		<link rel="icon" type="image/svg+xml" href="img/logo.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<NavBar />
+		<Cloud />
 		<slot />
 		<Footer />
 	</body>
@@ -31,11 +33,12 @@ const { title } = Astro.props;
 	@import '../global.scss';
 
 	body {
-		background: linear-gradient(
-			180deg,
-			hsla(45, 100%, 95%, 1) 0%,
-			hsla(34, 90%, 69%, 1) 55%,
-			hsla(28, 100%, 52%, 1) 100%
-		);
+		background: lightblue;
+		// background: linear-gradient(
+		// 	180deg,
+		// 	hsla(45, 100%, 95%, 1) 0%,
+		// 	hsla(34, 90%, 69%, 1) 55%,
+		// 	hsla(28, 100%, 52%, 1) 100%
+		// );
 	}
 </style>
