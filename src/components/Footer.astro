@@ -19,14 +19,14 @@
   <div class="right">
     <div class="sponsor-logos">
       <!-- TO DO: add links to their sites on click? -->
-      <img src="img/sponsors/cbb.png" alt="CBB" />
       <img src="img/sponsors/gras.png" alt="GRAS" />
-      <img src="img/sponsors/idt.png" alt="IDT" />
-      <img src="img/sponsors/mef.png" alt="MEF" />
-      <img src="img/sponsors/science-society.png" alt="Science Society" />
-      <img src="img/sponsors/snapgene.png" alt="SnapGene" />
       <img src="img/sponsors/wcmr.png" alt="WCMR" />
+      <img src="img/sponsors/mef.png" alt="MEF" />
       <img src="img/sponsors/weef.png" alt="WEEF" />
+      <img src="img/sponsors/science-society.png" alt="Science Society" />
+      <img src="img/sponsors/cbb.png" alt="CBB" />
+      <img src="img/sponsors/idt.png" alt="IDT" />
+      <img src="img/sponsors/snapgene.png" alt="SnapGene" />
     </div>
     <div class="footer-info">
       <div>
@@ -96,6 +96,10 @@
           // width: 100%;
           object-fit: contain;
           max-width: 6rem;
+
+          &:nth-of-type(6) {
+            max-width: 4rem;
+          }
         }
       }
 
@@ -103,7 +107,7 @@
         text-align: center;
 
         div {
-          margin-bottom: 0.5rem;
+          margin-top: 1rem;
         }
 
         a:hover {
