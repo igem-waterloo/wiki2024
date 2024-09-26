@@ -23,11 +23,11 @@ const images = ['img/cow1.png', 'img/cow2.png', 'img/cow3.png', 'img/cow4.png'];
     height: auto;
     animation-timing-function: steps(4);
     animation:
-      cowAnimation 40s infinite,
-      moveAcrossScreen 40s linear infinite;
+      cow-animation 40s infinite,
+      move-across-screen 40s linear infinite;
   }
 
-  @keyframes cowAnimation {
+  @keyframes cow-animation {
     0% {
       content: url('img/cow1.png');
     }
@@ -333,7 +333,7 @@ const images = ['img/cow1.png', 'img/cow2.png', 'img/cow3.png', 'img/cow4.png'];
     }
   }
 
-  @keyframes moveAcrossScreen {
+  @keyframes move-across-screen {
     0% {
       transform: translateX(-100px); /* Start position off-screen */
     }

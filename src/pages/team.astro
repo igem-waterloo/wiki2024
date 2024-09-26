@@ -11,18 +11,27 @@ import Card from '../components/Card.astro';
 				<div class="cloud">
 					<img src="img/clouds/cloud5.png" alt="Big Cloud" />
 					<div class="jump">
-						<a href="#l&d"> Lab & Design</a>
-						<a href="#m&m">Math & Modelling</a>
+						<a href="#lnd"> Lab & Design</a>
+						<a href="#mnm">Math & Modelling</a>
 						<a href="#hp">Human Practices</a>
 					</div>
 				</div>
 			</div>
 			<div class="right">hi lol</div>
-			<img src="img/walking-cow.gif" alt="" />
 		</section>
-		<section id="l&d"></section>
-		<section id="m&m"></section>
-		<section id="hp"></section>
+		<img src="img/cows/walking-cow.gif" alt="" />
+		<section id="lnd">
+			hi
+			<!-- <Member /> -->
+		</section>
+		<section id="mnm">
+			hi
+			<!-- <Member /> -->
+		</section>
+		<section id="hp">
+			hi
+			<!-- <Member /> -->
+		</section>
 	</main>
 </TeamLayout>
 
@@ -74,6 +83,34 @@ import Card from '../components/Card.astro';
 				width: 100%;
 				background: darkgreen;
 			}
+		}
+
+		img {
+			width: 10rem;
+			@include move-across-screen;
+			animation: move-across-screen 10s linear infinite;
+		}
+
+		@keyframes move-across-screen {
+			0% {
+				transform: translateX(-100vw);
+			}
+			100% {
+				transform: translateX(100vw);
+				opacity: 0;
+			}
+		}
+
+		#lnd {
+			background: lightblue;
+		}
+
+		#mnm {
+			background: purple;
+		}
+
+		#hp {
+			background: teal;
 		}
 	}
 </style>
