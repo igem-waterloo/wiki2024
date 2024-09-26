@@ -5,11 +5,12 @@ interface Props {
   sillyPic: string;
 }
 
-const { profPic, sillyPic } = Astro.props;
+const { name, sillyPic } = Astro.props;
 ---
 
 <div class="portrait">
-  <img src={`img/silly/{}`} alt="" />
+  <img src=`img/members/silly/${sillyPic}.jpg` alt="" />
+  <div>{name}</div>
 </div>
 
 <style lang="scss">
