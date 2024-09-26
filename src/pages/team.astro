@@ -20,17 +20,18 @@ import Card from '../components/Card.astro';
 			</div>
 			<div class="right">hi lol</div>
 		</section>
-		<img id="walking-cow" src="img/cows/walking-cow.gif" alt="" />
+		<!-- <img id="walking-cow" src="img/cows/walking-cow.gif" alt="" /> -->
 		<section id="lnd">
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
 			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
 		</section>
 		<section id="mnm">
-			hi
-			<!-- <Member /> -->
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
 		</section>
 		<section id="hp">
-			hi
-			<!-- <Member /> -->
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
 		</section>
 	</main>
 </TeamLayout>
@@ -100,6 +101,9 @@ import Card from '../components/Card.astro';
 		}
 
 		#lnd {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 3rem;
 			background: lightblue;
 		}
 

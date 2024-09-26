@@ -19,12 +19,21 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<NavBar></NavBar>
+		<NavBar />
 		<slot />
 	</body>
 </html>
 
 <style lang="scss">
 	@import '../global.scss';
-	
+
+	body {
+		background: rgb(181, 148, 181);
+		// background: linear-gradient(
+		// 	180deg,
+		// 	hsla(45, 100%, 95%, 1) 0%,
+		// 	hsla(34, 90%, 69%, 1) 55%,
+		// 	hsla(28, 100%, 52%, 1) 100%
+		// );
+	}
 </style>
