@@ -33,12 +33,51 @@ const { title } = Astro.props;
 	@import '../global.scss';
 
 	body {
-		background: lightgrey;
-		// background: linear-gradient(
-		// 	180deg,
-		// 	hsla(45, 100%, 95%, 1) 0%,
-		// 	hsla(34, 90%, 69%, 1) 55%,
-		// 	hsla(28, 100%, 52%, 1) 100%
-		// );
+		background-color: white;
+		background-image: radial-gradient(
+				circle at 25% 30%,
+				black 20%,
+				transparent 1%
+			),
+			radial-gradient(circle at 80% 40%, black 15%, transparent 1%),
+			radial-gradient(circle at 40% 75%, black 25%, transparent 1%),
+			radial-gradient(circle at 65% 85%, black 10%, transparent 1%),
+			radial-gradient(circle at 70% 20%, black 18%, transparent 1%),
+			radial-gradient(circle at 30% 70%, black 12%, transparent 1%);
+		background-position: center;
+		background-repeat: repeat-y;
+		z-index: -50;
+		animation: move-around-screen 100s infinite alternate ease-in-out;
+
+		slot {
+			z-index: 50;
+		}
+	}
+
+	@keyframes move-around-screen {
+		0% {
+			background-size: 30em 30em;
+			background-position: 0% 0%;
+		}
+		50% {
+			background-size: 20em 20em;
+			background-position:
+				30% 35%,
+				75% 45%,
+				45% 80%,
+				60% 90%,
+				65% 25%,
+				35% 75%;
+		}
+		100% {
+			background-size: 60em 60em;
+			background-position:
+				20% 25%,
+				85% 35%,
+				35% 70%,
+				70% 80%,
+				75% 15%,
+				25% 65%;
+		}
 	}
 </style>

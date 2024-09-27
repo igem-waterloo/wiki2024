@@ -12,6 +12,7 @@ const { title, content } = Astro.props;
 	{title && <h2 class="pixelated-card-title">{title}</h2>}
 	<div class="pixelated-card-content">
 		{content}
+		<slot />
 	</div>
 </div>
 
