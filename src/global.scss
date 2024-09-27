@@ -72,6 +72,10 @@ a {
   color: inherit;
 }
 
+@function random-percentage($min, $max) {
+	@return random($max - $min) + $min + '%';
+}
+
 @mixin transition-ease {
   opacity: 0.8;
   transform: translateY(0.05em);
