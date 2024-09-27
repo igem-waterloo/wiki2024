@@ -42,5 +42,30 @@ const { title } = Astro.props;
 		background-position: center;
 		background-size: 30em 30em;
 		background-repeat: repeat-y;
+		animation: move-around-screen 100s infinite alternate ease-in-out;
+	}
+
+	@keyframes move-around-screen {
+		0% {
+			background-position: 0% 0%;
+		}
+		50% {
+			background-position:
+				30% 35%,
+				75% 45%,
+				45% 80%,
+				60% 90%,
+				65% 25%,
+				35% 75%;
+		}
+		100% {
+			background-position:
+				20% 25%,
+				85% 35%,
+				35% 70%,
+				70% 80%,
+				75% 15%,
+				25% 65%;
+		}
 	}
 </style>
