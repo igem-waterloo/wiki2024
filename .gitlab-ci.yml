@@ -1,0 +1,15 @@
+pages:
+  image: node:lts  # Docker image used to build your app
+
+  before_script:
+    - npm ci  # install dependencies
+
+  script:
+    - npm run build
+
+  artifacts:
+    paths:
+      - public  # contains built files to be published
+
+  only:
+    - main
