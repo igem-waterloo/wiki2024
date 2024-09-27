@@ -1,5 +1,5 @@
 ---
-const cloudTypes = ['cloud1', 'cloud2', 'cloud3', 'cloud4'];
+const cloudTypes = ['cloud1', 'cloud2', 'cloud3', 'cloud4', 'cloud5'];
 const cloudLayers = ['front', 'back'];
 
 const randType = cloudTypes[Math.floor(Math.random() * cloudTypes.length)];
@@ -36,17 +36,19 @@ const animationDuration =
     opacity: 0.8;
     position: absolute;
     left: -10vw;
-    animation: moveAcrossScreen linear infinite;
+    filter: sepia(80%);
+    animation: move-across-screen linear infinite;
   }
 
   .back {
     opacity: 0.5;
     position: absolute;
     left: -10vw;
-    animation: moveAcrossScreen linear infinite;
+    filter: sepia(80%);
+    animation: move-across-screen linear infinite;
   }
 
-  @keyframes moveAcrossScreen {
+  @keyframes move-across-screen {
     0% {
       transform: translateX(-100vw);
     }

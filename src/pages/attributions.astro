@@ -1,9 +1,11 @@
 ---
+import LoadingScreen from '../components/LoadingScreen.astro';
 import TeamLayout from '../layouts/TeamLayout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<TeamLayout title="BovEco-Attributions">
+<LoadingScreen />
+<TeamLayout title="Attributions | BovEco - iGEM 2024">
 	<main>
 		<div class="thanks">
 			<h1>Attributions</h1>
@@ -35,6 +37,7 @@ import Card from '../components/Card.astro';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		z-index: 50;
 		.thanks {
 			width: 85%;
 			height: auto;

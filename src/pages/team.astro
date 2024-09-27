@@ -1,20 +1,118 @@
 ---
 import TeamLayout from '../layouts/TeamLayout.astro';
+import MemberProfile from '../components/MemberProfile.astro';
 import Card from '../components/Card.astro';
 ---
 
-<TeamLayout title="BovEco-Members">
+<TeamLayout title="Members | BovEco - iGEM 2024">
 	<main>
-		<div>
-			<div class="heading">MEET THE TEAM!</div>
-		</div>
+		<section class="hero">
+			<div class="left">
+				<h1>MEET THE TEAM!</h1>
+				<div class="cloud">
+					<img src="img/clouds/cloud5.png" alt="Big Cloud" />
+					<div class="jump">
+						<a href="#lnd"> Lab & Design</a>
+						<a href="#mnm">Math & Modelling</a>
+						<a href="#hp">Human Practices</a>
+					</div>
+				</div>
+			</div>
+			<div class="right">hi lol</div>
+		</section>
+		<!-- <img id="walking-cow" src="img/cows/walking-cow.gif" alt="" /> -->
+		<section id="lnd">
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+		</section>
+		<section id="mnm">
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+		</section>
+		<section id="hp">
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+		</section>
 	</main>
 </TeamLayout>
 
 <style lang="scss">
 	@import '../global.scss';
 
-	div {
-		height: 400vh;
+	main {
+		.hero {
+			display: flex;
+			gap: 5rem;
+			margin-top: 5rem;
+			.left {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				h1 {
+					font-size: 3rem;
+				}
+
+				.cloud {
+					width: 100%;
+					position: relative;
+
+					img {
+						width: 100rem;
+						position: absolute;
+					}
+					.jump {
+						display: flex;
+						flex-direction: column;
+						gap: 1rem;
+						// position: absolute;
+						a {
+							font-size: 1.5rem;
+							color: white;
+							@include transition-ease;
+							&:hover {
+								color: darkgreen;
+							}
+						}
+					}
+				}
+				img {
+				}
+			}
+
+			.right {
+				width: 100%;
+				background: darkgreen;
+			}
+		}
+
+		#walking-cow {
+			width: 10rem;
+			animation: move-across-screen 80s linear infinite;
+		}
+
+		@keyframes move-across-screen {
+			0% {
+				transform: translateX(100vw);
+			}
+			100% {
+				transform: translateX(-100vw);
+			}
+		}
+
+		#lnd {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 3rem;
+			background: lightblue;
+		}
+
+		#mnm {
+			background: purple;
+		}
+
+		#hp {
+			background: teal;
+		}
 	}
 </style>

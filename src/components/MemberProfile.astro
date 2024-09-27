@@ -1,0 +1,49 @@
+---
+interface Props {
+  name: string;
+  profPic: string;
+  sillyPic: string;
+}
+
+const { name, profPic, sillyPic } = Astro.props;
+---
+
+<div class="profile">
+  <img class="profile-pic" src=`img/members/prof/${profPic}.jpg` alt={name} />
+  <div>{name}</div>
+</div>
+
+<style
+  lang="scss"
+  define-vars={{ sillyPicPath: `img/members/silly/${sillyPic}.jpg` }}
+>
+  @import '../global.scss';
+
+  /* img {
+    z-index: 50;
+  }
+  img:hover {
+    background-image: url(var(--sillyPicPath));
+  } */
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10rem;
+    background-image: var(--sillyPicPath);
+    width: 5em;
+    height: 100%;
+    border-radius: 50%;
+
+    /* .profile-pic {
+      width: 5em;
+      height: 100%;
+      border-radius: 50%;
+
+      &:hover {
+        background-image: url(var(--sillyPicPath));
+      }
+    } */
+  }
+</style>

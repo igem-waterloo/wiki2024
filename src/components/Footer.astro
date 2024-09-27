@@ -3,35 +3,35 @@
     <img src="img/waterloo-igem-2.svg" alt="Waterloo iGEM Logo" />
     <div class="contact">
       <a href="https://igem.uwaterloo.ca/" target="_blank">
-        <img src="img/contact/website.png" alt="Website" />
+        <img src="img/socials/website.png" alt="Website" />
       </a>
       <a href="https://www.instagram.com/waterloo.igem/" target="_blank">
-        <img src="img/contact/instagram.png" alt="Instagram" />
+        <img src="img/socials/instagram.png" alt="Instagram" />
       </a>
       <a href="https://www.linkedin.com/company/waterloo-igem/" target="_blank">
-        <img src="img/contact/linkedin.png" alt="LinkedIn" />
+        <img src="img/socials/linkedin.png" alt="LinkedIn" />
       </a>
       <a href="https://www.facebook.com/WaterlooiGEM/" target="_blank">
-        <img src="img/contact/facebook.png" alt="Facebook" />
+        <img src="img/socials/facebook.png" alt="Facebook" />
       </a>
     </div>
   </div>
   <div class="right">
     <div class="sponsor-logos">
       <!-- TO DO: add links to their sites on click? -->
-      <img src="img/sponsors/cbb.png" alt="CBB" />
       <img src="img/sponsors/gras.png" alt="GRAS" />
-      <img src="img/sponsors/idt.png" alt="IDT" />
-      <img src="img/sponsors/mef.png" alt="MEF" />
-      <img src="img/sponsors/science-society.png" alt="Science Society" />
-      <img src="img/sponsors/snapgene.png" alt="SnapGene" />
       <img src="img/sponsors/wcmr.png" alt="WCMR" />
+      <img src="img/sponsors/mef.png" alt="MEF" />
       <img src="img/sponsors/weef.png" alt="WEEF" />
+      <img src="img/sponsors/science-society.png" alt="Science Society" />
+      <img src="img/sponsors/cbb.png" alt="CBB" />
+      <img src="img/sponsors/idt.png" alt="IDT" />
+      <img src="img/sponsors/snapgene.png" alt="SnapGene" />
     </div>
     <div class="footer-info">
       <div>
         © 2024 - Content on this site is licensed under a
-        <a href="https://creativecommons.org/licenses/by/4.0/">
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
           Creative Commons Attribution 4.0 International license.
         </a>
       </div>
@@ -53,7 +53,7 @@
     padding: 0.5rem 2rem;
     font-size: 0.8rem;
     color: brown;
-    border-top: 3px solid brown;
+    border-top: 3px outset brown;
 
     .left {
       display: flex;
@@ -73,6 +73,7 @@
         img {
           width: 2.5em;
           height: 2.5em;
+          filter: sepia(80%);
 
           &:hover {
             opacity: 0.5;
@@ -95,6 +96,10 @@
           // width: 100%;
           object-fit: contain;
           max-width: 6rem;
+
+          &:nth-of-type(6) {
+            max-width: 4rem;
+          }
         }
       }
 
@@ -102,7 +107,7 @@
         text-align: center;
 
         div {
-          margin-bottom: 0.5rem;
+          margin-top: 1rem;
         }
 
         a:hover {
