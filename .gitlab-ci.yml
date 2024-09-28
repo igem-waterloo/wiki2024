@@ -1,5 +1,5 @@
 pages:
-  image: node:lts  # Docker image used to build your app
+  image: node:lts  # uses Docker image to build site
   before_script:
     - npm ci  # install dependencies
   script:
