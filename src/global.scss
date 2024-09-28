@@ -50,15 +50,18 @@ $accent-gradient: linear-gradient(
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // font: inherit;
   scroll-behavior: smooth;
 }
 
-*:focus-visible { outline: 2px solid $accent-1; }
+*:focus-visible { outline: 2px solid white; }
 
 ::selection { 
   background-color: $accent-2; 
   color: $primary;
+}
+
+::-webkit-scrollbar {
+  width: 10em !important;
 }
 
 img, picture, svg, video {
@@ -70,10 +73,6 @@ img, picture, svg, video {
 a { 
   text-decoration: none; 
   color: inherit;
-}
-
-@function random-percentage($min, $max) {
-	@return random($max - $min) + $min + '%';
 }
 
 @mixin transition-ease {

@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
@@ -44,6 +45,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 </script>
 
 <HomeLayout title="BovEco - iGEM 2024">
+	<ViewTransitions />
 	<main>
 		<div class="welcome-text">
 			<img
@@ -51,7 +53,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				alt="Waterloo iGEM Logo"
 			/>
 			<h3>Waterloo iGEM Presents...</h3>
-			<h1>BovEco</h1>
+			<h1 transition:animate="slide">BovEco</h1>
 			<h2>Fighting climate change, one cow at a time!</h2>
 		</div>
 		<div class="stat1">
