@@ -1,55 +1,42 @@
----
-import { ViewTransitions, fade } from 'astro:transitions';
----
-
-<nav transition:animate={fade({ duration: '2000' })}>
-  <a href="/waterloo/"><img style="" src="img/logo.png" /></a>
+<nav>
+  <a href="/waterloo/"><img src="img/logo.png" /></a>
   <div class="navlinks">
-    <div class="dropdown">
-      <div class="dropbtn">Project <span>&#11206;</span></div>
-      <div class="dropdown-content">
-        <a href="/waterloo/contribution">Contribution</a>
-        <a href="/waterloo/description">Description</a>
-        <a href="/waterloo/engineering">Engineering</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="dropbtn">
-        Team
-        <span>&#11206;</span>
-      </div>
-      <div class="dropdown-content">
-        <a href="/waterloo/team">Members</a>
-        <a href="/waterloo/attributions">Attributions</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="dropbtn">Wet Lab <span>&#11206;</span></div>
-      <div class="dropdown-content">
-        <a href="/waterloo/design">Design</a>
-        <a href="/waterloo/experiments">Experiments</a>
-        <a href="/waterloo/notebook">Notebook</a>
-        <a href="/waterloo/notebook">Results</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="dropbtn">Dry Lab <span>&#11206;</span></div>
-      <div class="dropdown-content">
-        <a href="/waterloo/model">Models</a>
-        <a href="/waterloo/software">Software</a>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="dropbtn">Human Practices <span>&#11206;</span></div>
-      <div class="dropdown-content">
-        <a href="/waterloo/human-practices">Integrated HP</a>
-        <a href="/waterloo/education">Education</a>
-      </div>
-    </div>
+    {
+      ['Project', 'Team', 'Wet Lab', 'Dry Lab', 'Human Practices'].map(
+        (title, index) => (
+          <div class="dropdown">
+            <div class="dropbtn">
+              {title} <span>&#11206;</span>
+            </div>
+            <div class="dropdown-content">
+              {title === 'Project' && ( 
+                <a href="/waterloo/contribution">Contribution</a>
+                <a href="/waterloo/description">Description</a>
+                <a href="/waterloo/engineering">Engineering</a>
+              )}
+              {title === 'Team' && (
+                <a href="/waterloo/team">Members</a>
+                <a href="/waterloo/attributions">Attributions</a>
+              )}
+              {title === 'Wet Lab' && (
+                <a href="/waterloo/design">Design</a>
+                <a href="/waterloo/experiments">Experiments</a>
+                <a href="/waterloo/notebook">Notebook</a>
+                <a href="/waterloo/notebook">Results</a>
+              )}
+              {title === 'Dry Lab' && (
+                <a href="/waterloo/model">Models</a>
+                <a href="/waterloo/software">Software</a>
+              )}
+              {title === 'Human Practices' && (
+                <a href="/waterloo/human-practices">Integrated HP</a>
+                <a href="/waterloo/education">Education</a>
+              )}
+            </div>
+          </div>
+        ),
+      )
+    }
   </div>
 </nav>
 
