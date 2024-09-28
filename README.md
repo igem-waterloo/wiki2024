@@ -1,51 +1,65 @@
-## Useful commands
+# Team Waterloo 2024 Wiki
+
+Welcome! This repository houses the coding assets needed to build our team's wiki (HTML, CSS, Sass, JavaScript, TypeScript, etc.), all powered by the [Astro](https://astro.build/) static site generator.
+
+Images, icons, and fonts are stored on `static.igem.wiki` using [tools.igem.org](https://tools.igem.org), while videos have been embedded from [iGEM Video Universe](https://video.igem.org).
+
+For up-to-date requirements, resources, help, and guidance: [competition.igem.org/deliverables/team-wiki](https://competition.igem.org/deliverables/team-wiki).
+
+## 🛠️ Deployment
+
+This project is configured for deployment on [GitLab Pages](https://gitlab.igem.org/2024/waterloo), and automated through GitLab CI/CD. Most of the commit history and project details can be found in our [GitHub repository](https://github.com/igem-waterloo/wiki2024), while only the most recent updates are reflected on GitLab.
+
+For instructions on deploying Astro projects to GitLab Pages: [https://docs.astro.build/en/guides/deploy/gitlab/](https://docs.astro.build/en/guides/deploy/gitlab/). 
+
+## 💻 Getting Started
+
+To work on this project locally, refer to the following:
+
+1. **Clone** this repository to your local machine
+```bash
+git clone https://gitlab.igem.org/2024/waterloo.git
+cd waterloo
 ```
-git pull origin dev // pull remote dev branch changes to your local dev branch
 
-git checkout main -> git merge dev // swap to main branch and pull local dev branch cahnges to local main
-
-git pull origin main // pull remote main branch changes to your local main branch
-
+2. **Install** dependencies
+```bash
+npm install
 ```
 
-# Astro Starter Kit: Basics
-
-
-```sh
-npm create astro@latest -- --template basics
+3. **Run** development server
+```bash
+npm run dev  # starts at localhost:4321
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+4. **Build** project for deployment
+```bash
+npm run build
+npm run preview  # preview build locally, before deploying
+```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Get help running the Astro CLI with `npm run astro -- --help`, and refer to the docs for information on other available commands: [https://docs.astro.build/en/reference/cli-reference/](https://docs.astro.build/en/reference/cli-reference/).
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
+|__ assets/             -> Static assets (Images, fonts, etc.)
+|__ node_modules/       -> Node.js dependencies
+|__ src/                -> Source files 
 │   ├── components/
-│   │   └── Card.astro
 │   ├── layouts/
-│   │   └── Layout.astro
 │   └── pages/
-│       └── index.astro
-└── package.json
+|__ public/             -> Generated files after building 
+|__ .gitignore          -> Ignored files and directories
+|__ .gitlab-ci.yml      -> CI/CD configuration for automated build and deployment
+|__ astro.config.mjs    -> Astro configuration file
+|__ LICENSE             -> License CC-by-4.0 (*all wikis are required to have this license)
+|__ package-lock.json   -> File for locking specific versions of dependencies
+|__ package.json        -> Project dependencies and scripts
+|__ README.md           -> This README file
+|__ tsconfig.json       -> TypeScript configuration file
+|__ env.d.ts            -> Type definitions for environment variables
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -59,7 +73,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
