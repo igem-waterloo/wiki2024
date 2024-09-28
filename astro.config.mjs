@@ -5,5 +5,5 @@ export default defineConfig({
   site: 'https://2024.igem.wiki',
   base: '/waterloo',
   outDir: 'public',
-  publicDir: 'static',
+  publicDir: 'assets',
 });
