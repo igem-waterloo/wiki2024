@@ -1,5 +1,14 @@
+<script>
+  const logo = document.querySelector('.logo');
+  document.addEventListener('click', e => {
+    // Handle logo click here (instead of <a> tag) to avoid loading screen issues
+    if (e.target === logo) window.location.href = '/waterloo/';
+  });
+</script>
+
 <nav>
-  <a href="/waterloo/"><img src="img/logo.png" /></a>
+  <!-- <a href=""><img src="img/logo.png" /></a> -->
+  <img class="logo" src="img/logo.png" />
   <div class="navlinks">
     {
       // Section dropdowns
@@ -52,12 +61,12 @@
     justify-content: space-between;
     margin-top: 0.5rem;
     z-index: 50;
-    a img {
+    .logo {
       width: 8rem;
       margin-left: 1.5em;
-      z-index: 50;
-      position: absolute;
       filter: hue-rotate(20deg) opacity(99%);
+      z-index: 50;
+      cursor: pointer;
 
       &:hover {
         filter: hue-rotate(45deg) sepia(50%);
