@@ -1,17 +1,4 @@
 /* Custom Fonts */
-
-// Source: https://www.dafont.com/theme.php?cat=101
-@font-face {
-  font-family: 'Farmhouse Goodness';
-  src: url('fonts/Farmhouse Goodness.ttf') format('truetype'), 
-       url('fonts/Farmhouse Goodness.woff') format('woff'), 
-       url('fonts/Farmhouse Goodness.otf') format('opentype');
-  font-stretch: ultra-expanded;
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
 // Source: https://fonts.google.com/specimen/League+Spartan
 @font-face {
   font-family: 'League Spartan';
@@ -32,7 +19,7 @@
   font-display: swap;
 }
 
-/* Colour Scheme: https://coolors.co/6a6b49-b2b684-e9e1d6-ffffff-000000 */
+/* Colour Scheme */
 $primary: white;
 $secondary: rgba(29, 30, 29, 0.639);
 $accent-1: rgb(103, 127, 108);
@@ -44,8 +31,15 @@ $accent-gradient: linear-gradient(
   45deg,
   rgba($accent-1, 0.5),
   rgba($accent-2, 0.5) 30%,
-  white 60%
+  rgba($accent-3, 0.5) 60%,
+  $primary 60%
 );
+
+
+html {
+  font-family: 'League Spartan', 'Roboto', system-ui, sans-serif;
+  overflow-x: hidden; // for Clouds.astro
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -54,21 +48,21 @@ $accent-gradient: linear-gradient(
   scroll-behavior: smooth;
 }
 
-*:focus-visible { outline: 2px solid white; }
+*:focus-visible { outline: 2px solid $primary; }
 
-::selection { 
-  background-color: $accent-1; 
-  color: $primary;
-}
+// ::selection { 
+//   background-color: $accent-1; 
+//   color: $primary;
+// }
 
-::-moz-selection { 
-  background-color: $accent-1; 
-  color: $primary;
-}
+// ::-moz-selection { 
+//   background-color: $accent-1; 
+//   color: $primary;
+// }
 
-::-webkit-scrollbar {
-  width: 10em !important;
-}
+// ::-webkit-scrollbar {
+//   width: 10em;
+// }
 
 img, picture, svg, video {
   display: block;
@@ -85,34 +79,4 @@ a {
   opacity: 0.8;
   transform: translateY(0.05em);
   transition: all 0.2s ease-in-out;
-}
-
-// @mixin move-across-screen {
-//   animation: move-across-screen linear infinite;
-
-// }
-
-// @keyframes move-across-screen {
-//   0% {
-//     transform: translateX(-100vw);
-//   }
-//   100% {
-//     transform: translateX(100vw);
-//     opacity: 0;
-//   }
-// }
-
-html {
-  font-family: 'League Spartan', 'Roboto', system-ui, sans-serif;
-  overflow-x: hidden; // for Clouds.astro
-//  background-size: 224px;
-/*  font-family:
-  Menlo,
-  Monaco,
-  Lucida Console,
-  Liberation Mono,
-  DejaVu Sans Mono,
-  Bitstream Vera Sans Mono,
-  Courier New,
-  monospace; */
 }
