@@ -28,7 +28,7 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <!-- <LoadingScreen client:load /> -->
+    <LoadingScreen client:load />
     <CursorParticles />
     <NavBar />
     <Cloud />
@@ -61,7 +61,7 @@ const { title } = Astro.props;
     <CowWalk />
     <Grass /> -->
 
-    <script>
+    <!-- <script>
       document.addEventListener('scroll', () => {
         const scrollTop = window.scrollY;
         const docHeight =
@@ -80,7 +80,7 @@ const { title } = Astro.props;
 
         document.body.style.backgroundColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
       });
-    </script>
+    </script> -->
   </body>
 </html>
 

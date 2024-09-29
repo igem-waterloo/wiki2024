@@ -53,14 +53,14 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				alt="Waterloo iGEM Logo"
 			/>
 			<h3>Waterloo iGEM Presents...</h3>
-			<h1 transition:animate="slide">BovEco</h1>
-			<h2>Fighting climate change, one cow at a time!</h2>
+			<h1 transition:animate="fade">BovEco</h1>
+			<h2>Fighting climate change, one cow at a <span>time!</span></h2>
 		</div>
 		<div class="stat1">
 			<div class="num"></div>
 			<div class="text">
-				That's the proportion of agricultural methane emissions released by
-				ruminants.
+				That's the proportion of agricultural <span>methane</span>
+				released by ruminants.
 			</div>
 		</div>
 		<div class="stat2">
@@ -124,16 +124,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.welcome-text {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
 			align-items: center;
-			font-family: 'League Spartan', sans-serif;
-			// color: #2a3b53;
-			color: #677f6c;
+			color: $accent-1;
 			margin-top: 5rem;
 			z-index: 1;
 
 			img {
-				// BovEco Logo
 				width: 10rem;
 				filter: hue-rotate(275deg) saturate(50%);
 				margin-bottom: 0.75rem;
@@ -143,10 +139,15 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			h1 {
 				font-family: 'Quartzo', sans-serif;
 				font-size: 10rem;
+				margin-top: -0.5rem;
 			}
 
 			h2 {
-				font-size: 2rem;
+				font-size: 2.25rem;
+
+				span {
+					box-shadow: 15px 15px 0 1px $accent-1;
+				}
 			}
 
 			h3 {
@@ -158,22 +159,27 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			gap: 4rem;
 			text-align: left;
 			padding: 3rem;
 			font-weight: bold;
-			background: rgb(48, 64, 52);
+			background: rgba(48, 64, 52, 0.8);
 			color: $primary;
-			opacity: 0.9;
 			margin-top: 20rem;
 
 			.num {
 				width: 50%;
 				font-size: 15rem;
+				// position: absolute;
 			}
 
 			.text {
-				width: 50%;
+				width: 40%;
 				font-size: 3rem;
+
+				span {
+					color: $accent-3;
+				}
 			}
 		}
 

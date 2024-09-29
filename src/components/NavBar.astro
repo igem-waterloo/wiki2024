@@ -57,10 +57,10 @@
       margin-left: 1.5em;
       z-index: 50;
       position: absolute;
-      filter: saturate(50%);
+      filter: hue-rotate(45deg);
 
       &:hover {
-        filter: hue-rotate(20deg) saturate(50%) opacity(99%);
+        filter: hue-rotate(20deg) opacity(99%);
         @include transition-ease;
       }
     }
@@ -69,18 +69,15 @@
       gap: 1.5rem;
       padding: 1rem 1rem;
       margin-right: 0.5rem;
-      // overflow: hidden;
 
       .dropdown {
         .dropbtn {
-          background: #677f6c;
-          // background: #2a3b53; 
+          background: $accent-1; 
           color: $primary;
           padding: 0.4em;
           border-radius: 0.25em;
 
           span {
-            // Dropdown arrows
             font-size: 0.65em;
             position: relative;
             bottom: 0.15em;
@@ -94,10 +91,9 @@
           line-height: 1.8em;
           font-weight: normal;
           background: $primary;
-          // color: #2a3b53;
-          color: #677f6c;
+          color: $accent-1;
           padding: 0.5rem;
-          border: 1px solid #677f6c;
+          border: 1px solid $accent-1;
           border-radius: 0.25em;
 
           position: absolute;
@@ -112,7 +108,7 @@
         a {
           &:hover,
           &:focus {
-            color: #677f6c;
+            color: $accent-1;
 
             @include transition-ease;
           }
