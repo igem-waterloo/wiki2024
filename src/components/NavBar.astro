@@ -16,7 +16,7 @@
                 <a href="/waterloo/engineering">Engineering</a>
               )}
               {title === 'Team' && (
-                <a href="/waterloo/team">Members</a>
+                <a href="/waterloo/members">Members</a>
                 <a href="/waterloo/attributions">Attributions</a>
               )}
               {title === 'Wet Lab' && (
@@ -57,10 +57,10 @@
       margin-left: 1.5em;
       z-index: 50;
       position: absolute;
-      filter: hue-rotate(45deg);
+      filter: hue-rotate(20deg) opacity(99%);
 
       &:hover {
-        filter: hue-rotate(20deg) opacity(99%);
+        filter: hue-rotate(45deg) sepia(50%);
         @include transition-ease;
       }
     }

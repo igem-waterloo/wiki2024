@@ -22,81 +22,35 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				: startValue.toFixed(1);
 			if (startValue >= endValue) clearInterval(counter);
 		}, duration);
-		// let startTime = null;
-		// const step = timestamp => {
-		// 	if (!startTime) startTime = timestamp;
-		// 	const progress = timestamp - startTime;
-		// 	num.textContent = Math.floor(
-		// 		(end - start) * (progress / duration) + start,
-		// 	);
-		// 	if (progress < duration) window.requestAnimationFrame(step);
-		// };
-		// window.requestAnimationFrame(step);
 	};
 
 	const observerStat1 = new IntersectionObserver(
-		// Entries: all the things that've been observed (intersected, or not)
 		entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					animateNumber(stat1Num as HTMLElement, 0, 73, 1);
-					observerStat1.unobserve(entry.target);
-				}
-			});
+			const entry = entries[0]; // access the first (and only) entry directly
+			if (entry.isIntersecting) {
+				animateNumber(stat1Num as HTMLElement, 0, 73, 1);
+				observerStat1.unobserve(entry.target); // stop observing after animation starts
+			}
 		},
 		{
-			threshold: 1,
-			rootMargin: '200px',
+			threshold: 1, // animation starts once 100% of element's visible
+			rootMargin: '50px', // animation starts 50px before element's visible
 		},
 	);
 
 	const observerStat3 = new IntersectionObserver(
 		entries => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					animateNumber(stat3Num as HTMLElement, 0, 73.5, 3.5);
-					observerStat3.unobserve(entry.target);
-				}
-			});
+			const entry = entries[0];
+			if (entry.isIntersecting) {
+				animateNumber(stat3Num as HTMLElement, 0, 73.5, 3.5);
+				observerStat3.unobserve(entry.target);
+			}
 		},
 		{
-			threshold: 1, // animation starts once 100% of element's visible
-			rootMargin: '100px', // animation starts 200px before element's visible
+			threshold: 1,
+			rootMargin: '100px',
 		},
 	);
-
-	// // Entries: all the things that've been observed (intersected, or not)
-	// const observer = new IntersectionObserver(
-	// 	entries => {
-	// 		console.log(entries);
-	// 		entries.forEach(entry => {
-	// 			if (entry.isIntersecting) {
-	// 				responsiveNum.forEach(num => {
-	// 					let startValue = 0;
-	// 					// let endValue = 73;
-	// 					let endValue = num.closest('.stat1') ? 73 : 73.5;
-	// 					// if (num.closest('.stat1')) endValue = 73;
-	// 					// else if (num.closest('.stat3')) endValue = 73.5;
-	// 					let duration = Math.floor(interval / endValue);
-	// 					let counter = setInterval(() => {
-	// 						startValue += num.closest('.stat1') ? 1 : 3.5;
-	// 						// if (num.closest('.stat1')) startValue += 3.5;
-	// 						// num.textContent = startValue.toFixed(1);
-	// 						num.textContent = num.closest('.stat1')
-	// 							? `${startValue.toFixed(0)}%.`
-	// 							: startValue.toFixed(1);
-	// 						if (startValue >= endValue) clearInterval(counter);
-	// 					}, duration);
-	// 				});
-	// 				observer.unobserve(entry.target);
-	// 			}
-	// 		});
-	// 	},
-	// 	{
-	// 		threshold: 1, // animation starts once 100% of element's visible
-	// 		rootMargin: '200px', // animation starts 100px before element's visible
-	// 	},
-	// );
 
 	observerStat1.observe(stat1Num as HTMLElement);
 	observerStat3.observe(stat3Num as HTMLElement);
@@ -218,9 +172,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			align-items: center;
 			padding: 3rem;
 			font-weight: bold;
-			background: rgba(48, 64, 52, 0.8);
+			background: $accent-1;
 			color: $primary;
-			position: relative;
 			margin-top: 30rem;
 
 			.num {
