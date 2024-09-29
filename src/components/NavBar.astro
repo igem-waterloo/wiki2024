@@ -4,7 +4,7 @@
     {
       // Section dropdowns
       ['Project', 'Team', 'Wet Lab', 'Dry Lab', 'Human Practices'].map(
-        (title, index) => (
+        title => (
           <div class="dropdown">
             <div class="dropbtn">
               {title} <span>&#11206;</span>
@@ -109,7 +109,6 @@
           &:hover,
           &:focus {
             color: $accent-1;
-
             @include transition-ease;
           }
         }
