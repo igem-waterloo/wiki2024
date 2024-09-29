@@ -2,6 +2,7 @@
   <a href="/waterloo/"><img src="img/logo.png" /></a>
   <div class="navlinks">
     {
+      // Section dropdowns
       ['Project', 'Team', 'Wet Lab', 'Dry Lab', 'Human Practices'].map(
         (title, index) => (
           <div class="dropdown">
@@ -20,17 +21,20 @@
               )}
               {title === 'Wet Lab' && (
                 <a href="/waterloo/design">Design</a>
-                <a href="/waterloo/experiments">Experiments</a>
                 <a href="/waterloo/notebook">Notebook</a>
-                <a href="/waterloo/notebook">Results</a>
+                <a href="/waterloo/safety">Safety</a>
               )}
               {title === 'Dry Lab' && (
                 <a href="/waterloo/model">Models</a>
                 <a href="/waterloo/software">Software</a>
+                <a href="/waterloo/bioinformatics">Bioinformatics</a>
               )}
               {title === 'Human Practices' && (
+                <a href="/waterloo/problem-space">Problem Space</a>
                 <a href="/waterloo/human-practices">Integrated HP</a>
+                <a href="/waterloo/policy-research">Policy Research</a>
                 <a href="/waterloo/education">Education</a>
+                <a href="/waterloo/inclusivity">Inclusivity</a>
               )}
             </div>
           </div>
@@ -52,8 +56,13 @@
       width: 8rem;
       margin-left: 1.5em;
       z-index: 50;
-      position: fixed;
-      filter: sepia(60%);
+      position: absolute;
+      filter: saturate(40%);
+
+      &:hover {
+        filter: hue-rotate(20deg) saturate(50%) opacity(99%);
+        @include transition-ease;
+      }
     }
     .navlinks {
       display: flex;
@@ -64,8 +73,8 @@
 
       .dropdown {
         .dropbtn {
-          // background: #677f6c;
-          background: #2a3b53;
+          background: #677f6c;
+          // background: #2a3b53; 
           color: $primary;
           padding: 0.4em;
           border-radius: 0.25em;
@@ -84,9 +93,15 @@
           opacity: 0;
           line-height: 1.8em;
           font-weight: normal;
-          color: #2a3b53;
-          z-index: 50;
+          background: $primary;
+          // color: #2a3b53;
+          color: #677f6c;
+          padding: 0.5rem;
+          border: 1px solid #677f6c;
+          border-radius: 0.25em;
+
           position: absolute;
+          z-index: 50;
         }
 
         &:hover .dropdown-content {
@@ -97,7 +112,7 @@
         a {
           &:hover,
           &:focus {
-            color: #2a3b53;
+            color: #677f6c;
 
             @include transition-ease;
           }
