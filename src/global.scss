@@ -27,22 +27,23 @@ $accent-2: rgb(99, 144, 119);
 $accent-3: rgb(215, 200, 176);
 $accent-4: rgb(165, 149, 123);
 
-// $accent-1: #0b6a35;
-// $accent-2: #129d78;
-// $accent-3: #129d78;
-// $accent-4: #57c765;
+// $accent-5: #0b6a35;
+// $accent-6: #129d78;
+// $accent-7: #129d78;
+// $accent-8: #57c765;
 
 $accent-gradient-1: linear-gradient(
   45deg,
-  rgba($accent-1, 0.8), 50%,
-  rgba($accent-2, 0.6) 40%
+  rgba($accent-1, 0.8),
+  rgba($accent-2, 0.7),
+  rgba($primary, 0.6)
 );
 
 $accent-gradient-2: linear-gradient(
   45deg,
-  rgba($accent-3, 0.5),
-  rgba($accent-4, 0.5) 30%,
-  rgba($primary, 0.5) 60%
+  rgba($accent-3, 0.8),
+  rgba($accent-4, 0.7),
+  rgba($primary, 0.6)
 );
 
 
@@ -55,24 +56,8 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-
-*:focus-visible { outline: 2px solid $primary; }
-
-// ::selection { 
-//   background-color: $accent-1; 
-//   color: $primary;
-// }
-
-// ::-moz-selection { 
-//   background-color: $accent-1; 
-//   color: $primary;
-// }
-
-// ::-webkit-scrollbar {
-//   width: 10em;
-// }
 
 img, picture, svg, video {
   display: block;
