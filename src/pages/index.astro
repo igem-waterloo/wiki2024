@@ -91,7 +91,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			</div>
 			<img src="img/cows/burping-cow.gif" alt="Burping Cow" />
 			<img src="img/environment/cliff-edge.png" alt="Cliff Edge" />
-			<!-- <img src="img/environment/cliff-column.png" alt="Cliff Column" /> -->
 			<div>
 				...now imagine close to <span class="cow-num">1.5 billion</span> cows globally.
 			</div>
@@ -158,11 +157,24 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<button>Learn More</button>
 		</div>
 		<div class="bottom">
-			<video width="" height="1200" controls>
-				<source src="video/PromoVid_ENGLISH.mp4" type="video/mp4" />
-				<source src="video/PromoVid_FRENCH.mp4" type="video/mp4" />
-			</video>
-			<!-- <img src="img/bovecotext.png" id="bovtext" /> -->
+			<iframe
+				title="Waterloo: BovEco (English) (2024) - Project Promotion [English]"
+				width="560"
+				height="315"
+				src="https://video.igem.org/videos/embed/e9018998-06ef-4fa8-942a-1e224e8f3c82"
+				frameborder="0"
+				allowfullscreen=""
+				sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+			></iframe>
+			<iframe
+				title="Waterloo: BovEco (French) (2024) - Project Promotion [French]"
+				width="560"
+				height="315"
+				src="https://video.igem.org/videos/embed/12d3d180-10f4-4357-83f1-6ea34b6c82b6"
+				frameborder="0"
+				allowfullscreen=""
+				sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+			></iframe>
 			<!-- <img src="img/ocean.png" alt="" /> -->
 		</div>
 	</main>
@@ -535,20 +547,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			align-items: center;
 			position: relative;
 
-			video {
-				width: 60rem;
-				height: 100%;
-				margin: 5rem 0;
-			}
-
-			#bovtext {
-				width: 12em;
-				height: auto;
-				filter: sepia(80%);
-				margin-left: 1.5em;
-				position: absolute;
-				top: 6rem;
-				right: 9em;
+			iframe {
+				margin: 5rem 1rem;
 			}
 		}
 
