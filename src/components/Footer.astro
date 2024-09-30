@@ -52,10 +52,10 @@
     display: flex;
     justify-content: space-around;
     padding: 0.5rem 2rem;
-    background: $accent-gradient-2;
+    background: $accent-gradient-1;
     font-size: 0.8rem;
     color: $secondary;
-    border: none;
+    border-top: 1px solid $accent-4;
 
     .left {
       display: flex;
@@ -79,7 +79,7 @@
           height: 3.5em;
 
           &:hover {
-            filter: invert(100%) opacity(60%);
+            filter: invert(100%) opacity(80%);
             @include transition-ease;
           }
         }
@@ -111,7 +111,7 @@
         line-height: 1.5;
 
         a:hover {
-          color: rgba($primary, 0.6);
+          color: rgba($primary, 0.8);
           @include transition-ease;
         }
       }
