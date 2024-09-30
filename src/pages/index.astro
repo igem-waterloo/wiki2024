@@ -150,6 +150,9 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				GMO plants used to feed <span>cows</span> could be modified to
 			</div>
 			<div class="text2">solve the methane problem <span>?</span></div>
+			<button>
+				<a href="/waterloo/description">Learn More</a>
+			</button>
 		</div>
 		<div class="bottom">
 			<!-- <img src="img/ocean.png" alt="" /> -->
@@ -468,7 +471,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			font-size: 3rem;
 			margin-top: 30rem;
 			margin-left: 4rem;
-			animation: bounce-around 2s ease infinite;
 
 			h4 {
 				font-size: 10rem;
@@ -495,6 +497,21 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					text-shadow: 5px 5px 0 $accent-3;
 					margin-left: 2rem;
 					position: absolute;
+				}
+			}
+
+			button {
+				background: $accent-1;
+				color: $primary;
+				font-size: 3rem;
+				padding: 1rem 2rem;
+				border: none;
+				border-radius: 1rem;
+				cursor: pointer;
+				@include transition-ease;
+
+				&:hover {
+					background: $secondary;
 				}
 			}
 		}
