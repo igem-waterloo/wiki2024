@@ -85,7 +85,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			</div>
 			<img src="img/cows/burping-cow.gif" alt="Burping Cow" />
 			<img src="img/environment/cliff-edge.png" alt="Cliff Edge" />
-			<!-- <img src="img/cliff-column.png" alt="Cliff Column" /> -->
+			<!-- <img src="img/environment/cliff-column.png" alt="Cliff Column" /> -->
 			<div>
 				...now imagine close to <span class="cow-num">1.5 billion</span> cows globally.
 			</div>
@@ -101,14 +101,20 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		</div>
 		<div class="fact1">
 			<div>As the global population increases,</div>
-			<div>so will the demand for beef and dairy products.</div>
+			<div>
+				so will the demand for <span>beef</span> and <span>dairy</span>
+				products.
+			</div>
 		</div>
 		<div class="fact2">
-			<p>Methane emissions drive serious environmental issues:</p>
-			<p>
-				accelerating global temperatures, dragrading air quality, and
-				threatening crop growth--all of which impact human and animal health.
-			</p>
+			<div>
+				<span>Methane emissions</span> drive serious environmental issues:
+			</div>
+			<img src="img/thermometer.gif" alt="Animated Thermometer" />
+			<div>
+				accelerating global temperatures, degrading air quality, and threatening
+				crop growth--all of which impact human and <span>animal</span> health.
+			</div>
 		</div>
 		<div class="fact3">
 			Addressing these CH4 issues is crucial for a healthier planet.
@@ -226,6 +232,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				width: 60%;
 				margin-top: 8rem;
 				margin-left: 5rem;
+				position: relative;
+				// z-index: 5;
 				animation: bounce-around 2s ease infinite;
 
 				@keyframes bounce-around {
@@ -262,6 +270,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					margin-top: 5rem;
 					position: absolute;
 					right: 0;
+					z-index: 5;
 				}
 				&:nth-of-type(2) {
 					width: 20rem;
@@ -269,16 +278,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					margin-top: 15rem;
 					position: absolute;
 					right: 0;
-					z-index: -5;
+					clip-path: inset(0 0 48% 0);
 				}
-
-				// &:nth-of-type(3) {
-				// 	opacity: 0.9;
-				// 	margin-top: 41rem;
-				// 	z-index: -5;
-				// 	position: absolute;
-				// 	right: -3rem;
-				// }
 			}
 		}
 
@@ -320,28 +321,32 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.fact1 {
 			display: flex;
 			flex-direction: column;
-			// justify-content: space-between;
-			// align-items: center;
-			gap: 10rem;
-			// width: 100vw;
+			align-items: center;
+			gap: 5rem;
 			font-size: 3rem;
-			margin: 30rem;
+			color: $primary;
+			margin-top: 30rem;
+			margin-left: -7rem;
+			position: relative;
 
 			div {
+				background: $accent-1;
+				padding: 2rem;
+				animation: bounce-around 2s ease infinite;
 				&:nth-of-type(1) {
-					// width: 50%;
-					text-align: left;
-					// margin-right: 5rem;
-					background: $accent-1;
+					position: relative;
+					top: -10%;
+					left: -10%;
 				}
 
 				&:nth-of-type(2) {
-					// width: 50%;
+					position: relative;
+					top: 10%;
+					left: 10%;
+				}
 
-					text-align: right;
-					background: $accent-1;
-
-					// margin-right: 5rem;
+				span {
+					color: $secondary;
 				}
 			}
 		}
@@ -349,14 +354,21 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.fact2 {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
 			align-items: center;
 			font-size: 3rem;
 			background: $accent-1;
-			color: $primary;
+			color: $accent-3;
+			padding: 3rem 0;
 			margin-top: 30rem;
 
-			p {
+			img {
+				filter: sepia(80%);
+				margin-bottom: 2rem;
+			}
+
+			div {
+				width: 70%;
+				text-align: center;
 				margin-bottom: 1rem;
 			}
 		}
