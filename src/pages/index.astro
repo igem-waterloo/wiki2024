@@ -94,7 +94,9 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			that is
 			<div class="num"></div>
 			<div class="text">
-				million metric tons of enteric methane produced by cattle—globally.
+				<span>million</span> metric tons of
+				<span>enteric methane</span> produced by
+				<span>cattle</span>—globally.
 			</div>
 		</div>
 		<div class="fact1">
@@ -154,6 +156,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			h1 {
 				font-family: 'Quartzo', sans-serif;
 				font-size: 10rem;
+				text-shadow: 5px 5px 0 $accent-3;
 				margin-top: -0.5rem;
 			}
 
@@ -163,11 +166,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				span {
 					&:nth-of-type(1) {
 						color: $accent-4;
+						text-shadow: 2.5px 2.5px 0 $accent-3;
 					}
 
 					&:nth-of-type(2) {
 						opacity: 0.8;
-						text-shadow: 2.5px 2.5px 0 $primary;
+						text-shadow: 2.5px 2.5px 0 $accent-3;
 					}
 
 					&:nth-of-type(3) {
@@ -193,6 +197,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			.num {
 				min-width: 4ch; // avoid layout shift
 				font-size: 15rem;
+				text-shadow: 5px 5px 0 $secondary;
 				margin-bottom: -2.5rem;
 			}
 
@@ -251,7 +256,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			img {
-				// position: relative;
 				&:nth-of-type(1) {
 					width: 35rem;
 					filter: sepia(50%);
@@ -281,21 +285,35 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.stat3 {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
 			align-items: center;
 			text-align: center;
 			font-size: 2.5rem;
 			margin-top: 20rem;
-			font-weight: bold;
 
 			.num {
 				font-size: 18rem;
+				text-shadow: 5px 5px 0 $accent-3;
+				color: rgba($primary, 0.7);
 				margin-top: 1.5rem;
 				margin-bottom: -1rem;
 			}
 
 			.text {
-				width: 60%;
+				width: 50%;
+				line-height: 1.25;
+
+				span {
+					&:nth-of-type(1) {
+						color: rgba($primary, 0.7);
+					}
+					&:nth-of-type(2) {
+						color: $accent-4;
+					}
+
+					&:nth-of-type(3) {
+						color: $secondary;
+					}
+				}
 			}
 		}
 
