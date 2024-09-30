@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-  <img class="logo" src="img/logo-2.png" />
+  <img class="logo" src="img/logo.png" />
   <div class="navlinks">
     {
       // Section dropdowns
@@ -33,7 +33,7 @@
                 <a href="/waterloo/safety">Safety</a>
               )}
               {title === 'Dry Lab' && (
-                <a href="/waterloo/model">Models</a>
+                <a href="/waterloo/model">Model</a>
                 <a href="/waterloo/software">Software</a>
                 <a href="/waterloo/bioinformatics">Bioinformatics</a>
               )}
@@ -63,13 +63,13 @@
 
     .logo {
       width: 8rem;
+      filter: hue-rotate(20deg) saturate(150%) opacity(60%) brightness(70%);
       margin-left: 1.5em;
-      filter: hue-rotate(20deg) saturate(100%) opacity(99%);
       z-index: 50;
       cursor: pointer;
 
       &:hover {
-        filter: hue-rotate(45deg) saturate(120%);
+        filter: opacity(80%) brightness(80%);
         @include transition-ease;
       }
     }

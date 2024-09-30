@@ -53,6 +53,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 	observerStat1.observe(stat1Num as HTMLElement);
 	observerStat3.observe(stat3Num as HTMLElement);
+
+	const button = document.querySelector('button');
+	document.addEventListener('click', e => {
+		// Handle button click here (instead of <a> tag) to avoid loading screen issues
+		if (e.target === button) window.location.href = '/waterloo/description';
+	});
 </script>
 
 <HomeLayout title="BovEco - iGEM 2024">
@@ -149,11 +155,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				GMO plants used to feed <span>cows</span> could be modified to
 			</div>
 			<div class="text2">solve the methane problem <span>?</span></div>
-			<button>
-				<a href="/waterloo/description">Learn More</a>
-			</button>
+			<button>Learn More</button>
 		</div>
 		<div class="bottom">
+			<video width="" height="1200" controls>
+				<source src="video/PromoVid_ENGLISH.mp4" type="video/mp4" />
+				<source src="video/PromoVid_FRENCH.mp4" type="video/mp4" />
+			</video>
 			<!-- <img src="img/ocean.png" alt="" /> -->
 		</div>
 	</main>
@@ -198,7 +206,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					}
 
 					&:nth-of-type(3) {
-						box-shadow: 25px 15px 1px $accent-1;
+						box-shadow: 15px 15px 1px $accent-1;
 					}
 				}
 			}
@@ -506,11 +514,18 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				padding: 1rem 2rem;
 				border: none;
 				border-radius: 1rem;
+				margin-top: 1.5rem;
+				box-shadow: 5px -10px 0 $accent-3;
 				cursor: pointer;
 				@include transition-ease;
 
 				&:hover {
-					background: $secondary;
+					background: $accent-4;
+				}
+
+				&:active {
+					transform: scale(0.95);
+					box-shadow: 5px -8px 0 $accent-3;
 				}
 			}
 		}
@@ -519,7 +534,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin-top: 30rem;
+
+			video {
+				width: 80%;
+				height: 100%;
+				margin: 5rem 0;
+			}
 		}
 
 		@keyframes bounce-around {
