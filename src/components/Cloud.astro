@@ -30,20 +30,20 @@ const animationDuration =
 <style lang="scss">
   @import '../global.scss';
 
-  .front {
-    opacity: 0.8;
+  img {
     position: absolute;
     left: -10vw;
-    // filter: sepia(80%);
     animation: move-cloud-across-screen linear infinite;
+  }
+
+  .front {
+    opacity: 0.8;
+    z-index: 10;
   }
 
   .back {
     opacity: 0.6;
-    position: absolute;
-    left: -10vw;
-    // filter: sepia(80%); // "methane clouds"
-    animation: move-cloud-across-screen linear infinite;
+    z-index: -10;
   }
 
   @keyframes move-cloud-across-screen {
