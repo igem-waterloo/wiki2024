@@ -1,6 +1,6 @@
 <footer>
   <div class="left">
-    <img src="img/waterloo-igem-2.svg" alt="Waterloo iGEM Logo" />
+    <img src="img/waterloo-igem.png" alt="Waterloo iGEM Logo" />
     <div class="contact">
       <a href="https://igem.uwaterloo.ca/" target="_blank">
         <img src="img/socials/website.png" alt="Website" />
@@ -38,7 +38,7 @@
       <div>
         The repository used to create this website is available at
         <a href="https://gitlab.igem.org/2024/waterloo" target="_blank">
-          https://gitlab.igem.org/2024/waterloo
+          https://gitlab.igem.org/2024/waterloo.
         </a>
       </div>
     </div>
@@ -50,33 +50,36 @@
 
   footer {
     display: flex;
+    justify-content: space-around;
     padding: 0.5rem 2rem;
+    background: $accent-gradient-2;
     font-size: 0.8rem;
-    color: brown;
-    border-top: 3px outset brown;
+    color: $secondary;
+    border: none;
 
     .left {
       display: flex;
       align-items: center;
-      border-right: 2px solid brown;
       margin-right: 1.5rem;
 
       img {
-        margin-right: 1.5rem;
+        width: 12.5rem;
+        margin-right: 1rem;
       }
 
       .contact {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         flex-direction: column;
         gap: 0.5rem;
 
         img {
-          width: 2.5em;
-          height: 2.5em;
-          filter: sepia(80%);
+          object-fit: cover;
+          width: 3.5em;
+          height: 3.5em;
 
           &:hover {
-            opacity: 0.5;
+            filter: invert(100%) opacity(60%);
             @include transition-ease;
           }
         }
@@ -86,6 +89,7 @@
     .right {
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
       align-items: left;
 
       .sponsors {
@@ -93,7 +97,6 @@
         gap: 1rem;
 
         img {
-          // width: 100%;
           object-fit: contain;
           max-width: 6rem;
 
@@ -104,14 +107,11 @@
       }
 
       .footer-info {
-        text-align: center;
-
-        div {
-          margin-top: 1rem;
-        }
+        text-align: left;
+        line-height: 1.5;
 
         a:hover {
-          color: $primary;
+          color: rgba($primary, 0.6);
           @include transition-ease;
         }
       }

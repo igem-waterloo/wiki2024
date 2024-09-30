@@ -32,12 +32,17 @@ $accent-4: rgb(165, 149, 123);
 // $accent-3: #129d78;
 // $accent-4: #57c765;
 
-$accent-gradient: linear-gradient(
+$accent-gradient-1: linear-gradient(
   45deg,
-  rgba($accent-1, 0.5),
-  rgba($accent-2, 0.5) 30%,
-  rgba($accent-3, 0.5) 60%,
-  $primary 60%
+  rgba($accent-1, 0.8), 50%,
+  rgba($accent-2, 0.6) 40%
+);
+
+$accent-gradient-2: linear-gradient(
+  45deg,
+  rgba($accent-3, 0.5),
+  rgba($accent-4, 0.5) 30%,
+  rgba($primary, 0.5) 60%
 );
 
 
