@@ -1,5 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
 import HomeLayout from '../layouts/HomeLayout.astro';
 ---
 
@@ -64,28 +63,32 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				alt="Waterloo iGEM Logo"
 			/>
 			<h3>Waterloo iGEM Presents...</h3>
-			<h1 transition:animate="fade">BovEco</h1>
+			<h1>BovEco</h1>
 			<h2>
-				Fighting <span>climate change</span>, one cow at a <span>time!</span>
+				Fighting <span>climate change</span>, one <span style="color: black"
+					>cow</span
+				> at a <span>time!</span>
 			</h2>
 		</div>
 		<div class="stat1">
 			<div class="num"></div>
 			<div class="text">
 				That's the proportion of agricultural <span>methane</span>
-				emissions released by ruminants.
+				emissions released by <span>ruminants</span>.
 			</div>
 		</div>
 		<div class="stat2">
-			<span>
-				<b>One</b> cow produces over <b>100</b> kg of methane a year...
-			</span>
+			<div>
+				<span class="cow-num">One</span>
+				cow produces over
+				<span class="methane">100 kg of methane</span> a year...
+			</div>
 			<img src="img/cows/burping-cow.gif" alt="Burping Cow" />
-			<img src="img/cliff-edge.png" alt="Cliff Edge" />
-			<img src="img/cliff-column.png" alt="Cliff Column" />
-			<span>
-				...now imagine close to <br /><b>1.5 billion</b> cows globally.
-			</span>
+			<img src="img/environment/cliff-edge.png" alt="Cliff Edge" />
+			<!-- <img src="img/cliff-column.png" alt="Cliff Column" /> -->
+			<div>
+				...now imagine close to <span class="cow-num">1.5 billion</span> cows globally.
+			</div>
 		</div>
 		<div class="stat3">
 			that is
@@ -157,11 +160,19 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			h2 {
 				font-size: 2.25rem;
 
-				span:nth-of-type(1) {
-					color: $accent-4;
-				}
-				span:nth-of-type(2) {
-					box-shadow: 25px 15px 1px $accent-1;
+				span {
+					&:nth-of-type(1) {
+						color: $accent-4;
+					}
+
+					&:nth-of-type(2) {
+						opacity: 0.8;
+						text-shadow: 2.5px 2.5px 0 $primary;
+					}
+
+					&:nth-of-type(3) {
+						box-shadow: 25px 15px 1px $accent-1;
+					}
 				}
 			}
 
@@ -174,10 +185,9 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: 3rem;
-			font-weight: bold;
 			background: $accent-1;
 			color: $primary;
+			padding: 3rem;
 			margin-top: 30rem;
 
 			.num {
@@ -190,7 +200,13 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				font-size: 3rem;
 
 				span {
-					color: $accent-3;
+					&:nth-of-type(1) {
+						color: $accent-3;
+					}
+
+					&:nth-of-type(2) {
+						color: $secondary;
+					}
 				}
 			}
 		}
@@ -198,44 +214,67 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		.stat2 {
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
-			font-size: 4rem;
+			font-size: 5rem;
 			margin-top: 30rem;
 
-			span {
-				width: 50%;
-				margin-top: 5rem;
+			div {
+				width: 60%;
+				margin-top: 8rem;
 				margin-left: 5rem;
+				animation: bounce-around 2s ease infinite;
+
+				@keyframes bounce-around {
+					100% {
+						transform: translateY(0);
+					}
+					40% {
+						transform: translateY(-10px);
+					}
+					60% {
+						transform: translateY(-5px);
+					}
+				}
+
 				&:nth-of-type(2) {
-					margin-top: 2rem;
+					margin-top: 3rem;
+				}
+
+				.cow-num {
+					color: rgba($secondary, 0.6);
+					text-shadow: 5px 5px 0 $primary;
+				}
+
+				.methane {
+					color: rgba($accent-4, 0.8);
+					text-shadow: 5px 5px 0 $accent-3;
 				}
 			}
 
 			img {
-				position: relative;
+				// position: relative;
 				&:nth-of-type(1) {
 					width: 35rem;
+					filter: sepia(50%);
 					margin-top: 5rem;
 					position: absolute;
 					right: 0;
 				}
 				&:nth-of-type(2) {
-					// width: 80%;
+					width: 20rem;
 					opacity: 0.9;
 					margin-top: 15rem;
-					z-index: -5;
 					position: absolute;
 					right: 0;
+					z-index: -5;
 				}
 
-				&:nth-of-type(3) {
-					// width: 80%;
-					opacity: 0.9;
-					margin-top: 41rem;
-					z-index: -5;
-					position: absolute;
-					right: -3rem;
-				}
+				// &:nth-of-type(3) {
+				// 	opacity: 0.9;
+				// 	margin-top: 41rem;
+				// 	z-index: -5;
+				// 	position: absolute;
+				// 	right: -3rem;
+				// }
 			}
 		}
 
