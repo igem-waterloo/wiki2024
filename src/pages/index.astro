@@ -18,29 +18,29 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		let counter = setInterval(() => {
 			startValue += increment;
 			numElement.textContent = numElement.closest('.stat1')
-				? `${startValue.toFixed(0)}%.`
-				: startValue.toFixed(1);
+				? `${startValue.toFixed(0)}%.` // 0 decimal places for stat1 num
+				: startValue.toFixed(1); // 1 decimal place for stat3 num
 			if (startValue >= endValue) clearInterval(counter);
 		}, duration);
 	};
 
 	const observerStat1 = new IntersectionObserver(
 		entries => {
-			const entry = entries[0]; // access the first (and only) entry directly
+			const entry = entries[0]; // only one entry (stat1 num)
 			if (entry.isIntersecting) {
 				animateNumber(stat1Num as HTMLElement, 0, 73, 1);
 				observerStat1.unobserve(entry.target); // stop observing after animation starts
 			}
 		},
 		{
-			threshold: 1, // animation starts once 100% of element's visible
-			rootMargin: '50px', // animation starts 50px before element's visible
+			threshold: 1, // starts once 100% visible
+			rootMargin: '50px', // starts 50px before initially visible
 		},
 	);
 
 	const observerStat3 = new IntersectionObserver(
 		entries => {
-			const entry = entries[0];
+			const entry = entries[0]; // only one entry (stat3 num)
 			if (entry.isIntersecting) {
 				animateNumber(stat3Num as HTMLElement, 0, 73.5, 3.5);
 				observerStat3.unobserve(entry.target);
@@ -57,7 +57,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 </script>
 
 <HomeLayout title="BovEco - iGEM 2024">
-	<ViewTransitions />
 	<main>
 		<div class="welcome-text">
 			<img
