@@ -7,7 +7,7 @@
 </script>
 
 <nav>
-  <img class="logo" src="img/logo.png" />
+  <img class="logo" src="img/logo-2.png" />
   <div class="navlinks">
     {
       // Section dropdowns
@@ -64,12 +64,12 @@
     .logo {
       width: 8rem;
       margin-left: 1.5em;
-      filter: hue-rotate(20deg) sepia(50%) opacity(99%);
+      filter: hue-rotate(20deg) saturate(100%) opacity(99%);
       z-index: 50;
       cursor: pointer;
 
       &:hover {
-        filter: hue-rotate(45deg) sepia(60%);
+        filter: hue-rotate(45deg) saturate(120%);
         @include transition-ease;
       }
     }
