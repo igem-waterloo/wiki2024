@@ -108,33 +108,48 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 		</div>
 		<div class="fact2">
 			<div>
-				<span>Methane emissions</span> drive serious environmental issues:
+				<span class="methane">Methane emissions</span> drive serious environmental
+				issues:
 			</div>
 			<img src="img/thermometer.gif" alt="Animated Thermometer" />
 			<div>
-				accelerating global temperatures, degrading air quality, and threatening
-				crop growth--all of which impact human and <span>animal</span> health.
+				accelerating <span class="methane">global temperatures</span>, degrading
+				<span class="methane">air quality</span>, and threatening crop
+				growth—all of which impact human and <span class="animal">animal</span>
+				health.
 			</div>
 		</div>
 		<div class="fact3">
-			Addressing these CH4 issues is crucial for a healthier planet.
-		</div>
-		<div class="rationale">
-			<div>So why tackle CH4?</div>
-			<img src="" alt="" />
+			<img src="img/environment/growing-algae.gif" alt="Growing Algae" />
 			<div>
-				Methane has a shorter atmospheric life of 7-12 years compared to other
-				long-lasting GHGs.
+				Addressing these <span>CH<sub>4</sub></span> issues is crucial for a healthier
+				planet.
+			</div>
+			<img src="img/environment/growing-algae.gif" alt="Growing Algae" />
+		</div>
+		<div class="stat4">
+			<h4>Why tackle it now, though?</h4>
+			<div class="img-wrapper">
+				<img src="img/stopwatch.gif" alt="Stopwatch" />
+				<img src="img/stopwatch.gif" alt="Stopwatch" />
+				<img src="img/stopwatch.gif" alt="Stopwatch" />
 			</div>
 			<div>
-				Reducing methane emissions can lead to quicker reductions in global
-				warming and atmospheric GHG levels.
+				<span>Methane</span> has a shorter atmospheric life of 7-12 years compared
+				to other long-lasting <span>GHGs</span>.
+			</div>
+			<div>
+				Reducing <span>methane emissions </span> NOW can lead to quicker reductions
+				in
+				<span>global warming</span> and atm. <span>GHG</span> levels.
 			</div>
 		</div>
-		<div class="proposal">
-			<div>So what if...</div>
-			<div>GMO plants used to feed cows could be modified to</div>
-			<div>solve methane problem?</div>
+		<div class="what-if">
+			<h4>So what if...</h4>
+			<div class="text1">
+				GMO plants used to feed <span>cows</span> could be modified to
+			</div>
+			<div class="text2">solve the methane problem <span>?</span></div>
 		</div>
 		<div class="bottom">
 			<!-- <img src="img/ocean.png" alt="" /> -->
@@ -236,18 +251,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				// z-index: 5;
 				animation: bounce-around 2s ease infinite;
 
-				@keyframes bounce-around {
-					100% {
-						transform: translateY(0);
-					}
-					40% {
-						transform: translateY(-10px);
-					}
-					60% {
-						transform: translateY(-5px);
-					}
-				}
-
 				&:nth-of-type(2) {
 					margin-top: 3rem;
 				}
@@ -330,7 +333,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			position: relative;
 
 			div {
-				background: $accent-1;
+				background: $accent-4;
 				padding: 2rem;
 				animation: bounce-around 2s ease infinite;
 				&:nth-of-type(1) {
@@ -355,57 +358,144 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			line-height: 1;
 			font-size: 3rem;
-			background: $accent-1;
-			color: $accent-3;
+			background: $accent-2;
+			color: $primary;
 			padding: 3rem 0;
 			margin-top: 30rem;
 
 			img {
 				filter: sepia(80%);
-				margin-bottom: 2rem;
+				box-shadow: 1px 1px 20px $accent-3;
+				margin: 3rem 0;
 			}
 
 			div {
 				width: 70%;
 				text-align: center;
 				margin-bottom: 1rem;
+
+				.methane {
+					color: $accent-3;
+				}
+				.animal {
+					color: $secondary;
+				}
 			}
 		}
 
 		.fact3 {
-			display: flex;
-			align-items: center;
-			font-size: 3rem;
-			background: $accent-1;
-			color: $primary;
-			padding: 3rem;
 			margin-top: 30rem;
-		}
 
-		.rationale {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			font-size: 3rem;
-			margin-top: 30rem;
+			img {
+				width: 20rem;
+				filter: saturate(120%) brightness(120%);
+
+				&:nth-of-type(1) {
+					transform: rotate(-90deg);
+					position: absolute;
+					right: -1rem;
+					margin-left: 2rem;
+				}
+
+				&:nth-of-type(2) {
+					position: absolute;
+					left: -1rem;
+					transform: rotate(90deg);
+				}
+			}
 
 			div {
-				margin-bottom: 1rem;
+				width: 70%;
+				font-size: 5rem;
+				// background: $accent-1;
+				color: $secondary;
+				padding: 1rem;
+				margin: 4rem;
+				animation: bounce-around 2s ease infinite;
+
+				span {
+					color: $accent-3;
+					text-shadow: 5px 5px 0 $accent-4;
+				}
 			}
 		}
 
-		.proposal {
+		.stat4 {
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			align-items: end;
+			text-align: right;
+			line-height: 1.25;
 			font-size: 3rem;
-			margin-top: 30rem;
+			background: $accent-2;
+			color: $primary;
+			padding: 3rem;
+			margin-top: 50rem;
+
+			h4 {
+				font-size: 5rem;
+			}
+
+			.img-wrapper {
+				display: flex;
+				justify-content: flex-end;
+				gap: 1rem;
+				margin: 2rem 0;
+
+				img {
+					width: 20rem;
+					filter: sepia(80%);
+					right: 0;
+				}
+			}
 
 			div {
 				margin-bottom: 1rem;
+
+				span {
+					color: $accent-3;
+				}
+			}
+		}
+
+		.what-if {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 2rem;
+			font-size: 3rem;
+			margin-top: 30rem;
+			margin-left: 4rem;
+			animation: bounce-around 2s ease infinite;
+
+			h4 {
+				font-size: 10rem;
+				text-shadow: 5px 5px 0 $accent-3;
+				color: $primary;
+			}
+
+			.text1 {
+				font-size: 6rem;
+				color: $accent-1;
+
+				span {
+					color: $secondary;
+					text-shadow: 2.5px 2.5px 0 $primary;
+				}
+			}
+
+			.text2 {
+				font-size: 8rem;
+				color: $accent-4;
+
+				span {
+					font-size: 15rem;
+					text-shadow: 5px 5px 0 $accent-3;
+					margin-left: 2rem;
+					position: absolute;
+				}
 			}
 		}
 
@@ -414,6 +504,18 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			justify-content: center;
 			align-items: center;
 			margin-top: 30rem;
+		}
+
+		@keyframes bounce-around {
+			100% {
+				transform: translateY(0);
+			}
+			40% {
+				transform: translateY(-10px);
+			}
+			60% {
+				transform: translateY(-5px);
+			}
 		}
 	}
 </style>
