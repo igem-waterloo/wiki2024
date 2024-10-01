@@ -1,6 +1,9 @@
 # build output
 public/
 
+# static files
+assets/
+
 # generated types
 .astro/
 
