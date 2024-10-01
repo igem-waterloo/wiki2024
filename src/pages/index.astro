@@ -80,7 +80,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<div class="num"></div>
 			<div class="text">
 				That's the proportion of agricultural <span>methane</span>
-				emissions released by <span>ruminants</span>.
+				emissions released by <span>ruminants</span> [1].
 			</div>
 		</div>
 		<div class="stat2">
@@ -92,7 +92,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<img src="img/cows/burping-cow.gif" alt="Burping Cow" />
 			<img src="img/environment/cliff-edge.png" alt="Cliff Edge" />
 			<div>
-				...now imagine close to <span class="cow-num">1.5 billion</span> cows globally.
+				...now imagine close to <span class="cow-num">1.5 billion</span> cows globally
+				[2].
 			</div>
 		</div>
 		<div class="stat3">
@@ -101,7 +102,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<div class="text">
 				<span>million</span> metric tons of
 				<span>enteric methane</span> produced by
-				<span>cattle</span>—globally.
+				<span>cattle</span>—globally [3].
 			</div>
 		</div>
 		<div class="fact1">
@@ -141,7 +142,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			</div>
 			<div>
 				<span>Methane</span> has a shorter atmospheric life of 7-12 years compared
-				to other long-lasting <span>GHGs</span>.
+				to other long-lasting <span>GHGs</span> [4].
 			</div>
 			<div>
 				Reducing <span>methane emissions </span> now can lead to quicker reductions
@@ -157,25 +158,55 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<button>Learn More</button>
 		</div>
 		<div class="bottom">
-			<iframe
-				title="Waterloo: BovEco (English) (2024) - Project Promotion [English]"
-				width="560"
-				height="315"
-				src="https://video.igem.org/videos/embed/e9018998-06ef-4fa8-942a-1e224e8f3c82"
-				frameborder="0"
-				allowfullscreen=""
-				sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-			></iframe>
-			<iframe
-				title="Waterloo: BovEco (French) (2024) - Project Promotion [French]"
-				width="560"
-				height="315"
-				src="https://video.igem.org/videos/embed/12d3d180-10f4-4357-83f1-6ea34b6c82b6"
-				frameborder="0"
-				allowfullscreen=""
-				sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-			></iframe>
+			<div class="iframe-wrapper">
+				<iframe
+					title="Waterloo: BovEco (English) (2024) - Project Promotion [English]"
+					width="560"
+					height="315"
+					src="https://video.igem.org/videos/embed/e9018998-06ef-4fa8-942a-1e224e8f3c82"
+					frameborder="0"
+					allowfullscreen=""
+					sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+				></iframe>
+				<iframe
+					title="Waterloo: BovEco (French) (2024) - Project Promotion [French]"
+					width="560"
+					height="315"
+					src="https://video.igem.org/videos/embed/12d3d180-10f4-4357-83f1-6ea34b6c82b6"
+					frameborder="0"
+					allowfullscreen=""
+					sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+				></iframe>
+			</div>
 			<!-- <img src="img/ocean.png" alt="" /> -->
+			<div class="references">
+				<h4>References</h4>
+				<ul>
+					<li>
+						[1] Ian Tiseo. (2023). Global cattle methane emissions 1990-2021.
+						Statista.
+						https://www.statista.com/statistics/1261318/cattle-methane-emissions-worldwide/#:~:text=Methane%20emissions%20produced%20by%20cattle%20worldwide%201990%2D2021&
+						text=Global%20methane%20(CH4)%20emissions%20produced,since%20the%20turn%20of%20century.
+						<br />%20Earth%20+%20Rising%20temperature
+					</li>
+					<li>
+						[2] Agricultural Canada and Agri-Food Canada. (2019). Government of
+						Canada. Reducing methane emissions from livestock.
+						https://agriculture.canada.ca/en/science/story-agricultural-science/scientific-achievements-agriculture/reducing-methane-emissions-livestock
+					</li>
+					<li>
+						[3] Tseten, T., Sanjorjo, R. A., Kwon, M., & Kim, S. W. (2022).
+						Strategies to Mitigate Enteric Methane Emissions from Ruminant
+						Animals. Journal of microbiology and biotechnology, 32(3), 269–277.
+						https://doi.org/10.4014/jmb.2202.02019
+					</li>
+					<li>
+						[4] International Energy Agency (2022). Methane and climate change –
+						global methane tracker 2022 – analysis. IEA.
+						https://www.iea.org/reports/global-methane-tracker-2022/methane-and-climate-change
+					</li>
+				</ul>
+			</div>
 		</div>
 	</main>
 </HomeLayout>
@@ -481,6 +512,18 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 		}
 
+		@keyframes bounce-around {
+			100% {
+				transform: translateY(0);
+			}
+			40% {
+				transform: translateY(-10px);
+			}
+			60% {
+				transform: translateY(-5px);
+			}
+		}
+
 		.what-if {
 			display: flex;
 			flex-direction: column;
@@ -543,24 +586,92 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 		.bottom {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			position: relative;
 
-			iframe {
-				margin: 5rem 1rem;
-			}
-		}
+			.iframe-wrapper {
+				display: flex;
+				align-items: center;
+				gap: 2rem;
 
-		@keyframes bounce-around {
-			100% {
-				transform: translateY(0);
+				iframe {
+					margin: 5rem 1rem;
+				}
 			}
-			40% {
-				transform: translateY(-10px);
+
+			.references {
+				width: 100%;
+				// height: 300vh !important;
+				background: linear-gradient(to bottom, #005a9c, #001f4d);
+				color: $primary;
+				opacity: 0.7;
+				padding: 2rem;
+				clip-path: polygon(
+					0 10px,
+					10% 5px,
+					20% 15px,
+					30% 5px,
+					40% 10px,
+					50% 5px,
+					60% 15px,
+					70% 5px,
+					80% 10px,
+					90% 5px,
+					100% 10px,
+					100% 100%,
+					0 100%
+				);
+
+				h4 {
+					font-size: 5rem;
+					color: #fff;
+					text-align: center;
+					text-shadow: 2px 2px 0 rgba(0, 0, 50, 0.6);
+					margin-top: 2rem;
+				}
+
+				ul {
+					width: 70%;
+					font-size: 1.25rem;
+					list-style-type: none;
+					padding: 1rem;
+					color: rgba(255, 255, 255, 0.9);
+					line-height: 1.5;
+					text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+					li {
+						margin: 1rem 0;
+						position: relative;
+						padding-left: 1rem;
+
+						&::before {
+							content: '•';
+							font-size: 2.5rem;
+							color: rgba(255, 255, 255, 0.5);
+							position: absolute;
+							top: -1rem;
+							left: -1rem;
+							animation: move-bubble 3s ease-in-out infinite;
+						}
+					}
+				}
 			}
-			60% {
-				transform: translateY(-5px);
+
+			@keyframes move-bubble {
+				0% {
+					transform: translateY(0);
+					opacity: 0.7;
+				}
+				50% {
+					transform: translateY(-10px);
+					opacity: 1;
+				}
+				100% {
+					transform: translateY(0);
+					opacity: 0.7;
+				}
 			}
 		}
 	}
