@@ -1,0 +1,85 @@
+<script>
+  document.addEventListener('scroll', () => {
+    const sunWrapper = document.querySelector('.sun-wrapper');
+    const sun = document.querySelector('.sun');
+    const references = document.querySelector('.references');
+    const referencesTop = references
+      ? references.getBoundingClientRect().top + window.scrollY
+      : 0; // get the top of the references section
+
+    const scrollPosition =
+      window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    const stopScrollPosition = 0.8; // stops moving after 80% of the page
+    const movementRange = 100; // max. distance sun moves horizontally
+    let horizontalPosition = 0;
+
+    // Stop sun movement when references section is in view
+    if (window.scrollY + window.innerHeight < referencesTop) {
+      if (scrollPosition <= stopScrollPosition) {
+        if (scrollPosition <= 0.5) {
+          // Before 50% of the page (left -> right)
+          horizontalPosition = scrollPosition * 2 * movementRange;
+        } else {
+          // After 50% of the page (right -> left -> center)
+          horizontalPosition =
+            movementRange - (scrollPosition - 0.5) * 2 * movementRange;
+        }
+        (sunWrapper as HTMLElement).style.position = 'fixed';
+        (sunWrapper as HTMLElement).style.top = '50%';
+      } else {
+        // After 80% of the page
+        horizontalPosition = 50; // center horizontally
+        (sunWrapper as HTMLElement).style.position = 'absolute';
+        (sunWrapper as HTMLElement).style.top =
+          `${window.scrollY + window.innerHeight * 0.5}px`; // keep in place relative to sscroll
+      }
+    } else {
+      // After references section
+      (sunWrapper as HTMLElement).style.position = 'absolute';
+      (sunWrapper as HTMLElement).style.top =
+        `${referencesTop - (sun as HTMLElement).offsetHeight * 0.5}px`; // fix in place
+      horizontalPosition = 50; // center horizontally
+    }
+
+    (sunWrapper as HTMLElement).style.right = `${horizontalPosition}%`;
+
+    // Adjust sun size based on scroll position
+    const minSize = 100; // Starting size in pixels
+    const maxSize = 1000; // Maximum size in pixels
+    let newSize;
+
+    if (scrollPosition <= stopScrollPosition) {
+      newSize = minSize + scrollPosition * (maxSize - minSize); // Gradually increase size
+    } else {
+      newSize = maxSize; // Fix size after 80% scroll
+    }
+
+    (sun as HTMLElement).style.width = `${newSize}px`;
+    (sun as HTMLElement).style.height = `${newSize}px`;
+  });
+</script>
+
+<div class="sun-wrapper">
+  <div class="sun"></div>
+</div>
+
+<style lang="scss">
+  @import '../global.scss';
+
+  .sun-wrapper {
+    position: fixed; // initially
+    top: 50%;
+    z-index: -100;
+    transition: right 0.1s ease-out;
+  }
+
+  .sun {
+    background-color: rgba(231, 205, 8, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(239, 201, 12, 0.8);
+    position: absolute;
+    transition:
+      width 0.3s ease-out,
+      height 0.3s ease-out;
+  }
+</style>
