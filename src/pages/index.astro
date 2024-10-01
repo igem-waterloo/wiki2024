@@ -108,7 +108,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<div>As the global population increases,</div>
 			<div>
 				so will the demand for <span>beef</span> and <span>dairy</span>
-				products.
+				products!
 			</div>
 		</div>
 		<div class="fact2">
@@ -120,20 +120,20 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			<div>
 				accelerating <span class="methane">global temperatures</span>, degrading
 				<span class="methane">air quality</span>, and threatening crop
-				growth—all of which impact human and <span class="animal">animal</span>
-				health.
+				growth—ultimately harming human and <span class="animal">animal</span>
+				health alike.
 			</div>
 		</div>
 		<div class="fact3">
 			<img src="img/environment/growing-algae.gif" alt="Growing Algae" />
 			<div>
-				Addressing these <span>CH<sub>4</sub></span> issues is crucial for a healthier
-				planet.
+				Tackling these <span>CH<sub>4</sub></span> issues is essential for a healthier
+				<span>planet</span>.
 			</div>
 			<img src="img/environment/growing-algae.gif" alt="Growing Algae" />
 		</div>
 		<div class="stat4">
-			<h4>Why tackle it now, though?</h4>
+			<h4>Why now, though?</h4>
 			<div class="img-wrapper">
 				<img src="img/stopwatch.gif" alt="Stopwatch" />
 				<img src="img/stopwatch.gif" alt="Stopwatch" />
@@ -144,12 +144,12 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				to other long-lasting <span>GHGs</span> [4].
 			</div>
 			<div>
-				Reducing <span>methane emissions </span> now can lead to quicker reductions
+				Cutting <span>methane emissions </span> now can lead to quicker reductions
 				in <span>global warming</span> and atm. <span>GHG</span> levels.
 			</div>
 		</div>
 		<div class="what-if">
-			<h4>So what if...</h4>
+			<h4>Now what if...</h4>
 			<div class="text1">
 				GMO plants used to feed <span>cows</span> could be modified to
 			</div>
@@ -328,7 +328,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 					margin-top: 15rem;
 					position: absolute;
 					right: 0;
-					clip-path: inset(0 0 48% 0);
+					clip-path: inset(0 0 44% 0);
 				}
 			}
 		}
@@ -338,7 +338,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
-			font-size: 2.5rem;
+			font-size: 3rem;
 			margin-top: 20rem;
 
 			.num {
@@ -350,7 +350,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			.text {
-				width: 50%;
+				width: 60%;
 				line-height: 1.25;
 
 				span {
@@ -454,7 +454,8 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 			}
 
 			div {
-				width: 70%;
+				width: 60%;
+				line-height: 1;
 				font-size: 5rem;
 				color: $secondary;
 				padding: 1rem;
@@ -462,8 +463,14 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 				animation: bounce-around 2s ease infinite;
 
 				span {
-					color: $accent-3;
-					text-shadow: 5px 5px 0 $accent-4;
+					&:nth-of-type(1) {
+						color: $accent-3;
+						text-shadow: 5px 5px 0 $accent-4;
+					}
+
+					&:nth-of-type(2) {
+						color: $accent-2;
+					}
 				}
 			}
 		}
