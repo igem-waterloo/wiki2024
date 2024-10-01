@@ -1,37 +1,48 @@
 ---
 import TeamLayout from '../layouts/TeamLayout.astro';
 import MemberProfile from '../components/MemberProfile.astro';
-import Card from '../components/Card.astro';
 ---
 
 <TeamLayout title="Members | BovEco - iGEM 2024">
 	<main>
 		<section class="hero">
-			<div class="left">
-				<h1>MEET THE TEAM!</h1>
-				<div class="cloud">
-					<img src="img/clouds/cloud5.png" alt="Big Cloud" />
-					<div class="jump">
-						<a href="#lnd">Lab & Design</a>
-						<a href="#mnm">Math & Modelling</a>
-						<a href="#hp">Human Practices</a>
-					</div>
-				</div>
+			<h1>MEET THE TEAM!</h1>
+			<iframe
+				title="Waterloo: Team Pictures (2024)"
+				width="560"
+				height="315"
+				src="https://video.igem.org/videos/embed/fec72963-4abe-48a0-b360-05353de818d9"
+				sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+			>
+			</iframe>
+		</section>
+		<section class="members-container">
+			<h2>Lab & Design</h2>
+			<div id="lnd">
+				<MemberProfile name="aadila-zakir-hussain" />
+				<MemberProfile name="alex-d-souza" />
+				<MemberProfile name="athena-chong" />
+				<MemberProfile name="ayana-pak" />
+				<MemberProfile name="bethany-chan" />
+				<MemberProfile name="curtis-yeung" />
+				<MemberProfile name="douglas-moulton" />
+				<MemberProfile name="emma-llewellyn" />
+				<MemberProfile name="felix-tham" />
+				<MemberProfile name="hannah-tao" />
+				<MemberProfile name="lauren-robinson" />
+				<MemberProfile name="milena-gojsevic" />
+				<MemberProfile name="noura-abdelrazec" />
+				<MemberProfile name="rhyan-mclean" />
+				<MemberProfile name="stefan-grinchenko" />
+				<MemberProfile name="timea-siket" />
+				<MemberProfile name="yusra-pervez" />
 			</div>
-			<div class="right">hi lol</div>
-		</section>
-		<img id="walking-cow" src="img/cows/walking-cow.gif" alt="" />
-		<section id="lnd">
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
-		</section>
-		<section id="mnm">
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
-		</section>
-		<section id="hp">
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
-			<MemberProfile sillyPic="yash" name="Yash" profPic="yash" />
+			<h2>Math & Modelling</h2>
+			<div id="mnm">
+				<MemberProfile name="alexandra-chen" />
+			</div>
+			<h2>Human Practices</h2>
+			<div id="hp"></div>
 		</section>
 	</main>
 </TeamLayout>
@@ -42,61 +53,33 @@ import Card from '../components/Card.astro';
 	main {
 		.hero {
 			display: flex;
-			gap: 5rem;
-			margin-top: 5rem;
-			.left {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
+			justify-content: center;
+			align-items: center;
+			gap: 3rem;
 
-				h1 {
-					font-size: 3rem;
-				}
-
-				.cloud {
-					width: 100%;
-					position: relative;
-
-					img {
-						width: 100rem;
-						position: absolute;
-					}
-					.jump {
-						display: flex;
-						flex-direction: column;
-						gap: 1rem;
-						// position: absolute;
-						a {
-							font-size: 1.5rem;
-							color: white;
-							@include transition-ease;
-							&:hover {
-								color: darkgreen;
-							}
-						}
-					}
-				}
-				img {
-				}
-			}
-
-			.right {
-				width: 100%;
-				background: darkgreen;
+			h1 {
+				font-size: 5rem;
 			}
 		}
+	}
 
-		#walking-cow {
-			width: 10rem;
-			animation: move-across-screen 80s linear infinite;
-		}
+	.members-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 3rem;
+		padding: 3rem;
 
-		@keyframes move-across-screen {
-			0% {
-				transform: translateX(100vw);
+		h2 {
+			font-size: 3rem;
+			&:nth-of-type(1) {
+				color: $lnd;
 			}
-			100% {
-				transform: translateX(-100vw);
+			&:nth-of-type(2) {
+				color: $mnm;
+			}
+			&:nth-of-type(3) {
+				color: $hp;
 			}
 		}
 
@@ -104,6 +87,7 @@ import Card from '../components/Card.astro';
 			display: flex;
 			flex-wrap: wrap;
 			gap: 3rem;
+			padding: 3rem;
 			background: lightblue;
 		}
 
