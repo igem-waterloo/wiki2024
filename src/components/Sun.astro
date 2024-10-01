@@ -43,16 +43,14 @@
 
     (sunWrapper as HTMLElement).style.right = `${horizontalPosition}%`;
 
-    // Adjust sun size based on scroll position
-    const minSize = 100; // Starting size in pixels
-    const maxSize = 1000; // Maximum size in pixels
+    // Adjust size based on scroll position
+    const initialSize = 100;
+    const finalSize = 1000;
     let newSize;
 
     if (scrollPosition <= stopScrollPosition) {
-      newSize = minSize + scrollPosition * (maxSize - minSize); // Gradually increase size
-    } else {
-      newSize = maxSize; // Fix size after 80% scroll
-    }
+      newSize = initialSize + scrollPosition * (finalSize - initialSize); // gradually increase
+    } else newSize = finalSize; // fix size after 80% scroll
 
     (sun as HTMLElement).style.width = `${newSize}px`;
     (sun as HTMLElement).style.height = `${newSize}px`;
