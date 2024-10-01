@@ -49,7 +49,6 @@
 
   footer {
     display: flex;
-    justify-content: space-around;
     padding: 0.5rem 2rem;
     background: $accent-gradient-1;
     font-size: 0.8rem;
@@ -59,11 +58,10 @@
     .left {
       display: flex;
       align-items: center;
-      margin-right: 1.5rem;
 
       img {
-        width: 12.5rem;
-        margin-right: 1rem;
+        width: 10rem;
+        margin-right: 2rem;
       }
 
       .contact {
@@ -73,13 +71,19 @@
         gap: 0.5rem;
 
         img {
-          object-fit: cover;
-          width: 3.5em;
-          height: 3.5em;
+          object-fit: contain;
+          width: 3rem;
+          height: 3rem;
 
           &:hover {
             filter: invert(100%) opacity(80%);
             @include transition-ease;
+          }
+        }
+
+        @media only screen and (max-width: 1279px) {
+          & {
+            grid-template-columns: auto;
           }
         }
       }
@@ -90,9 +94,12 @@
       flex-direction: column;
       justify-content: space-around;
       align-items: left;
+      width: 100%;
+      margin-left: 5rem;
 
       .sponsors {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
 
         img {
