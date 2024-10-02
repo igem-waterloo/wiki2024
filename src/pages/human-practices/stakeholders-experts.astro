@@ -1,0 +1,28 @@
+---
+import HPLayout from '../../layouts/HumanPracticesLayout.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
+import Dropdown from '../../components/Dropdown.astro';
+---
+
+<HPLayout title="Stakeholders & Experts | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="STAKEHOLDERS & EXPERTS" layout="hp" />
+    <Dropdown heading="Meeting with a Cattle Farmer">
+      <p>
+        We met with a local cattle farmer to understand the current outlook of
+        Ontario cattle farmers and get their take on current practices and
+        sustainable farming.
+      </p>
+    </Dropdown>
+  </main>
+</HPLayout>
+
+<style lang="scss">
+  @import '../../global.scss';
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
