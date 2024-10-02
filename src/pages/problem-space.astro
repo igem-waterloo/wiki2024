@@ -158,7 +158,7 @@ import Card from '../components/Card.astro';
       </p>
     </Card>
     <Card heading="References" layout="hp">
-      <ol style="margin: 0 1rem;">
+      <ol>
         <li>
           NASA. (2024). <em>Methane</em>. NASA.
           https://climate.nasa.gov/vital-signs/methane/?intent=121#:~:text=The%20concentration%20of%20methane%20in,(which%20began%20in%201750).
@@ -227,5 +227,10 @@ import Card from '../components/Card.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    ol {
+      padding-left: 1rem;
+      margin: 0 1rem;
+    }
   }
 </style>
