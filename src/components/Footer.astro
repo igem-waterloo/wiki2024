@@ -115,10 +115,10 @@
           object-fit: contain;
           width: 3rem;
           height: 3rem;
+          @include transition-ease;
 
           &:hover {
             filter: invert(100%) opacity(80%);
-            @include transition-ease;
           }
         }
 
