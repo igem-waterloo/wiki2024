@@ -14,14 +14,14 @@ else if (layout === 'mnm')
 else bkgdColor = 'rgb(99, 183, 144);'; // $hp
 ---
 
-<div>
+<div id="hero-banner">
   <h1>{title}</h1>
 </div>
 
 <style lang="scss" define:vars={{ bkgdColor: bkgdColor }}>
   @import '../global.scss';
 
-  div {
+  #hero-banner {
     display: flex;
     justify-content: center;
     align-items: center;
