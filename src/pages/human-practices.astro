@@ -73,12 +73,19 @@ import Card from '../components/Card.astro';
 			border: none;
 			border-radius: 5px;
 			margin: 1.5rem;
+			box-shadow:
+				2px 2px 0 $secondary,
+				4px 4px 0 $accent-2;
 			cursor: pointer;
 			@include transition-ease;
 
 			&:hover {
 				background-color: ($primary, 0.5);
 				color: $hp;
+			}
+
+			&:active {
+				transform: scale(0.95);
 			}
 		}
 	}

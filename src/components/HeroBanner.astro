@@ -1,10 +1,11 @@
 ---
 interface Props {
   title: string;
+  heading?: string;
   layout: string;
 }
 
-const { title, layout } = Astro.props;
+const { title, heading, layout } = Astro.props;
 
 let bkgdColor = '';
 if (layout === 'lnd')
@@ -16,6 +17,7 @@ else bkgdColor = 'rgb(99, 183, 144);'; // $hp
 
 <div id="hero-banner">
   <h1>{title}</h1>
+  {heading && <h2>{heading}</h2>}
 </div>
 
 <style lang="scss" define:vars={{ bkgdColor: bkgdColor }}>
@@ -33,6 +35,10 @@ else bkgdColor = 'rgb(99, 183, 144);'; // $hp
 
     h1 {
       font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
     }
 
     p {
