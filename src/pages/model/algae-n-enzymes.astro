@@ -1,0 +1,301 @@
+---
+import DLLayout from '../../layouts/DryLabLayout.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
+import Card from '../../components/Card.astro';
+---
+
+<DLLayout title="Algae 'n' Enzymes | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="ALGAE 'N' ENZYMES" layout="mnm" />
+    <Card heading="Algae 'n' Enzymes" subheading="Introduction" layout="mnm">
+      <p>
+        To disrupt the methanogen production in the rumen, the C. vulgaris cell
+        wall must be broken down to release the lytic enzyme. The modeling was
+        split into two parts, where firstly we adopt a thermodynamic model that
+        measures the sugar breakdown of the cell walls, to ensure the lytic
+        enzyme, PeiR, will be released into the cow’s rumen, and secondly,
+        predict its degradation using a Monte Carlo simulation due to the
+        unknown exact cell wall composition.
+      </p>
+      <p>
+        This will allow for modeling of how much C. vulgaris must be fed to the
+        cow to achieve the desired reduction in methanogen, and an estimation of
+        the correct quantity of algae to be fed to the cow to reduce methane
+        emissions.
+      </p>
+      <br />
+      <p>
+        The cow’s rumen is the largest of the four stomachs and facilitates the
+        majority of the fermentation and digestion of food [1]. When feeding
+        cows the genetically modified algae, most of the algae breakdown will
+        occur in the rumen. Not all cell walls are completely broken down while
+        moving through the cow’s digestive system [2]. Depending on the
+        macromolecules that make up the cell walls, the amount that is broken
+        down in the rumen and the rate that this occurs at changes.
+      </p>
+    </Card>
+    <Card heading="Model" layout="mnm">
+      <p>
+        As C. Vulgaris is a cell, when it breaks down, energy will be released
+        in the form of heat. Thermodynamic models can be used instead of the
+        more common kinetic models [10]. This allows for the reactions to be
+        classified by their change in energy instead of change in elements. The
+        paper modeled [5] uses many components to express the change in heat
+        experienced in the rumen, however, only one component was of interest.
+        The glucose component models how the breakdown of glucose can be related
+        to the entire breakdown of the cell wall and serves as the base
+        relationship for the degradation of C.Vulgaris in the rumen.
+      </p>
+      <br />
+      <p>
+        This model was developed using three smaller models that work to
+        demonstrate the degradation over time of the C. vulgaris cell wall. The
+        first input to the overall system involves a thermodynamic model that
+        was used to determine the degrading cell wall composition of C. vulgaris
+        in the rumen, with parameters such as initial concentrations and
+        digestion reaction rates, drawn from literature [5]. The second input of
+        interest involves a stochastic model of macromolecular composition of C.
+        vulgaris cell wall. This was developed using a variety of literature
+        [3][6][7][8] to determine concentration ranges for various
+        monosaccharides found in the cell wall of C. vulgaris (the table is
+        shown under Data Collection). This data was then used to develop a
+        stochastic model of the sugar composition of the C. vulgaris cell wall.
+        The outputs of the thermodynamic and stochastic models discussed were
+        then put through a Monte Carlo simulation to run through all possible
+        glucose concentrations in the cell wall and identify the most likely
+        result. Finally, the average of results was drawn from running the
+        simulation 1000 times; this final result predicts the degradation of the
+        C. vulgaris cell wall.
+      </p>
+      <br />
+      <p>
+        The model was changed to only focus on the percentage of the cell wall
+        that was comprised of glucose as many compartments from the original
+        paper that were not relevant and were removed and the cell wall was
+        multiplied by the percentage that was glucose as that was the only part
+        of interest.
+      </p>
+    </Card>
+    <Card heading="Data Collection" layout="mnm">
+      <p>
+        The initial conditions used in the model came from the thermodynamics
+        paper [5]. Since the exact concentration of glucose in the cell wall is
+        not known, a Monte Carlo simulation was used to run through all possible
+        concentrations and find the most likely outcome. By running the
+        simulation 1000 times, an average can be drawn from the range of
+        possible outcomes. This predicts the degradation of the C. vulgaris cell
+        wall without knowing the exact macromolecular composition.
+      </p>
+      <p>
+        The literature percentage ranges for various monosaccharides found in
+        the cell wall of C. vulgaris can be found in Table 1.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-10.png"
+        alt=""
+      />
+    </Card>
+    <Card heading="Assumptions" layout="mnm">
+      <ul>
+        <li>
+          Although the cell wall of C. vulgaris is made up of many types of
+          sugars including rhamnose, arabinose, galactose and mannose among
+          others, [3]), it is assumed all sugars will eventually be broken down
+          into glucose as it is the simplest building block [4].
+        </li>
+        <li>
+          It was assumed that the breakdown of the cell wall into glucose is
+          proportional to the breakdown of the cell wall into other sugars,
+          leading to the degradation of the entire cell wall.
+        </li>
+        <li>
+          It was assumed that the degradation of C. vulgaris cell wall is
+          directly proportional to the fraction of cells lysed. It was also
+          assumed that a lysed cell immediately releases its PeiR contents.
+          Therefore, it was assumed that the decrease in the percentage of cell
+          wall concentration is directly proportional to the percentage of
+          non-lysed C. vulgaris cells remaining in the rumen.
+        </li>
+        <li>
+          The original model as outlined in the thermodynamics paper [5], used
+          the programming language DYNAMO. One of the functions used in the
+          model is “PULSE”. This was assumed to be a pulse with a duration of 1
+          second and an amplitude of 50/180 that had a period of 1440 seconds.
+          Information for this function was found in the DYNAMO information book
+          [9].
+        </li>
+      </ul>
+    </Card>
+    <Card heading="Method" layout="mnm">
+      <p>
+        A Monte Carlo model was implemented due to the lack of sufficient data
+        regarding the exact composition of the C. vulgaris cell wall. The model
+        takes as its random parameter the percentage composition of glucose in
+        the cell wall. This parameter is generated from a random number
+        generator, which accounts for the entire possible range of cell wall
+        compositions available in literature. These percentages are then
+        normalized before use in the differential equation. The resulting
+        percentage of glucose is then used in the differential equation. 1000
+        iterations are run, with the results then averaged over time to give an
+        average curve. The average curve shows the degradation under the maximum
+        time that feed stays in the rumen - approximately 48 hours. This
+        approach allows for the determination of the expected percentage of C.
+        vulgaris degradation given a known time after ingestion of the feed.
+      </p>
+      <br />
+      <p>
+        Literature shows that feed usually persists in the rumen for a period
+        between 24 and 48 hours [11]. Therefore, a secondary Monte Carlo
+        simulation was performed to determine the average concentration at the
+        average time which the feed stays in the rumen. This secondary
+        simulation however only gives numeric values and not a graphical
+        solution.
+      </p>
+      <br />
+      <p>
+        Given the assumption that the cell wall is composed primarily of
+        cellulose, the reaction rates for cell wall degradation and the
+        corresponding constants were obtained from the thermodynamic model.
+        Given that cellulose is a polysaccharide composed of glucose monomers,
+        it will degrade into glucose in the rumen. The cell wall composition of
+        C. vulgaris was reported in several papers to include significant
+        portions of glucose. The minimum and maximum reported percentages of
+        glucose in the cell wall were used as bounds for the Monte Carlo
+        simulation.
+      </p>
+      <p>
+        The parameters of interest and constants used in the model are shown in
+        Table 2.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-11.png"
+        alt=""
+      />
+      <p>
+        The primary equation for the model is the differential equation
+        representing the inflow and outflow/degradation of the cell wall
+        component (cellulose) in the rumen. The influx is modeled as a pulse
+        function, with parameters of duration, amplitude, and frequency used
+        from the original paper. After the pulse, it was assumed that there is
+        no influx; thus, for the majority of the modeled timeframe, the
+        differential equation simply represents the loss of cell wall
+        concentration as a result of degradation and outflow. The equations used
+        in the model can be found below:
+      </p>
+      <p>
+        dCW/dt =INCW – CWGLU – OUTCW, INCW =PULSE (50/180,1,0,1440), CWGLU =KCW
+        ×CW*GluPer, OUTCW =KOUTCW ×CW
+      </p>
+    </Card>
+    <Card heading="Results" layout="mnm">
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-12.png"
+        alt=""
+      />
+    </Card>
+    <Card heading="Discussion" layout="mnm">
+      <p>
+        The resulting graphs demonstrate a similar exponential decrease as the
+        model in the paper it was based on. Over time, the concentration of
+        sugar decreases within the C. vulgaris cell wall, indicating cell wall
+        lysis. This model supports our goals to reduce methane emissions from
+        ruminant digestion; once the cell wall lyses, PeiR enzyme is released,
+        which decreases the methane emitted as a cause of cattle digestion. It
+        validates the assumption that C.Vulgaris will break down in the rumen
+        and provides a timeline of the breakdown.
+      </p>
+      <br />
+      <p>
+        Future iterations of this model should ideally include the degradation
+        of all sugars in the C. vulgaris cell wall to give a more complete
+        picture of the breakdown time. The assumption that every complex sugar
+        eventually breaks down to glucose is correct; however, without factoring
+        the time taken for each complex sugar to break down into glucose, it is
+        not possible to accurately predict the time it would take for the cell
+        wall to be digested as a whole. Therefore, a future iteration that
+        models the degradation process of every sugar in the cell wall would be
+        beneficial to understanding how each sugar reacts in the rumen
+        individually and the effects that it has on reducing methane emissions.
+      </p>
+      <p>
+        Moreover, the rate of C. vulgaris degradation is likely dependent on the
+        conditions in the rumen, which will be influenced by the type of feed
+        with which the C. vulgaris is consumed. Therefore, another future
+        improvement to the model will allow for a deeper understanding of the
+        effects of feed selection on the effectiveness of the PeiR release.
+      </p>
+      <p>
+        The model supports the solution of using PeiR enzymes released from C.
+        vulgaris cells to disrupt the methane production in cows by proving the
+        degradation of the C. vulgaris cell wall in the rumen. Additionally, the
+        model provides an estimate of how long the degradation process will
+        take. This relationship with time can be used to determine the correct
+        amount to feed cattle in order to achieve the desired methane reduction.
+      </p>
+    </Card>
+    <Card heading="References" layout="mnm">
+      <ol>
+        <li>
+          Holtzapple, M.T., Wu, H., Weimer, P.J., Dalke, R., Granda, C.B., Mai,
+          J., Urgun-Demirtas, M. (2022). Microbial communities for valorizing
+          biomass using the carboxylate platform to produce volatile fatty
+          acids: A review. Bioresource Technology, 344 (B), 126253.
+          https://doi.org/10.1016/j.biortech.2021.126253
+        </li>
+        <li>
+          Wilson, J. R. (1994). Cell wall characteristics in relation to forage
+          digestion by ruminants. The Journal of Agricultural Science, 122(2),
+          173–182. https://doi.org/10.1017/S0021859600087347.
+        </li>
+        <li>
+          Ferreira, A.S., Ferreira, S.S., Correia, A., Vilanova, M., Silva,
+          T.H., Coimbra, M.A., Nunes, C. (2020). Reserve, structural and
+          extracellular polysaccharides of Chlorella vulgaris: A holistic
+          approach. Algal Research, 45, 101757.
+          https://doi.org/10.1016/j.algal.2019.101757
+        </li>
+        <li>
+          Holesh, J.E., Aslam, S., Martin, A. (2023). Physiology, Carbohydrates.
+          StatPearls [Internet] Treasure Island.
+          https://www.ncbi.nlm.nih.gov/books/NBK459280/
+        </li>
+        <li>
+          Picot, A., and Sauvant, D. (2006). Thermodynamic modeling of ruminal
+          fermentations. Animal Research, 55(5).
+          https://doi.org/10.1051/animres:2006021
+        </li>
+        <li>
+          Kapaun, E., and Reisser, W. (1995). A chitin-like glycan in the cell
+          wall of a Chlorella sp. (Chlorococcales, Chlorophyceae). Planta, 197,
+          577-582. https://doi.org/10.1007/BF00191563
+        </li>
+        <li>
+          Takeda, H. (1988). Classification of Chlorella strains by means of the
+          sugar components of the cell wall. Biochemical Systematics and
+          Ecology, 16(4), 367-371. https://doi.org/10.1016/0305-1978(88)90027-0
+        </li>
+        <li>
+          Takeda, H. (1991). Sugar composition of the cell wall and the taxonomy
+          of Chlorella (Chlorophyceae). Journal of Phycology, 27(2), 224-232.
+          https://doi.org/10.1111/j.0022-3646.1991.00224.x
+        </li>
+      </ol>
+    </Card>
+  </main>
+</DLLayout>
+
+<style lang="scss">
+  @import '../../global.scss';
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul,
+    ol {
+      padding-left: 1rem;
+      margin: 0 1rem;
+    }
+  }
+</style>

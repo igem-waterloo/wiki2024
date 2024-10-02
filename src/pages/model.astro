@@ -1,11 +1,82 @@
 ---
-import DryLabLayout from '../layouts/DryLabLayout.astro';
+import DLLayout from '../layouts/DryLabLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
 import Card from '../components/Card.astro';
 ---
 
-<DryLabLayout title="Models | BovEco - iGEM 2024">
+<script>
+	const button1 = document.querySelector('.btn1');
+	const button2 = document.querySelector('.btn2');
+	const button3 = document.querySelector('.btn3');
+
+	document.addEventListener('click', e => {
+		// Handle button click here (instead of <a> tag) to avoid loading screen issues
+		if (e.target === button1)
+			window.location.href = '/waterloo/model/inside-cattle';
+		else if (e.target === button2)
+			window.location.href = '/waterloo/model/outside-cattle';
+		else if (e.target === button3)
+			window.location.href = '/waterloo/model/algae-n-enzymes';
+	});
+</script>
+
+<DLLayout title="Model | BovEco - iGEM 2024">
 	<main>
-		<div></div>
-		<Card title="hi" content="poopity scoop" />
+		<HeroBanner title="MODEL" layout="mnm" />
+		<Card layout="mnm">
+			<p>
+				Our modeling outlined below is structured into three key sections to
+				enhance the predictive power of our bioengineering approach. First,
+				“Inside Cow” investigates the impact of our solution on the metabolites
+				involved in methane production and the complicated rumen microbiome.
+				Second, “Outside cow” uses regression algorithms and machine learning to
+				analyze how variations in cattle feed composition influence methane
+				emissions, aiming to identify microbial biomarkers for targeted methane
+				reduction. Lastly in “Algae n Enzymes,” we model the breakdown of
+				Chlorella vulgaris cell walls from the release of the lytic enzyme PeiR,
+				employing thermodynamic modeling and Monte Carlo simulations. Our
+				modelling approaches attempts to make our bioengineered solution more
+				predictive, and answers key questions that cannot be explained solely by
+				literature reviews and laboratory results.
+			</p>
+		</Card>
+		<button class="btn1">Inside Cattle</button>
+		<button class="btn2">Outside Cattle</button>
+		<button class="btn3">Algae 'n' Enzymes</button>
 	</main>
-</DryLabLayout>
+</DLLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		button {
+			font-family: inherit;
+			font-size: 2rem;
+			background-color: ($accent-1, 0.8);
+			color: $secondary;
+			padding: 0.5em 1em;
+			border: none;
+			border-radius: 5px;
+			margin: 1.5rem;
+			box-shadow:
+				2px 2px 0 $secondary,
+				4px 4px 0 $accent-2;
+			cursor: pointer;
+			@include transition-ease;
+
+			&:hover {
+				background-color: ($primary, 0.5);
+				color: $mnm;
+			}
+
+			&:active {
+				transform: scale(0.95);
+			}
+		}
+	}
+</style>

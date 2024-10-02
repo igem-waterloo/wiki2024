@@ -1,12 +1,113 @@
 ---
-import DryLabLayout from '../layouts/DryLabLayout.astro';
+import DLLayout from '../layouts/DryLabLayout.astro';
 import HeroBanner from '../components/HeroBanner.astro';
 import Card from '../components/Card.astro';
 ---
 
-<DryLabLayout title="Software | BovEco - iGEM 2024">
+<DLLayout title="Software | BovEco - iGEM 2024">
 	<main>
-		<HeroBanner title="Software" />
-		<Card title="hi" content="poopity scoop" />
+		<HeroBanner title="SOFTWARE" layout="mnm" />
+		<Card heading="Software" layout="mnm">
+			<p>
+				The models that performed the best, and so we chose to highlight, were
+				multilayer perceptrons, kernel support vector regressor and both
+				gradient boosting methods. While some of these models were highlighted
+				in existing literature, some were the results of our own exploration.
+				These top-performing models had an R2 score of at least 0.81. While they
+				are standalone models that can be individually used, we developed an
+				interface that brings them together in an easy-to-use methane emission
+				calculator.
+			</p>
+			<p>
+				This methane emission calculator interface allows users to input and
+				customize cattle-specific information to generate daily methane emission
+				predictions using the selected model. Users can also opt to run all the
+				models simultaneously for comparison. In particular, the interface takes
+				feed components and the relative abundance of microbiome organisms as
+				input parameters.
+			</p>
+			<br />
+			<p>
+				Using this methane emission calculator, we can estimate our solution’s
+				effect on cattle. If we know how our solution affects the rumen’s
+				microbiome, we can see how methane emissions would be affected. Outside
+				the scope of BovEco, this calculator can simply be used by cattle
+				farmers who may seek to optimize feed to minimize methane emissions.
+			</p>
+			<br />
+			<p>
+				For data visualization, please feel free to look at the
+				outside_cattle.ipynb in the scripts folder. To explore our interface,
+				clone the repository and follow these steps:
+			</p>
+			<ol>
+				<li>
+					Make sure to install git lfs by running <code>git lfs install</code>.
+					If any issues occur, refer to the website here: https://git-lfs.com/
+				</li>
+				<li>
+					Make sure install a MATLAB version compatible with python version <code
+						>pip install matlabengine</code
+					>
+				</li>
+				<li>
+					Make sure you are in the right directory by running <code
+						>cd models/outside-cattle/scripts</code
+					>
+				</li>
+				<li>
+					Install the required packages by running <code
+						>pip install -r requirements.txt</code
+					>
+				</li>
+				<li>Run the interface by running <code>streamlit run main.py</code></li>
+			</ol>
+			<p>This is the interface at localhost:8501</p>
+			<img
+				src="https://static.igem.wiki/teams/5118/img/model/model-8.png"
+				alt=""
+			/>
+			<p>
+				Additionally, as a means of possibly connecting the feed intake of the
+				cattle to the methane emission, an interface has been developed for the
+				previously mentioned ODE system that deduce concentrations of polymer
+				(feed) components, soluble components, microbial groups and amount of
+				components in the gas phase before and after introduction of PeIR into
+				the system.
+			</p>
+			<p>
+				Similarly to the above, follow the steps 1, 2, 5, replace step 3 and 4
+				with: <code>cd models/inside-cattle/scripts </code>
+			</p>
+			<p>The interface will look like the figure below:</p>
+			<br />
+			<p>
+				We hope that further development of such an interface can provide an
+				avenue into providing an estimation of the effectiveness of methane
+				mitigation strategies, more specifically through feed formulation in our
+				case. Through an iterative software process pipeline, consisting of
+				incorporating the inputs from a mechanistic model of the rumen and
+				translating that to a predicted methane emission through a trained
+				machine learning model, this may provide direct insights to farmers as
+				to how to feed their livestock in an optimally eco friendly way, and
+				reduce overfeeding in the process.
+			</p>
+		</Card>
 	</main>
-</DryLabLayout>
+</DLLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		ul,
+		ol {
+			padding-left: 1rem;
+			margin: 0 1rem;
+		}
+	}
+</style>
