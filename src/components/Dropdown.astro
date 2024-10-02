@@ -35,10 +35,12 @@ const { heading } = Astro.props;
 
   #dropdown {
     display: inline-block;
+    // width: 100%;
     position: relative;
 
     button {
-      font-size: 16px;
+      font-family: inherit;
+      font-size: 2rem;
       background-color: $accent-1;
       color: $primary;
       padding: 10px;
@@ -72,8 +74,8 @@ const { heading } = Astro.props;
     }
 
     .content {
-      display: none;
-      // opacity: 0;
+      // display: none;
+      opacity: 0;
       min-width: 160px;
       background-color: #f9f9f9;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -82,9 +84,7 @@ const { heading } = Astro.props;
     }
 
     &.open .content {
-      display: block;
-      // opacity: 0.5;
-      // @include transition-ease;
+      opacity: 1;
     }
   }
 </style>
