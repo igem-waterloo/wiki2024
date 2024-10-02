@@ -4,6 +4,15 @@ interface Props {
 }
 
 const formatName = (name: string): string => {
+  const exceptions: { [key: string]: string } = {
+    'isabella-d-costa': "Isabella D'Costa",
+    'alex-d-souza': "Alex D'Souza",
+    'amal-al-dalawi': 'Amal Al-Dalawi',
+  };
+
+  // Check if name matches one of the exceptions
+  if (exceptions[name]) return exceptions[name];
+
   return name
     .split('-')
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
@@ -22,7 +31,7 @@ const formattedName = formatName(name);
     onmouseout=`this.src='https://static.igem.wiki/teams/5118/img/members/prof/${name}.webp'`
     alt={name}
   />
-  <div>{formattedName}</div>
+  <div class="name">{formattedName}</div>
 </div>
 
 <style lang="scss">
@@ -32,14 +41,18 @@ const formattedName = formatName(name);
     display: flex;
     flex-direction: column;
     align-items: center;
-    // width: 10rem;
-    // border-radius: 50%;
 
     .pic {
       object-fit: cover;
       width: 20rem;
       height: 20rem;
-      // border-radius: 50%;
+      border: 0.5rem solid rgba($primary, 0.6);
+    }
+
+    .name {
+      font-size: 2rem;
+      color: $primary;
+      margin-top: 1rem;
     }
   }
 </style>

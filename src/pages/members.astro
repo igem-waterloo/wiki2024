@@ -6,7 +6,18 @@ import MemberProfile from '../components/MemberProfile.astro';
 <TeamLayout title="Members | BovEco - iGEM 2024">
 	<main>
 		<section class="hero">
-			<h1>MEET THE TEAM!</h1>
+			<div class="text">
+				<h1>
+					<span class="lnd">MEET</span>
+					<span class="mnm">THE</span>
+					<span class="hp">TEAM!</span>
+				</h1>
+				<h2>
+					<span class="lnd">Waterloo</span>
+					<span class="mnm">iGEM</span>
+					<span class="hp">2024</span>
+				</h2>
+			</div>
 			<iframe
 				title="Waterloo: Team Pictures (2024)"
 				width="560"
@@ -30,6 +41,7 @@ import MemberProfile from '../components/MemberProfile.astro';
 				<MemberProfile name="felix-tham" />
 				<MemberProfile name="hannah-tao" />
 				<MemberProfile name="lauren-robinson" />
+				<MemberProfile name="mahnoor-butt" />
 				<MemberProfile name="milena-gojsevic" />
 				<MemberProfile name="noura-abdelrazec" />
 				<MemberProfile name="rhyan-mclean" />
@@ -39,10 +51,31 @@ import MemberProfile from '../components/MemberProfile.astro';
 			</div>
 			<h2>Math & Modelling</h2>
 			<div id="mnm">
-				<MemberProfile name="alexandra-chen" />
+				<MemberProfile name="aaren-arasaratnam" />
+				<MemberProfile name="anh-mai" />
+				<MemberProfile name="david-makarczyk" />
+				<MemberProfile name="elysia-wang" />
+				<MemberProfile name="emily-wang" />
+				<MemberProfile name="jashan-khangura" />
+				<MemberProfile name="leigh-hannah" />
+				<MemberProfile name="naomi-eshetu" />
+				<MemberProfile name="rebekah-xing" />
+				<MemberProfile name="shilpa-rao" />
+				<MemberProfile name="wallace-lee" />
+				<MemberProfile name="yash-soobarah" />
 			</div>
 			<h2>Human Practices</h2>
-			<div id="hp"></div>
+			<div id="hp">
+				<MemberProfile name="aliyah-warsi" />
+				<MemberProfile name="amal-al-dalawi" />
+				<MemberProfile name="amberlee-morgan" />
+				<MemberProfile name="chloe-ding" />
+				<MemberProfile name="isabella-d-costa" />
+				<MemberProfile name="michael-saunders" />
+				<MemberProfile name="ray-shamshoum" />
+				<MemberProfile name="sasha-dhingra" />
+				<MemberProfile name="trisha-shankara-subramanian" />
+			</div>
 		</section>
 	</main>
 </TeamLayout>
@@ -57,8 +90,39 @@ import MemberProfile from '../components/MemberProfile.astro';
 			align-items: center;
 			gap: 3rem;
 
-			h1 {
-				font-size: 5rem;
+			.text {
+				text-align: center;
+				line-height: 1.1;
+
+				h1 {
+					font-size: 5rem;
+					.lnd {
+						color: $lnd;
+					}
+					.mnm {
+						color: $mnm;
+					}
+					.hp {
+						color: $hp;
+					}
+				}
+
+				h2 {
+					font-size: 3rem;
+					.lnd {
+						color: $lnd;
+					}
+					.mnm {
+						color: $mnm;
+					}
+					.hp {
+						color: $hp;
+					}
+				}
+			}
+
+			iframe {
+				border: none;
 			}
 		}
 	}
@@ -71,7 +135,7 @@ import MemberProfile from '../components/MemberProfile.astro';
 		padding: 3rem;
 
 		h2 {
-			font-size: 3rem;
+			font-size: 3.5rem;
 			&:nth-of-type(1) {
 				color: $lnd;
 			}
@@ -83,20 +147,21 @@ import MemberProfile from '../components/MemberProfile.astro';
 			}
 		}
 
-		#lnd {
+		div {
 			display: flex;
 			flex-wrap: wrap;
 			gap: 3rem;
 			padding: 3rem;
-			background: lightblue;
-		}
 
-		#mnm {
-			background: purple;
-		}
-
-		#hp {
-			background: teal;
+			&:nth-of-type(1) {
+				background: $lnd;
+			}
+			&:nth-of-type(2) {
+				background: $mnm;
+			}
+			&:nth-of-type(3) {
+				background: $hp;
+			}
 		}
 	}
 </style>
