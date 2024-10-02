@@ -1,77 +1,54 @@
 ---
-// PixelatedCard.astro
 interface Props {
-	title?: string;
-	content?: string;
+	heading?: string;
+	layout: string;
 }
 
-const { title, content } = Astro.props;
+const { heading, layout } = Astro.props;
+
+let bkgdColor = '';
+if (layout === 'lnd')
+	bkgdColor = 'rgb(151, 200, 216)'; // $lnd
+else if (layout === 'mnm')
+	bkgdColor = 'rgb(146, 81, 146)'; // $mnm
+else bkgdColor = 'rgb(99, 183, 144);'; // $hp
 ---
 
-<div class="pixelated-card">
-	{title && <h2 class="pixelated-card-title">{title}</h2>}
-	<div class="pixelated-card-content">
-		{content}
+<div id="card">
+	{heading && <h2 class="heading">{heading}</h2>}
+	<div class="content">
 		<slot />
 	</div>
 </div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{ bkgdColor: bkgdColor }}>
 	@import '../global.scss';
-	.pixelated-card {
-		background-color: white;
-		padding: 1.5em;
-		margin: 2em 0;
-		border: 5px solid black;
-		border-radius: 8px;
-		background: #f0f0f0;
-		box-shadow:
-			4px 4px 0 black,
-			8px 8px 0 #852424;
+	#card {
 		max-width: 600px;
-		overflow: hidden;
-		position: relative;
-
-		/* Pixelated border */
-		border-image: url('/img/pixel-border.png') 30 repeat;
-		border-width: 1px;
-
-		/* Add pixelated look */
+		background-color: $primary;
+		padding: 1.5em;
+		border: 5px solid var(--bkgdColor);
+		border-radius: 2px;
+		margin: 2em 0;
+		box-shadow:
+			2px 2px 0 var(--bkgdColor),
+			4px 4px 0 $secondary;
 		image-rendering: pixelated;
 
-		/* Pixelate content for effect */
-		background-size: 30px 30px;
-		background-repeat: repeat;
-		animation: pixel-move 5s infinite alternate ease-in-out;
-	}
-
-	.pixelated-card-title {
-		font-family: 'Press Start 2P', sans-serif;
-		font-size: 1.4rem;
-		margin-bottom: 1em;
-		text-align: center;
-	}
-
-	.pixelated-card-content {
-		font-family: 'Press Start 2P', sans-serif;
-		font-size: 0.95rem;
-		line-height: 1.6;
-	}
-
-	/* Optional pixelated effect on hover */
-	.pixelated-card:hover {
-		transform: scale(1.01);
-		transition: transform 0.3s ease;
-		// opacity: 0.5;
-		// @include transition-ease;
-	}
-
-	@keyframes pixel-move {
-		0% {
-			background-position: 0% 0%;
+		&:hover {
+			transform: scale(1.01);
+			transition: transform 0.3s ease;
 		}
-		100% {
-			background-position: 100% 100%;
+
+		.heading {
+			font-size: 1.4rem;
+			margin-bottom: 1em;
+			text-align: center;
+		}
+
+		.content {
+			font-size: 0.95rem;
+			line-height: 1.6;
 		}
 	}
 </style>
