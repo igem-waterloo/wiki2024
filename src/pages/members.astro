@@ -28,10 +28,10 @@ import MemberProfile from '../components/MemberProfile.astro';
 			</iframe>
 		</section>
 		<section class="members-container">
-			<h2>Lab & Design</h2>
+			<h3>Lab & Design</h3>
 			<div id="lnd">
 				<MemberProfile name="aadila-zakir-hussain" />
-				<MemberProfile name="alex-d-souza" />
+				<MemberProfile name="alex-d-souza2" />
 				<MemberProfile name="athena-chong" />
 				<MemberProfile name="ayana-pak" />
 				<MemberProfile name="bethany-chan" />
@@ -44,12 +44,12 @@ import MemberProfile from '../components/MemberProfile.astro';
 				<MemberProfile name="mahnoor-butt" />
 				<MemberProfile name="milena-gojsevic" />
 				<MemberProfile name="noura-abdelrazec" />
-				<MemberProfile name="rhyan-mclean" />
+				<MemberProfile name="rhyan-mclean2" />
 				<MemberProfile name="stefan-grinchenko" />
 				<MemberProfile name="timea-siket" />
-				<MemberProfile name="yusra-pervez" />
+				<MemberProfile name="yusra-pervez2" />
 			</div>
-			<h2>Math & Modelling</h2>
+			<h3>Math & Modelling</h3>
 			<div id="mnm">
 				<MemberProfile name="aaren-arasaratnam" />
 				<MemberProfile name="anh-mai" />
@@ -64,12 +64,12 @@ import MemberProfile from '../components/MemberProfile.astro';
 				<MemberProfile name="wallace-lee" />
 				<MemberProfile name="yash-soobarah" />
 			</div>
-			<h2>Human Practices</h2>
+			<h3>Human Practices</h3>
 			<div id="hp">
 				<MemberProfile name="aliyah-warsi" />
 				<MemberProfile name="amal-al-dalawi" />
 				<MemberProfile name="amberlee-morgan" />
-				<MemberProfile name="chloe-ding" />
+				<MemberProfile name="chloe-ding2" />
 				<MemberProfile name="isabella-d-costa" />
 				<MemberProfile name="michael-saunders" />
 				<MemberProfile name="ray-shamshoum" />
@@ -89,6 +89,10 @@ import MemberProfile from '../components/MemberProfile.astro';
 			justify-content: center;
 			align-items: center;
 			gap: 3rem;
+			background: rgba($secondary, 0.1);
+			padding: 1rem;
+			border: 0.5rem solid rgba($primary, 1);
+			margin-top: 1rem;
 
 			.text {
 				text-align: center;
@@ -96,19 +100,14 @@ import MemberProfile from '../components/MemberProfile.astro';
 
 				h1 {
 					font-size: 5rem;
-					.lnd {
-						color: $lnd;
-					}
-					.mnm {
-						color: $mnm;
-					}
-					.hp {
-						color: $hp;
-					}
 				}
 
 				h2 {
 					font-size: 3rem;
+				}
+
+				h1,
+				h2 {
 					.lnd {
 						color: $lnd;
 					}
@@ -134,8 +133,10 @@ import MemberProfile from '../components/MemberProfile.astro';
 		gap: 3rem;
 		padding: 3rem;
 
-		h2 {
-			font-size: 3.5rem;
+		h3 {
+			font-size: 4rem;
+			padding: 1rem;
+
 			&:nth-of-type(1) {
 				color: $lnd;
 			}

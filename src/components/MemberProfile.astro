@@ -6,11 +6,16 @@ interface Props {
 const formatName = (name: string): string => {
   const exceptions: { [key: string]: string } = {
     'isabella-d-costa': "Isabella D'Costa",
-    'alex-d-souza': "Alex D'Souza",
+    /* 'tools.igem.org/uploads' doesn't properly erase filepaths: increment up for revisions! */
+    'alex-d-souza2': "Alex D'Souza", // head cut off (silly)
     'amal-al-dalawi': 'Amal Al-Dalawi',
+    'trisha-shankara-subramanian': 'Trisha S. Subramanian',
+    'yusra-pervez2': 'Yusra Pervez', // wrong rotation (silly)
+    'rhyan-mclean2': 'Rhyan McLean', // hair cut off (prof)
+    'chloe-ding2': 'Chloe Ding', // hair cut off (prof)
   };
 
-  // Check if name matches one of the exceptions
+  // Check if name matches an exception
   if (exceptions[name]) return exceptions[name];
 
   return name
