@@ -9,7 +9,38 @@ import Card from '../components/Card.astro';
 
 		<div class="cloud-section"></div>
 
-		<h1 class="welcome-text">Why are we tackling this problem?</h1>
+		<h2>Why are we tackling this problem?</h2>
+
+		<div class="box">
+			This year, our team is working to mitigate the environmental effects of
+			methane produced in cattle rumen. Enteric methane emissions are one of the
+			largest anthropogenic sources of this potent greenhouse gas (GHG)
+			(Reisinger et al., 2021). Some research has prompted development of some
+			solutions to address this issue, however existing feed additive solutions
+			have limited efficacy and lack incentives for farmers to implement due to
+			added feed cost (Hodge et al., 2024). Our solution involves *Chlorella
+			vulgaris* microalgae engineered to express phage-based lytic enzymes
+			specifically targeting methanogen populations. Not only is microalgae a
+			nutrient-rich potential feed additive, but due to similar genetic
+			engineering processes, this will act as a proof of concept for genetically
+			modified plants expressing these enzymes (Saadaoui et al., 2021). Existing
+			cellulose fermentation in the rumen degrades microalgae and plant cell
+			walls, providing a release mechanism for the enzymes (Weimer et al.,
+			2022). We envision an engineered crop-based solution to be simple to
+			implement, and cost-effective. Existing research shows that some
+			phage-based enzymes are capable of lysing cells in free form (Altermann et
+			al., 2018). Further, a reduction in certain methanogens can result in a
+			sustained microbiome shift to favour other hydrogen sinks, including
+			reductive acetogenesis.
+		</div>
+
+		<div class="box">
+			Methane is a potent GHG. Since 1950, atmospheric methane concentrations
+			have surged by 70%, marking it one of the fastest-growing GHGs
+			(Bačėninaitė et al., 2022). It is a critical concern due to its profound
+			warming effect, which is 84 times more potent than CO2 over a twenty-year
+			period (European Commission, 2023).
+		</div>
 
 		<div class="box">
 			The global warming induced by methane has contributed to a range of
@@ -55,9 +86,15 @@ import Card from '../components/Card.astro';
 		</div>
 
 		<div class="yellow-circle">
+			<h2>Over</h2>
+			<h1>3.5</h1>
+			<h2>Million Beef Cattle (Statistics Canada, 2024)</h2>
+		</div>
+
+		<div class="yellow-circle">
 			<h2>Approximatly</h2>
-			<h1>90</h1>
-			<h2>Million Farmed Cattle</h2>
+			<h1>968,500</h1>
+			<h2>Dairy Cows (Statistics Canada, 2024)</h2>
 		</div>
 		<div>
 			in the United States — raised for a variety of food and consumer products
@@ -134,6 +171,12 @@ import Card from '../components/Card.astro';
 	@import '../global.scss';
 
 	main {
+		h1 {
+			// font-family: 'Quartzo', sans-serif;
+			font-size: 5rem;
+			text-shadow: 5px 5px 0 $accent-3;
+			margin-top: -0.75rem;
+		}
 		.welcome-text {
 			display: flex;
 			flex-direction: column;
@@ -141,16 +184,10 @@ import Card from '../components/Card.astro';
 			color: $accent-1;
 			margin-top: 2.5rem;
 			z-index: -50;
-
-			h1 {
-				font-family: 'Quartzo', sans-serif;
-				font-size: 10rem;
-				text-shadow: 5px 5px 0 $accent-3;
-				margin-top: -0.75rem;
-			}
 		}
 
 		.cloud-section {
+			// height: 0.5rem;
 			background-color: #304034;
 		}
 
