@@ -82,24 +82,33 @@ import ProjectLayout from '../layouts/ProjectLayout.astro';
 		<div class="box">
 			Dairy/beef products are popular, particularly with a growing human
 			population, and consumer behaviour alone is unlikely to change
-			sufficiently to reduce climate change. As of 2023, in North America:
+			sufficiently to reduce climate change. As of 2023, in North America...
 		</div>
 
-		<div class="circle">
-			<p>Over</p>
-			<p>3.5</p>
-			<p>Million Beef Cattle (Statistics Canada, 2024)</p>
+		<div class="circle-wrapper">
+			<div class="circle">
+				<p>Over</p>
+				<p>3.5</p>
+				<p>Million Beef Cattle (Stat. Canada, 2024)</p>
+			</div>
+
+			<div class="circle">
+				<p>Approximatly</p>
+				<p>968,500</p>
+				<p>Dairy Cows (Stat. Canada, 2024)</p>
+			</div>
+
+			<div class="circle gold">
+				<p>Over</p>
+				<p>90</p>
+				<p>Million Farmed Cattle...</p>
+			</div>
 		</div>
 
-		<div class="circle gold">
-			<p>Approximatly</p>
-			<p>968,500</p>
-			<p>Dairy Cows (Statistics Canada, 2024)</p>
-		</div>
 		<div class="box gold">
-			in the United States — raised for a variety of food and consumer products
-			including beef, veal, dairy and leather (United States Department of
-			Agriculture, 2024)
+			90 million in the United States — raised for a variety of food and
+			consumer products including beef, veal, dairy and leather (United States
+			Department of Agriculture, 2024)
 		</div>
 		<div class="box">
 			Targeting cattle provides for significant opportunity to reduce methane
@@ -257,23 +266,31 @@ import ProjectLayout from '../layouts/ProjectLayout.astro';
 			margin-right: auto;
 			margin-left: auto;
 			padding: 2em;
+			border: 3px solid $accent-3;
 			font-size: 1.25rem;
 		}
 
-		.circle {
+		.circle-wrapper {
 			display: flex;
-			flex-direction: column;
 			justify-content: center;
-			width: 20em;
-			height: 20em;
-			text-align: center;
-			border-radius: 50%;
-			margin-right: auto;
-			margin-left: auto;
-			overflow: hidden;
+			background: rgba($accent-2, 0.4);
 
-			p {
-				font-size: 2rem;
+			.circle {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				width: 20em;
+				height: 20em;
+				text-align: center;
+				border: 3px solid $accent-3;
+				border-radius: 50%;
+				margin-right: auto;
+				margin-left: auto;
+				overflow: hidden;
+
+				p {
+					font-size: 2rem;
+				}
 			}
 		}
 
