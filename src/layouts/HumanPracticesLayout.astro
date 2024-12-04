@@ -1,5 +1,6 @@
 ---
 import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -21,13 +22,18 @@ const { title } = Astro.props;
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 		/>
 		<meta name="author" content="Waterloo iGEM" />
-		<link rel="icon" type="image/svg+xml" href="img/favicon.png" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="https://static.igem.wiki/teams/5118/img/favicon.webp"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<NavBar />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -35,46 +41,44 @@ const { title } = Astro.props;
 	@import '../global.scss';
 
 	body {
-		background-color: white;
+		background-color: $primary;
 		background-image: radial-gradient(
-				circle at 25% 30%,
-				rgb(119, 196, 168) 20%,
-				transparent 1%
+				circle at 30% 20%,
+				rgb(119, 196, 168) 15%,
+				transparent 5%
 			),
-			radial-gradient(circle at 80% 40%, rgb(119, 196, 168) 15%, transparent 1%),
-			radial-gradient(circle at 40% 75%, rgb(119, 196, 168) 25%, transparent 1%),
-			radial-gradient(circle at 65% 85%, rgb(119, 196, 168) 10%, transparent 1%),
-			radial-gradient(circle at 70% 20%, rgb(119, 196, 168) 18%, transparent 1%),
-			radial-gradient(circle at 30% 70%, rgb(119, 196, 168) 12%, transparent 1%);
+			radial-gradient(circle at 70% 30%, rgb(119, 196, 168) 10%, transparent 3%),
+			radial-gradient(circle at 50% 70%, rgb(119, 196, 168) 20%, transparent 2%),
+			radial-gradient(circle at 40% 60%, rgb(119, 196, 168) 22%, transparent 3%);
 		background-position: center;
-		background-repeat: repeat-y;
-		animation: move-around-screen 100s infinite alternate ease-in-out;
+		background-repeat: repeat-x;
+		animation: move-blobs-around-screen 120s infinite alternate ease-in-out;
 	}
 
-	@keyframes move-around-screen {
+	@keyframes move-blobs-around-screen {
 		0% {
-			background-size: 30em 30em;
-			background-position: 0% 0%;
+			background-size: 25em 25em;
+			background-position: 10% 10%;
 		}
 		50% {
-			background-size: 20em 20em;
+			background-size: 15em 15em;
 			background-position:
-				30% 35%,
-				75% 45%,
-				45% 80%,
-				60% 90%,
-				65% 25%,
-				35% 75%;
+				40% 30%,
+				80% 50%,
+				50% 75%,
+				65% 95%,
+				75% 20%,
+				30% 60%;
 		}
 		100% {
-			background-size: 60em 60em;
+			background-size: 50em 50em;
 			background-position:
-				20% 25%,
-				85% 35%,
-				35% 70%,
-				70% 80%,
-				75% 15%,
-				25% 65%;
+				30% 20%,
+				90% 30%,
+				40% 80%,
+				80% 90%,
+				70% 10%,
+				20% 70%;
 		}
 	}
 </style>

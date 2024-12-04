@@ -2,7 +2,7 @@
 // Source: https://fonts.google.com/specimen/League+Spartan
 @font-face {
   font-family: 'League Spartan';
-  src: url('fonts/LeagueSpartan-Medium.ttf') format('truetype');
+  src: url('https://static.igem.wiki/teams/5118/fonts/leaguespartan.woff2') format('woff2');
   font-stretch: ultra-expanded;
   font-weight: bold;
   font-style: normal;
@@ -12,7 +12,7 @@
 // Source: https://www.whatfontis.com/FF_QUARTZO-demo-Bold.font?text=BovEco
 @font-face {
   font-family: 'Quartzo';
-  src: url('fonts/Quartzo.ttf') format('truetype');
+  src: url('https://static.igem.wiki/teams/5118/fonts/quartzo.woff2') format('woff2');
   font-stretch: ultra-expanded;
   font-weight: normal;
   font-style: normal;
@@ -27,10 +27,9 @@ $accent-2: rgb(99, 144, 119);
 $accent-3: rgb(215, 200, 176);
 $accent-4: rgb(165, 149, 123);
 
-// $accent-5: #0b6a35;
-// $accent-6: #129d78;
-// $accent-7: #129d78;
-// $accent-8: #57c765;
+$lnd: rgb(151, 200, 216);
+$mnm: rgb(146, 81, 146);
+$hp: rgb(99, 183, 144);
 
 $accent-gradient-1: linear-gradient(
   45deg,

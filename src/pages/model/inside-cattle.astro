@@ -1,0 +1,382 @@
+---
+import DLLayout from '../../layouts/DryLabLayout.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
+import Card from '../../components/Card.astro';
+---
+
+<DLLayout title="Inside Cattle | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="INSIDE CATTLE" layout="mnm" />
+    <Card
+      heading="Inside Cattle"
+      subheading="Introduction, Ruminant Microbiome Fermentation Model, Reaction Kinetics, M. Ruminantium Whole Genome-Derived Metabolic Model, Next Steps, References"
+      layout="mnm"
+    >
+      <p>
+        To determine the impact on both methane production and the complex cow
+        microbiome that our solution could conceivably have, two models were
+        integrated: a larger scale ruminant microbiome fermentation model, and a
+        smaller scale M. Ruminantium metabolic model. The purpose of these
+        models is to infer how much the microbiome and fermentation processes
+        change before and after M. Ruminatium is killed off, assuming there is
+        proportionality in the production/consumption rates of the main
+        metabolites involved in methanogenesis with the quantity of M.
+        Ruminantium present in the microbiome.
+      </p>
+      <br />
+      <p>
+        Ruminants have a unique digestive system which enables them to break
+        down plant material into digestible nutrients through microbial
+        fermentation in the rumen. The byproduct of this microbial fermentation
+        is the production of gasses such as hydrogen and carbon dioxide. These
+        gasses are used by methanogenic archaea to produce methane through a
+        process called methanogenesis. The rumen hosts a complex and diverse
+        microbial ecosystem, including bacteria, protozoa, fungi, and archaea.
+        These microbes work together to degrade plant material, resulting in the
+        production of volatile fatty acids (VFAs) like acetate, propionate, and
+        butyrate, which are absorbed by the cow and used as energy sources.
+        However, the fermentation of carbohydrates, particularly neutral
+        detergent fibers (NDFs) and non-structural carbohydrates, also produces
+        hydrogen.
+      </p>
+      <br />
+      <p>
+        Mechanistic models use detailed physiological information and
+        first-principles of mathematical reasoning to determine links between
+        the environment and the fitness of the organism, which is later
+        represented in geographic space [Peterson et al., 2015]. While looking
+        for a mechanistic description of cattle microbiome during rumen
+        fermentation, we came across a methodologically unique model
+        [Munoz-Tamayo et al., 2016] distinctively dividing the rumen microbiota
+        into three metabolic guilds associated with the utilization of hexoses,
+        amino acids and hydrogen. The team decided on proceeding with and
+        further modifying Munoz-Tamayo et al.’s approach specifically on the
+        grounds of its integration of microbiotal acid-base reactions and
+        hydrogen-liquid transfers. Our intervention i.e. the reduction of
+        Methanobrevibacter Ruminantium M1 utilizing a lytic enzyme PeiR has been
+        seen to affect pH and additionally butyric acid levels which unlike in
+        other existing mechanistic modelling is strongly incorporated into
+        Munoz-Tamayo et al. [Eric Altermann et al; 2018].
+      </p>
+      <br />
+      <p>
+        The main reactions governing this mechanistic model are based on
+        first-order kinetics for the hydrolysis of carbohydrates and proteins
+        and Michaelis-Menten kinetics for substrate utilization. The
+        fermentation process breaks down these dietary components into simpler
+        substrates such as sugars and amino acids and then metabolized by
+        different microbial groups within the rumen. These reaction kinetics
+        govern the stepwise breakdown of complex dietary components into
+        simpler, fermentable substrates that can be metabolized by distinct
+        microbial populations within the rumen. The core of the fermentation
+        process is the hydrolysis of feed components. The first-order kinetics
+        governs the hydrolysis of these macromolecules, where the rate of
+        reaction is directly proportional to the concentration of the substrate.
+        As the concentration of carbohydrates and non-structural carbohydrates
+        or proteins decreases, the rate of their hydrolysis slows down. Once the
+        carbohydrates and proteins are hydrolyzed into their simpler components,
+        they become available for microbial fermentation. Michaelis-Menten
+        kinetics is a model developed to describe enzyme-substrate interactions.
+        The rate of substrate utilization depends on both the concentration of
+        the substrate and the capacity of the microbes to process it. Once the
+        microbial enzymes are fully saturated with substrate, the rate of
+        fermentation reaches V_max and does not increase further, even if
+        additional substrate is available.
+      </p>
+      <br />
+      <p>
+        The relationship between microbial functional groups (sugar utilizers,
+        amino acid utilizers, and hydrogen utilizers) is described by
+        Munoz-Tomayo et al. in Figure 1. The metabolic pathways of rumen
+        fermentation have been condensed into a number of reactions that paint
+        the overall picture of the where substrates are used in the fermentation
+        process to drive product formation and microbial as well as liquid-gas
+        transfer. For our model, we used the condensed metabolic pathways to
+        infer the concentrations of polymer (feed) components (z), soluble
+        components (s), microbial groups (x) and amount of components in the gas
+        phase (g) before and after introduction of PeIR into the system.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-1.png"
+        alt=""
+      />
+      <p>
+        The ordinary differential equation (ODE) system consists of fifteen
+        state variables which make up these polymeric, soluble, and microbial
+        group components:
+      </p>
+      <ul>
+        <li>
+          zndf: Neutral detergent fiber carbohydrates, structural carbohydrates
+          that make up the cell wall.
+        </li>
+        <li>
+          znsc: Non-structural carbohydrates, not including monosaccharides.
+        </li>
+        <li>zpro: Polymeric protein concentration</li>
+        <li>ssu: Soluble sugars concentration</li>
+        <li>saa: Soluble amino acids concentration</li>
+        <li>sh2: Soluble hydrogen concentration</li>
+        <li>sac: Soluble acetate concentration</li>
+        <li>sbu: Soluble butyrate concentration</li>
+        <li>spr: Soluble propionate concentration</li>
+        <li>sch4: Soluble methane concentration</li>
+        <li>sIC: Inorganic carbon concentration</li>
+        <li>sIN: Inorganic nitrogen concentration</li>
+        <li>xsu: Sugar-utilizing bacteria</li>
+        <li>xaa: Amino acid-utilizing bacteria</li>
+        <li>xh2: Hydrogen-utilizing bacteria</li>
+      </ul>
+      <p>
+        The system of ODEs were simulated using ODE45 in MATLAB, with a time
+        range of 24 hours. Relevant state variables were visualized within this
+        time range using MATLAB. Two scenarios were assessed:
+      </p>
+      <ol>
+        <li>
+          Using initial metabolite concentrations determined by Tamayo et al. In
+          particular, this consists of a microbiome consisting of 94%
+          sugar-utilizing bacteria, 5% amino acid-utilizing bacteria, and 1%
+          hydrogen-utilizing bacteria.
+        </li>
+        <li>
+          Simulating a ‘reduced’ methanogenic state, with identical initial
+          metabolite concentrations, but an altered initial microbial group
+          distribution, whereby hydrogen-utilizers have been reduced to 0.5%, of
+          microbes. Sugar-utilizers and amino acid-utilizers have been increased
+          to compensate for this reduction, to 94.25% and 5.25%, respectively.
+        </li>
+      </ol>
+      <p>
+        Results are summarized in Fig. 2, with scenario 1 depicted in blue, and
+        scenario 2 depicted in red.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-2.png"
+        alt=""
+      />
+      <p>
+        The results of this analysis provide several key insights into the
+        consumption and production of metabolites, as well as biomass formation
+        in the rumen. It was observed that for both conditions, as feed
+        components are consumed, soluble sugar, amino acid and hydrogen all have
+        a period of increase as result of polymeric breakdown, peaking at about
+        two hours, after which they reach a period of exponential decay. Perhaps
+        the most critical observation is that a 0.5% initial decrease in ruminal
+        hydrogen-utilizer microbial concentration contributed to a significant
+        decrease in soluble methane concentration, which remained stable over
+        the 24-hour period when compared to the original, higher
+        hydrogen-utilizing bacterial condition. These findings are promising in
+        demonstrating the reduction of methane formation in the rumen from
+        reducing methanogenic bacterial concentration by way of PeiR
+        introduction, without significant interference with other soluble
+        compounds which may be critical to microbiome function.
+      </p>
+      <br />
+      <p>
+        In order to glean information about the uptake and secretion of key
+        metabolites within the cow rumen, it was necessary to generate a
+        representative model of M. Ruminantium metabolism. Whole genome data
+        were derived from AGORA database, consisting of genome-derived metabolic
+        reconstructions for 773 gut bacteria [S1]. We used COBRAPy toolkit in
+        Python v3.10 to interpret the Systems Biology Markup Language (SBML)
+        data acquired from AGORA, for its utility in reading, interpreting and
+        optimizing metabolic data [S2].
+      </p>
+      <p>
+        Flux is a common descriptor of the flow of metabolites through a
+        metabolic network. By observing flux values generated through analysis
+        of the genome-derived reconstruction, we can obtain important insights
+        into how M Ruminantium consumes and produces resources in order to
+        proliferate.
+      </p>
+      <p>
+        Upon generating the genome-derived metabolic network, critical uptake
+        and secretion reactions, along with their respective metabolites, could
+        be analyzed. Key uptake metabolites include alcohols for stimulation of
+        microbial growth, enzymes for a variety of microbial functions and
+        cofactors required for the conversion of H2 and CO2 to methane via the
+        methanogenesis pathway. Many of these enzymes are conserved and are
+        unique to the M. Ruminantium methanogenesis pathway. Key secreted
+        metabolites include methane, soluble amino acids and fermentation
+        by-products including ethanol and carbon dioxide.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-3.png"
+        alt=""
+      />
+      <p>
+        In the broader context of the fermentation model, uptake and secretion
+        flux values were grouped into the primary states relevant to H2
+        utilizers from the fermentation model. These functional groups are
+        visualized in Figures 3 and 4.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-4.png"
+        alt=""
+      />
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-5.png"
+        alt=""
+      />
+      <p>
+        We decided to explore using these values as scalar terms to the
+        respective differential equations in our fermentation ODE system,
+        notably surrounding the consumption and secretion of amino acids,
+        consumption of hydrogen, and secretion of acetate and methane by
+        hydrogen-utilizing microbes,, to gain a model that is more
+        representative of the microbiome in the presence and absence of M.
+        Ruminantium.While observed results were similar to those found in the
+        initial fermentation exploration, we observed reduced amino acid
+        utilizer concentration as a result of a greater uptake of amino acids by
+        m. Ruminantium, leaving less metabolite availability for amino acid
+        utilizer microbial growth. This alteration highlights the need to
+        understand the specific metabolic pathways and flux distributions within
+        the complex rumen microbiome. It held true that reducing M.ruminantium
+        concentration led to increased insoluble carbon concentrations and
+        decreased methane emissions overall, which is promising for the
+        implementation of our solution into the microbiome.
+      </p>
+      <p>
+        We made several assumptions in the incorporation of this model with the
+        fermentation model, primarily for the sake of simplicity:
+      </p>
+      <ol>
+        <li>
+          Simplified Microbial Interactions: the model simplifies complex
+          metabolic pathways by assuming each is a one-step process. For
+          example, hydrolysis, typically involving multiple reactions, is
+          reduced to a first-order kinetic equation. Similarly, amino acid
+          production is averaged rather than specifying parameters for all 20
+          amino acids. The model further assumes that ammonia is the sole
+          nitrogen source for sugar-utilizing microbes, despite both ammonia and
+          amino acids being viable nitrogen sources in fermentation. This
+          simplification is justified as ammonia accounts for 80% of microbial
+          nitrogen utilization, ensuring model accuracy is not significantly
+          impacted. The volatile fatty acids (VFAs) considered by the model
+          include acetate, butyrate, and propionate as primary fermentation
+          products.
+        </li>
+        <li>
+          In Vitro vs. In Vivo Conditions: the paper highlights that microbial
+          maintenance demands are notably high in vivo, where microbes consume
+          significant resources from their environment. In contrast, the model
+          assumes microbial maintenance to be negligible. While this assumption
+          still yields satisfactory predictions, the model could be further
+          optimized by including non-growth components and accounting for
+          microbial maintenance. This would lead to more accurate simulations of
+          real-world conditions.
+        </li>
+        <li>
+          Constant Proportions of Metabolite Uptake and Secretion by M.
+          ruminantium: this issue ties into the previous point regarding
+          microbial maintenance. The model assumes constant proportions for the
+          uptake and secretion of metabolites by M. ruminantium. However, in
+          reality, uptake is highly dependent on the substrate concentration in
+          the environment, which fluctuates as fermentation progresses. As a
+          result, assuming constant uptake and secretion proportions might
+          overlook the dynamic nature of microbial metabolism during
+          fermentation.
+        </li>
+        <li>
+          PeiR has No Effect on Other Hydrogen Utilizers: The model assumes that
+          PeiR has no effect on other hydrogen utilizers as further research is
+          needed to determine if PeiR significantly impacts these utilizers,
+          which may compete with methanogens for hydrogen, hence affecting
+          methane production.
+        </li>
+      </ol>
+      <br />
+      <p>
+        While we have been able to numerically demonstrate that reducing the
+        concentration of M. Ruminantium and other methanogens in the cow
+        microbiome can lead to decreased methane levels over a time-period of 24
+        hours, the results of this investigation permit several exciting avenues
+        for further investigation of the rumen microbiome.
+      </p>
+      <p>
+        Lab experiments could determine the rate at which PeiR lyses the
+        methanogens under multiple conditions, such as different microbial
+        competitors and varying pH. The empirical data can then be put in the
+        ODE system to obtain more realistic rates of methanogen reduction. This
+        will help construct a more concise timeline of the response to PeiR,
+        exposing possible delays in response.
+      </p>
+      <p>
+        Since the rumen consists of many hydrogen-utilizing methanogens beyond
+        M. Ruminantium with differing metabolisms, expanding the model to
+        account for these will further determine PeiR’s efficacy. Different
+        scenarios can be further explored, such as possible compensatory
+        mechanisms arising from M. ruminantium’s reduction, metabolic
+        flexibility and comparing metabolic activity. Representing these may
+        lead to a better understanding of how different methanogen populations
+        contribute to methane emission.
+      </p>
+      <p>
+        Furthermore, expanding the model to other ruminant systems such as
+        goats, or other livestock can help test methane mitigation strategies
+        for multiple species and possibly lead to the development of species
+        specific interventions or even feed formulations. For our purposes, this
+        would be most relevant across different cow species, with varying
+        digestive profiles.
+      </p>
+      <p>
+        With the progression of the project, modifying feed parameters (eg.
+        protein, neutral detergent fibers) and soluble metabolite parameters can
+        help assess how various nutrient availability (amino acids, sugars,
+        etc…) impact the effectiveness of methane reduction. This can lead to
+        refinement of feed for optimal methane mitigation, and making the model
+        adaptable to evolving agricultural standards.
+      </p>
+      <br />
+    </Card>
+    <Card heading="References" layout="mnm">
+      <ol>
+        <li>
+          Magnúsdóttir, S., Heinken, A., Kutt, L., Ravcheev, D. A., Bauer, E.,
+          Noronha, A., Greenhalgh, K., Jäger, C., Baginska, J., Wilmes, P.,
+          Fleming, R. M. T., & Thiele, I. (2016). Generation of genome-scale
+          metabolic reconstructions for 773 members of the human gut microbiota.
+          Nature Biotechnology, 35(1), 81–89. https://doi.org/10.1038/nbt.3703
+        </li>
+        <li>
+          1. Getting Started — cobra 0.27.0 documentation. (n.d.).
+          https://cobrapy.readthedocs.io/en/latest/getting_started.html
+        </li>
+        <li>
+          Muñoz-Tamayo, R., Giger-Reverdin, S., & Sauvant, D. (2016).
+          Mechanistic modelling of in vitro fermentation and methane production
+          by rumen microbiota. Animal Feed Science and Technology, 220, 1–21.
+          https://doi.org/10.1016/j.anifeedsci.2016.07.005
+        </li>
+        <li>
+          Peterson, A. T., Papeş, M., & Soberón, J. (2015). Mechanistic and
+          correlative models of ecological niches. European Journal of Ecology,
+          1(2), 28–38. https://doi.org/10.1515/eje-2015-0014
+        </li>
+        <li>
+          Altermann, E., Schofield, L. R., Ronimus, R. S., Beatty, A. K., &
+          Reilly, K. (2018). Inhibition of Rumen Methanogens by a Novel Archaeal
+          Lytic Enzyme Displayed on Tailored Bionanoparticles. Frontiers in
+          microbiology, 9, 2378. https://doi.org/10.3389/fmicb.2018.02378
+        </li>
+      </ol>
+    </Card>
+  </main>
+</DLLayout>
+
+<style lang="scss">
+  @import '../../global.scss';
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul,
+    ol {
+      padding-left: 1rem;
+      margin: 0 1rem;
+    }
+  }
+</style>

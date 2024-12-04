@@ -1,0 +1,261 @@
+---
+import DLLayout from '../../layouts/DryLabLayout.astro';
+import HeroBanner from '../../components/HeroBanner.astro';
+import Card from '../../components/Card.astro';
+---
+
+<DLLayout title="Outside Cattle | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="OUTSIDE CATTLE" layout="mnm" />
+    <Card heading="Outside Cattle" layout="mnm">
+      <p>
+        Present models have shown the potential of quantifying methane gas
+        emission as a foundation for developing competent mitigation methods.
+        Reliable results have incorporated multilinear regression, gradient
+        boosting and random forest regression. Random forest regression has the
+        added value of being irresponsive to normalization (Hempel et al.,
+        2020). Other helpful methods include partial least squares regression
+        and neural networks, which can be used to find association between
+        spectra and enteric methane measures (McParland et al., 2024).
+      </p>
+      <br />
+      <p>
+        Cattle feed, specifically cow feed composition, greatly affects methane
+        production from cattle. During feed fermentation, methanogenic
+        substrates come from non-methanogens. Therefore, altering their
+        feed—including diet type and composition—has the potential to affect
+        methane emissions (Van Gastelen et al., 2024). Hence, controlling
+        microbiome-based feed with precision can help identify potential methane
+        biomarkers. In Math and Modelling, those predictions can be achieved
+        with regression algorithms and machine learning. This project aims to
+        prove the efficiency of these algorithms using the study Unveiling
+        microbial biomarkers of ruminant methane emission through machine
+        learning by Peng et al. (2023).
+      </p>
+      <br />
+      <p>
+        The most significant dataset to mention for this project is the rumen
+        amplicon sequencing dataset with methane emission (g/day) metadata
+        retrieved under ENA Project Accession by Wallace et al. (2019), which we
+        will refer to as the Wallace dataset. The Wallace dataset also consists
+        of data points for rumen microbiomes—including archaea, bacteria, fungi,
+        and protozoa for 816 cows. This metadata also recorded intake
+        information of different feed compositions: dry matter (DM), organic
+        matter (OM), crude protein (CP), NDF (neutral-detergent fibre), lipid,
+        acid insoluble ash (AIA), and starch. The dataset also included
+        information on the cows’ lactation stage, marking whether they were
+        early, intermediate, or late.
+      </p>
+      <br />
+      <p>
+        The data preprocessing technique followed the same steps outlined in the
+        paper. Z-score (standard deviation) normalization was performed, and
+        feature selection employed four algorithms: f-statistics, lasso
+        regression, mutual information, and random forest regressor (Peng et al,
+        2023). These methods were used to identify the most impactful
+        parameters. While this approach excludes a significant amount of
+        microbiome information, it is necessary to prevent overloading the
+        models with irrelevant or insignificant data, which could hinder pattern
+        learning. Nevertheless, attempts were made to retain the excluded
+        information through dimensionality reduction methods such as primary
+        component analysis (PCA), autoencoders, and variational autoencoders
+        (Kingma & Welling, 2014).
+      </p>
+      <br />
+      <p>
+        PCA did not perform well, with the primary component representing only
+        17.5% of the total variance—indicating that the dataset was not
+        well-suited for this form of dimensionality reduction. On the other
+        hand, both autoencoders and variational autoencoders successfully
+        encoded the data. However, due to the high decoder loss and the noise
+        induced in the regression task, these methods were not included in the
+        final model.
+      </p>
+      <br />
+      <p>
+        After feature selection, the dataset was reduced from 174 to 48
+        features. Box plots for the 48 selected features revealed many extreme
+        outliers within the microbiome features. To address this, we applied a
+        trimming method, excluding data points more than 4.5 standard deviation
+        units away from the mean, reducing the dataset from 816 entries to 625.
+        This feature selection method improved the R² value from negative to
+        around 0.2–0.4. Applying the trimming method further improved it to
+        around 0.4–0.5.
+      </p>
+      <br />
+      <p>
+        We then trained the models mentioned in the paper, including linear
+        regression, linear support vector regressor (linear SVR), elastic net
+        regression, kernel support vector regressor (kernel SVR), K-Nearest
+        Neighbor regression (KNN regression), and random forest regression (RF
+        regression) (Peng et al, 2023).
+      </p>
+      <br />
+      <p>
+        The multiple linear regression and linear SVR performed poorly, likely
+        due to the weak linear correlations between features, as observed in
+        Figure 1’s heatmap. Most features were not linearly related to methane
+        emission; this made it difficult for these models to capture the
+        non-linearity of the data and resulted in low R² values. However,
+        elastic net regression, kernel SVR, KNN, and random forest models
+        performed better, with R² values aligning with those reported in the
+        literature (ranging between 0.4 and 0.6 for the Wallace dataset).
+      </p>
+      <br />
+      <p>
+        To better capture the non-linearity in the data, we also experimented
+        with models known for their non-linear capabilities, such as multilayer
+        perceptron (MLP) and gradient-boosted trees like XGBoost and LightGBM.
+        The MLP consisted of three blocks of dense perceptrons with ReLU
+        activation, batch normalization to capture batch-level information, and
+        dropout layers to prevent overfitting. Paired with stochastic gradient
+        descent (SGD), a step scheduler for learning rate control, and
+        regularization, the MLP produced more generalized results (Murtagh,
+        1991). Both XGBoost and LightGBM models were fine-tuned using grid
+        search to find the optimal hyperparameters, resulting in superior
+        performance (Chen & Guestrin, 2016) (Ke et al., 2017). We summarize the
+        R² findings from the paper and our own models in the table below:
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-6.png"
+        alt=""
+      />
+      <p>
+        Despite these improvements, we noticed that all models performed poorly
+        in predicting extreme values, particularly for methane emissions above
+        600 g/d or below 300 g/d. To address this, we applied the SMOGN
+        strategy: oversampling the extreme values to balance the dataset (Branco
+        et al., 2019). After this step, the models showed improved performance
+        in these outlier regions. R² values increased to 0.7-0.8, and they
+        generalized well across the dataset. There is still room for improvement
+        in predictions for methane emissions above 700 g/d, as performance
+        remains relatively poor in this range. However, further oversampling of
+        this region might significantly alter the mean and standard deviation of
+        the dataset, which could negatively affect model performance. To
+        preserve the integrity of the original dataset, we limited the
+        oversampling to approximately 15% of the total data.
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/model/model-7.png"
+        alt=""
+      />
+      <p>
+        Given that the heatmap reveals little to no correlation between pairs
+        within the microbiome, we opted for a software approach that takes a
+        multidimensional capture of the microbiome as an input for the
+        appropriate model candidate that we developed so as to establish a
+        stronger link with methane emission.
+      </p>
+      <p>See our software page for a deeper exploration of this idea.</p>
+    </Card>
+    <Card heading="References" layout="mnm">
+      <ul>
+        <li>
+          Canada, A. a. A. (2023, July 10). Greenhouse gases and agriculture.
+          https://agriculture.canada.ca/en/environment/greenhouse-gases.
+        </li>
+        <li>
+          Government of Canada, Office of the Auditor General of Canada. (n.d.).
+          Report 5—Agriculture and Climate Change Mitigation—Agriculture and
+          Agri-Food Canada.
+          https://www.oag-bvg.gc.ca/internet/English/att__e_44477.html.
+        </li>
+        <li>
+          Hempel, S., Adolphs, J., Landwehr, N., Willink, D., Janke, D., & Amon,
+          T. (2020). Supervised Machine Learning to Assess Methane Emissions of
+          a Dairy Building with Natural Ventilation. Applied Sciences, 10(19),
+          6938. https://doi.org/10.3390/app10196938.
+        </li>
+        <li>
+          Kebreab, E., Bannink, A., Pressman, E. M., Walker, N., Karagiannis,
+          A., Van Gastelen, S., & Dijkstra, J. (2023). A meta-analysis of
+          effects of 3-nitrooxypropanol on methane production, yield, and
+          intensity in dairy cattle. Journal of Dairy Science, 106(2), 927–936.
+          https://doi.org/10.3168/jds.2022-22211.
+        </li>
+        <li>
+          Lupescu, M., USDA, & Babcock, T. (2023). Summary Report on Canada’s
+          Climate-Smart Agriculture Initiatives. In USDA Report (Climate
+          Change/Global Warming/Food Security No. CA2023-0001).
+          https://apps.fas.usda.gov/newgainapi/api/Report/DownloadReportByFileName?fileName=Summary%20Report%20on%20Canada%27s%20Climate-Smart%20Agriculture%20Initiatives_Ottawa_Canada_CA2023-0001.pdf.
+        </li>
+        <li>
+          McParland, S., Frizzarin, M., Lahart, B., Kennedy, M., Shalloo, L.,
+          Egan, M., Starsmore, K., & Berry, D. (2024). Predicting methane
+          emissions of individual grazing dairy cows from spectral analyses of
+          their milk samples. Journal of Dairy Science, 107(2), 978–991.
+          https://doi.org/10.3168/jds.2023-23577.
+        </li>
+        <li>
+          Peng, C., May, A., & Abeel, T. (2023). Unveiling microbial biomarkers
+          of ruminant methane emission through machine learning. Frontiers in
+          Microbiology, 14. https://doi.org/10.3389/fmicb.2023.1308363.
+        </li>
+        <li>
+          Pitta, D. W., Indugu, N., Melgar, A., Hristov, A., Challa, K.,
+          Vecchiarelli, B., Hennessy, M., Narayan, K., Duval, S., Kindermann,
+          M., & Walker, N. (2022). The effect of 3-nitrooxypropanol, a potent
+          methane inhibitor, on ruminal microbial gene expression profiles in
+          dairy cows. Microbiome, 10(1).
+          https://doi.org/10.1186/s40168-022-01341-9.
+        </li>
+        <li>
+          Van Gastelen, S., Burgers, E. E., Dijkstra, J., De Mol, R., Muizelaar,
+          W., Walker, N., & Bannink, A. (2024). Long-term effects of
+          3-nitrooxypropanol on methane emission and milk production
+          characteristics in Holstein Friesian dairy cows. Journal of Dairy
+          Science. https://doi.org/10.3168/jds.2023-24198.
+        </li>
+        <li>
+          Wallace, R. J., Sasson, G., Garnsworthy, P. C., Tapio, I., Gregson,
+          E., Bani, P., Huhtanen, P., Bayat, A. R., Strozzi, F., Biscarini, F.,
+          Snelling, T. J., Saunders, N., Potterton, S. L., Craigon, J., Minuti,
+          A., Trevisi, E., Callegari, M. L., Cappelli, F. P., Cabezas-Garcia, E.
+          H., . . . Mizrahi, I. (2019). A heritable subset of the core rumen
+          microbiome dictates dairy cow productivity and emissions. Science
+          Advances, 5(7). https://doi.org/10.1126/sciadv.aav8391.
+        </li>
+        <li>
+          Kingma, D., & Welling, M. (2014). Auto-Encoding Variational Bayes.
+          https://arxiv.org/pdf/1312.6114
+        </li>
+        <li>
+          Murtagh, F. (1991). Multilayer perceptrons for classification and
+          regression. Neurocomputing, 2(5-6), 183–197.
+          https://doi.org/10.1016/0925-2312(91)90023-5
+        </li>
+        <li>
+          Ke, G., Meng, Q., Finley, T., Wang, T., Chen, W., Ma, W., Ye, Q., &
+          Liu, T.-Y. (2017). LightGBM: A Highly Efficient Gradient Boosting
+          Decision Tree.
+          https://papers.nips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf
+        </li>
+        <li>
+          Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting
+          System. https://arxiv.org/pdf/1603.02754
+        </li>
+        <li>
+          Branco, P., Torgo, L., & Ribeiro, R. P. (2019). Pre-processing
+          approaches for imbalanced distributions in regression. Neurocomputing,
+          343, 76–99. https://doi.org/10.1016/j.neucom.2018.11.100
+        </li>
+      </ul>
+    </Card>
+  </main>
+</DLLayout>
+
+<style lang="scss">
+  @import '../../global.scss';
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul,
+    ol {
+      padding-left: 1rem;
+      margin: 0 1rem;
+    }
+  }
+</style>

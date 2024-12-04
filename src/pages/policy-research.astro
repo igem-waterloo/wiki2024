@@ -1,0 +1,193 @@
+---
+import HPLayout from '../layouts/HumanPracticesLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import Card from '../components/Card.astro';
+---
+
+<HPLayout title="Policy Resaerch | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="POLICY RESEARCH" layout="hp" />
+    <Card heading="Challenges & Solutions" layout="hp">
+      <p>
+        Livestock farming faces the challenge of balancing high productivity
+        with sustainability. Policies exist and are constantly evolving to
+        promote sustainable ruminant production systems and food security.
+        Policymakers often demand an understanding of the long-term effects of
+        dietary changes on animal health. A balance of promoting productivity
+        while addressing environmental and safety concerns is essential for the
+        farming industry's future.
+      </p>
+      <br />
+      <p>
+        Our pitched solution involved a genetically modified feed additive or
+        plant with anti-methanogenic properties, and would, like other feed
+        additives and GMOs, be subject to regulatory scrutiny before
+        implementation could occur.
+      </p>
+    </Card>
+    <Card heading="Climate Policies" layout="hp">
+      <p>
+        Methane is 34 times more potent than carbon dioxide in contributing to
+        climate change, making its reduction a key priority in global
+        environmental policy. The <u>Global Methane Pledge</u>, signed by over
+        150 countries, including Canada and the USA, aims to address this by
+        committing to achieve climate neutrality by 2050 [1]. The pledge
+        outlines a concrete plan to cut greenhouse gas emissions by 50% by 2030,
+        with an additional 1% reduction each year thereafter, highlighting the
+        global commitment to curbing methane emissions as a critical component
+        of climate action [1]. To meet his commitment, governments must be ready
+        to adapt investment and policy for novel methane-combatting
+        technologies.
+      </p>
+    </Card>
+    <Card
+      heading="Canadian Food Inspection Agency (CFIA) Regulations"
+      layout="hp"
+    >
+      <p>
+        The Canadian Food Inspection Agency (CFIA) enforces regulations to
+        ensure the safety and nutritional quality of animal feed in Canada,
+        primarily through the <u>feeds regulations</u>, which govern the
+        manufacture, sale, and importation of livestock feeds [2].
+      </p>
+      <br />
+      <p>
+        The CFIA also mandates a rigorous safety assessment process for
+        genetically modified organisms (GMOs) used in animal feed [3]. This
+        assessment, required before any GMO feed can be approved, evaluates both
+        the nutritional adequacy for livestock and the potential environmental
+        impacts, including effects on biodiversity, ensuring compliance with
+        national feed safety standards [3].
+      </p>
+    </Card>
+    <Card heading="Antibiotic Policy" layout="hp">
+      <p>
+        In Canada, different antibiotic regulations are applied to different
+        livestock types. Dairy is in Canada is promoted as being antibiotic-free
+        and subject to rigorous testing [4]. Of note, ionophores have been used
+        as feed additives for Canadian dairy for decades, despite in some
+        contexts being classed as an antibiotic type [5]. Milk is tested for
+        ionophore traces to ensure it does not exceed maximum allowable
+        concentrations [5].
+      </p>
+      <p>
+        A scale of 1-4 is widely used for antibiotic classification, with 1
+        being most critical for human healthcare interests, and 4 being a
+        product irrelevant for human patients [6]. Ionophores belong to class 4
+        in Canada, however, as in the case with dairy, is sometimes permitted in
+        cases where in classic antibiotics are not [5].
+      </p>
+      <p>
+        Beef is subject to a more cumulative effect of antibiotics should they
+        be necessary for animal treatment, therefore some minimal levels are
+        allowed.
+      </p>
+      <p>
+        In the case of BovEco, it is unclear whether the Canadian government
+        agencies would class a lytic enzyme and an antibiotic due to its
+        biodegradability as a protein. Should it be classed as an antibiotic, it
+        would, like ionophores, fall into the class 4 category due to its
+        specific targeting of archaea which are not associated with
+        pathogenicity to humans. PeiR is not expected to contribute to any meat
+        bioaccumulation as a rumen-native soluble protein product [7].
+      </p>
+    </Card>
+    <Card heading="Global Policy Perspective" layout="hp">
+      <p>
+        Food, environmental, and safety-based policies vary depending on country
+        and region. This was a recurring theme of discussion with the various
+        industry experts we had conversations with. The United States, for
+        example, has generally had less stringent agriculture regulations than
+        Canada. For instance, the United States allows use of recombinant bovine
+        somatotropin, a growth hormone produced in genetically engineered E.
+        coli [8]. This, however, is not permitted in Canada due to hormone
+        safety and ethical concerns [8].
+      </p>
+      <br />
+      <p>
+        The EU is another key regulator. It has provided environment-focused
+        subsidies for farmers and was quick to approve the novel 3-NOP methane
+        reducing chemical feed additive after animal testing trials, completed
+        in 2022 [9]. Brazil, one of the top countries in terms of cattle
+        population, approved 3-NOP even earlier in 2021 [9]. In the wake of
+        climate change and novel products falling in a classification space
+        outside of traditional feeds or medical therapeutics, we can expect new
+        policy approaches to occur across the globe.
+      </p>
+    </Card>
+    <Card heading="References" layout="hp">
+      <ol>
+        <li>
+          GMP. (2024, September 23). <em
+            >Homepage: Global methane pledge. Homepage | Global Methane Pledge</em
+          >. https://www.globalmethanepledge.org/
+        </li>
+        <li>
+          Agency, C. F. I. (2024, July 3). <em>Government of Canada</em>.
+          Canadian Food Inspection Agency.
+          https://inspection.canada.ca/en/animal-health/livestock-feeds/regulatory-overview-livestock-feed-canada
+        </li>
+        <li>
+          Agency, C. F. I. (2020, February 24). <em>Government of Canada</em>.
+          Canadian Food Inspection Agency.
+          https://inspection.canada.ca/en/plant-varieties/plants-novel-traits/gene-editing-techniques
+        </li>
+        <li>
+          Plc, D.-. (2021, June 1). <em
+            >8 facts you should know about Canadian milk and antibiotics</em
+          >. Dairy Farmers of Canada.
+          https://dairyfarmersofcanada.ca/en/dairy-in-canada/dairy-excellence/canadian-milk-antibiotics-facts
+        </li>
+        <li>
+          Canada, H. (2024, January 22). <em>Government of Canada</em>.
+          Canada.ca.
+          https://www.canada.ca/en/health-canada/services/drugs-health-products/veterinary-drugs/maximum-residue-limits-mrls/list-maximum-residue-limits-mrls-veterinary-drugs-foods.html
+        </li>
+        <li>
+          Radke, B. R. (2023, February 13). BC in-feed antibiotic report
+          2002-2021. Use of Antibiotics in BC Livestock and Poultry Feed.
+          https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/agriculture-and-seafood/animal-and-crops/bc_in-feed_antibiotic_report_2002-2021.pdf
+        </li>
+        <li>
+          Einspanier, R., Lutz, B., Rief, S., Berezina, O., Zverlov, V.,
+          Schwarz, W., & Mayer, J. (2004). Tracing residual recombinant feed
+          molecules during digestion and rumen bacterial diversity in cattle fed
+          transgene maize. <em>European Food Research & Technology., 218</em
+          >(3), 269–273.
+        </li>
+        <li>
+          Dohoo, I. R., DesCôteaux, L., Leslie, K., Fredeen, A., Shewfelt, W.,
+          Preston, A., & Dowling, P. (2003). A meta-analysis review of the
+          effects of recombinant bovine somatotropin: effects on animal health,
+          reproductive performance, and culling. <em
+            >Canadian journal of veterinary research = Revue canadienne de
+            recherche veterinaire, 67</em
+          >(4), 252–264.
+        </li>
+        <li>
+          Vinco, E., Bourassa, J., Arman, N., Morrison, N., & Lhermie, J.
+          (2022).
+          <em
+            >Additives and offsets: a partial life cycle analysis of 3NOP
+            supplementation in Alberta beef production
+          </em> . University of Calgary, The Simpson Centre. https://www.simpsoncentre.ca/wp-content/uploads/2023/01/Additives-and-Offsets-A-Partial-LifeCycle-Analysis-of-3NOP.pdf
+        </li>
+      </ol>
+    </Card>
+  </main>
+
+  <style lang="scss">
+    @import '../global.scss';
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      ol {
+        padding-left: 1rem;
+        margin: 0 1rem;
+      }
+    }
+  </style>
+</HPLayout>

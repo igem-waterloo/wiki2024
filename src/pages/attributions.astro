@@ -1,27 +1,18 @@
 ---
-import LoadingScreen from '../components/LoadingScreen.astro';
 import TeamLayout from '../layouts/TeamLayout.astro';
-import Card from '../components/Card.astro';
 ---
 
-<LoadingScreen />
 <TeamLayout title="Attributions | BovEco - iGEM 2024">
 	<main>
-		<div class="thanks">
+		<section class="thanks">
 			<h1>Attributions</h1>
-			<!-- <Card
-				title="Thank you!"
-				body=`We'd like to thank the following people for their contributions to
-				our project. BovEco wouldn't have been possible without their help!
-				Let's give it up for them!`
-				`
-			/> -->
-			<div class="thanks">
-				We'd like to thank the following people for their contributions to our
-				project. BovEco wouldn't have been possible without their help! Let's
-				give it up for them!
+			<div>
+				It's our great pleasure to thank the following people and organizations
+				whose contributions quite literally made <span>BovEco</span> possible! When
+				all's said and done, we couldn't have done it without each and every single
+				one of them. Let's give it up for them, shall we?
 			</div>
-		</div>
+		</section>
 		<iframe
 			id="igem-attribution-form"
 			src="https://teams.igem.org/wiki/5118/attributions"
@@ -37,28 +28,28 @@ import Card from '../components/Card.astro';
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		z-index: 50;
 		.thanks {
 			width: 85%;
-			height: auto;
+			line-height: 1.1;
 			position: relative;
-			// left: 6.75rem;
-			margin-top: 5rem;
 			h1 {
 				font-size: 5rem;
 			}
 			div {
-				font-size: 1.5rem;
+				font-size: 2rem;
+
+				span {
+					color: $accent-1;
+				}
 			}
 		}
 
 		iframe {
-			display: block;
 			width: 90%;
-			height: 200vh; // TO DO: set this dynamically
+			height: 2280vh;
 			padding: 2rem;
 			border: none;
-			margin: 1rem auto;
+			margin-top: 1rem;
 		}
 	}
 </style>

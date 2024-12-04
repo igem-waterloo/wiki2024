@@ -1,6 +1,5 @@
 ---
-import CursorParticles from '../components/CursorParticles.astro';
-import Cloud from '../components/Cloud.astro';
+import LoadingScreen from '../components/LoadingScreen.astro';
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
 
@@ -24,13 +23,17 @@ const { title } = Astro.props;
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
 		/>
 		<meta name="author" content="Waterloo iGEM" />
-		<link rel="icon" type="image/svg+xml" href="img/favicon.png" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="https://static.igem.wiki/teams/5118/img/favicon.webp"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<LoadingScreen />
 		<NavBar />
-		<!-- <Cloud /> -->
 		<slot />
 		<Footer />
 	</body>
@@ -40,28 +43,21 @@ const { title } = Astro.props;
 	@import '../global.scss';
 
 	body {
-		background-color: white;
+		background-color: $primary;
 		background-image: radial-gradient(
 				circle at 25% 30%,
-				black 20%,
+				rgb(113, 107, 107) 20%,
 				transparent 1%
 			),
-			radial-gradient(circle at 80% 40%, black 15%, transparent 1%),
-			radial-gradient(circle at 40% 75%, black 25%, transparent 1%),
-			radial-gradient(circle at 65% 85%, black 10%, transparent 1%),
-			radial-gradient(circle at 70% 20%, black 18%, transparent 1%),
-			radial-gradient(circle at 30% 70%, black 12%, transparent 1%);
-		background-position: center;
+			radial-gradient(circle at 80% 40%, rgb(113, 107, 107) 15%, transparent 1%),
+			radial-gradient(circle at 65% 85%, rgb(113, 107, 107) 10%, transparent 1%),
+			radial-gradient(circle at 70% 20%, rgb(113, 107, 107) 18%, transparent 1%);
+		background-position: right right;
 		background-repeat: repeat-y;
-		z-index: -50;
-		animation: move-around-screen 100s infinite alternate ease-in-out;
-
-		slot {
-			z-index: 50;
-		}
+		animation: move-blobs-around-screen 1000s infinite alternate ease-in-out;
 	}
 
-	@keyframes move-around-screen {
+	@keyframes move-blobs-around-screen {
 		0% {
 			background-size: 30em 30em;
 			background-position: 0% 0%;

@@ -1,0 +1,149 @@
+---
+import WLLayout from '../layouts/WetLabLayout.astro';
+import HeroBanner from '../components/HeroBanner.astro';
+import Card from '../components/Card.astro';
+---
+
+<WLLayout title="Safety | BovEco - iGEM 2024">
+  <main>
+    <HeroBanner title="SAFETY" layout="lnd" />
+    <Card layout="lnd">
+      <p>
+        Prior to beginning any laboratory experimentation, it is vital our team
+        reviews safety policies to ensure we follow University of Waterloo
+        regulations, but also keep ourselves and each other safe in all
+        practices that we conduct.
+      </p>
+    </Card>
+    <Card heading="Project Safety Considerations" layout="lnd">
+      <ul>
+        <li>
+          We have chosen to use non-pathogenic chassis and organisms that are
+          covered under the iGEM White list, and are also described as Biosafety
+          Level 1 (<em>E. coli </em> DH5alpha, <em>C. Vulgaris</em> UTEX 2714, <em
+            >A.tumefaciens</em
+          > AGL-1, <em>M. ruminantium</em> M1 DMS 1093).
+        </li>
+        <li>
+          Our project utilized Gibson Assembly and restriction endonuclease
+          digests. While health concerns related to usage for these tools remain
+          low, it was still vital to our team we work in aseptic environments,
+          work with sterile equipment and wore personal protective equipment
+          including lab coats, goggles and gloves at all times when working with
+          organisms and DNA.
+        </li>
+      </ul>
+    </Card>
+    <Card heading="Safety Guidelines" layout="lnd">
+      <p>
+        The Public Health Agency of Canada outlines standardized research
+        practices involving biomaterials that prevents outbreaks and protects
+        against threats to public health (Public health of Canada).
+      </p>
+      <br />
+      <p>
+        At the University of Waterloo, laboratory safety guidelines are outlined
+        by the Safety Office. It include programs and information on biosafety,
+        chemical safety, facilities, equipment and waste management (safety
+        office)
+      </p>
+    </Card>
+    <Card heading="About our Laboratory" layout="lnd">
+      <p>
+        Our laboratory space is a shared area within the Velocity incubator
+        space located on the second floor of ESC (Earth Sciences and Chemistry)
+        building at the University of Waterloo. We have our own benchtop space
+        with centrifuges, thermal cycler, a mini autoclave, analytical and
+        top-loading balances. We also have a -20°C, 4°C and a shared -80°C
+        freezer. The lab space also has several shared fume hoods, shaker
+        tables, hot plates, and temperature adjusted incubators. The lab is
+        managed by Associate Director, Krysta Traianovski and the technician,
+        Anthony Ng, from Velocity Science.
+      </p>
+    </Card>
+    <Card heading="About our Laboratory" layout="lnd">
+      <p>
+        Our laboratory space is a shared area within the Velocity incubator
+        space located on the second floor of ESC (Earth Sciences and Chemistry)
+        building at the University of Waterloo. We have our own benchtop space
+        with centrifuges, thermal cycler, a mini autoclave, analytical and
+        top-loading balances. We also have a -20°C, 4°C and a shared -80°C
+        freezer. The lab space also has several shared fume hoods, shaker
+        tables, hot plates, and temperature adjusted incubators. The lab is
+        managed by Associate Director, Krysta Traianovski and the technician,
+        Anthony Ng, from Velocity Science.
+      </p>
+    </Card>
+    <Card heading="Team Guidelines" layout="lnd">
+      <p>
+        Before our lab and design subteam members were permitted to work in the
+        laboratory, they were appropriately trained in the following 4 assigned
+        courses:
+      </p>
+      <br />
+      <ul>
+        <li>SO2017 WHMIS</li>
+        <li>SO1010 Lab Safety</li>
+        <li>SO2070 Waste Segregation</li>
+        <li>SO2032 Safe Chemical Handling</li>
+      </ul>
+      <p>
+        Team members were also given a formal lab tour, to identify exits,
+        doors, fire extinguishers, eye wash stations, sinks, windows, chemical
+        cabinets, fire hazardous chemical storage, first aid kit, labelled glass
+        waste bin, and general expectations for working in the lab. These
+        included maintaining a clean bench space, proper labelling of all
+        materials made, and proper disposal. We took great caution with all
+        protocols and equipment when working in the laboratory.
+      </p>
+      <br />
+      <p>
+        Keys to the laboratory space were also handed out accordingly to the
+        most trained and senior members of the lab and design subteam. Members
+        were also instructed to always be in the lab with another person, and to
+        never work alone.
+      </p>
+    </Card>
+    <Card heading="Personal Protective Equipment" layout="lnd">
+      <p>
+        When working in the laboratory, team members were instructed to wear
+        long pants, closed toes shoes and tie their hair back, if long enough to
+        do so. Personal protective equipment that was also required included a
+        lab coat, safety glasses or goggles and gloves.
+      </p>
+      <p>
+        Protocols from the Waterloo iGEM 2021 project NeuroDetech have inspired
+        the write-up for this page, since safety information has not changed.
+      </p>
+    </Card>
+    <Card heading="References" layout="lnd">
+      <ul>
+        <li>
+          Canada, P. H. A. of. (2024, September 23). <em
+            >Government of Canada.</em
+          >
+          Canada.ca. https://www.canada.ca/en/public-health.html
+        </li>
+        <li>
+          <em>Laboratory safety: Safety office. </em> Safety Office | University
+          of Waterloo. (2024, February 29). https://uwaterloo.ca/safety-office/laboratory-safety
+        </li>
+      </ul>
+    </Card>
+  </main>
+
+  <style lang="scss">
+    @import '../global.scss';
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      ul {
+        padding-left: 1rem;
+        margin: 0 1rem;
+      }
+    }
+  </style>
+</WLLayout>

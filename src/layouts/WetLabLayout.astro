@@ -21,7 +21,11 @@ const { title } = Astro.props;
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
     <meta name="author" content="Waterloo iGEM" />
-    <link rel="icon" type="image/svg+xml" href="img/favicon.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://static.igem.wiki/teams/5118/img/favicon.webp"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -35,7 +39,7 @@ const { title } = Astro.props;
   @import '../global.scss';
 
   body {
-    background-color: white;
+    background-color: $primary;
     background-image: radial-gradient(
         circle at 25% 30%,
         rgb(119, 151, 196) 20%,

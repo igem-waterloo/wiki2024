@@ -7,11 +7,11 @@
 </script>
 
 <nav>
-  <img class="logo" src="img/logo.png" />
+  <img class="logo" src="https://static.igem.wiki/teams/5118/img/logo.webp" />
   <div class="navlinks">
     {
       // Section dropdowns
-      ['Project', 'Team', 'Wet Lab', 'Dry Lab', 'Human Practices'].map(
+      ['Project', 'Wet Lab', 'Dry Lab', 'Human Practices', 'Team'].map(
         title => (
           <div class="dropdown">
             <div class="dropbtn">
@@ -23,14 +23,11 @@
                 <a href="/waterloo/description">Description</a>
                 <a href="/waterloo/engineering">Engineering</a>
               )}
-              {title === 'Team' && (
-                <a href="/waterloo/members">Members</a>
-                <a href="/waterloo/attributions">Attributions</a>
-              )}
               {title === 'Wet Lab' && (
                 <a href="/waterloo/design">Design</a>
                 <a href="/waterloo/notebook">Notebook</a>
                 <a href="/waterloo/safety">Safety</a>
+                <a href="/waterloo/experiments">Experiments</a>
               )}
               {title === 'Dry Lab' && (
                 <a href="/waterloo/model">Model</a>
@@ -43,6 +40,10 @@
                 <a href="/waterloo/policy-research">Policy Research</a>
                 <a href="/waterloo/education">Education</a>
                 <a href="/waterloo/inclusivity">Inclusivity</a>
+              )}
+              {title === 'Team' && (
+                <a href="/waterloo/members">Members</a>
+                <a href="/waterloo/attributions">Attributions</a>
               )}
             </div>
           </div>
@@ -78,7 +79,7 @@
       display: flex;
       gap: 1.5rem;
       padding: 1rem 1rem;
-      margin-right: 0.5rem;
+      margin-right: 2rem;
 
       .dropdown {
         .dropbtn {

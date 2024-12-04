@@ -5,9 +5,37 @@ import Card from '../components/Card.astro';
 ---
 
 <ProjectLayout title="Contribution | BovEco - iGEM 2024">
-	<HeroBanner title="CONTRIBUTION" description="sup" image="img/ocean.png" />
+	<!-- <HeroBanner title="CONTRIBUTION" description="sup" image="img/ocean.png" /> -->
 
 	<main>
-		<div></div>
+		<div>
+			This year we added 2 new parts to the Registry, summarized as follows.
+			<ul>
+				<li>
+					BBa_K5118002 - Coding - Lytic enzyme, PeiR, optimized in E.coli,
+					inhibiting rumen methanogens
+				</li>
+				<li>
+					BBa_K5118003 - Coding - Lytic enzyme, PeiR, optimized in C.vulgaris,
+					inhibiting rumen methanogens
+				</li>
+			</ul>
+		</div>
 	</main>
 </ProjectLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	body {
+		background: hsla(193, 42%, 70%, 1) 100%;
+		div {
+			font-size: 1.5rem;
+			line-height: 1.25;
+			margin: 2rem;
+			ul {
+				margin-left: 2rem;
+			}
+		}
+	}
+</style>

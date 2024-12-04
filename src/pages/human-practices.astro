@@ -4,9 +4,89 @@ import HeroBanner from '../components/HeroBanner.astro';
 import Card from '../components/Card.astro';
 ---
 
-<HPLayout title="Human Practices | BovEco - iGEM 2024">
+<script>
+	const button1 = document.querySelector('.btn1');
+	const button2 = document.querySelector('.btn2');
+
+	document.addEventListener('click', e => {
+		// Handle button click here (instead of <a> tag) to avoid loading screen issues
+		if (e.target === button1)
+			window.location.href = '/waterloo/human-practices/stakeholders-experts';
+		else if (e.target === button2)
+			window.location.href = '/waterloo/human-practices/events-initiatives';
+	});
+</script>
+
+<HPLayout title="Integrated Human Practices | BovEco - iGEM 2024">
 	<main>
-		<HeroBanner title="Human Practices" />
-		<Card title="hi" content="poopity scoop" />
+		<HeroBanner title="INTEGRATED HUMAN PRACTICES" layout="hp" />
+		<Card layout="hp">
+			<p>
+				With greenhouse gas emission pattern on the rise and climate change on
+				the top of most minds of scientists, BovEco seeks to reduce methane
+				emissions of Canada’s most important industry, agriculture. To do this,
+				an iterative design mindset was integrated into our team workflow.
+				Farmers and feed suppliers are the backbone of the agricultural
+				industry. With this in mind, our team was dedicated to utilizing
+				stakeholder’s drive and expertise to direct the development of BovEco.
+				From a human practices perspective, this inspired the connection of team
+				members to industry stakeholders, including farmers, nutritionists,
+				emissions experts, and feed experts to understand the current outlook of
+				the industry on methane emissions, current solution realms, and the
+				implementation of BovEco. These conversations inspired new research
+				avenues, and changes to project direction.
+			</p>
+			<br />
+			<p>
+				Furthermore, feedback from stakeholders throughout the design process
+				provided the team with new consideration and implementation ideas to
+				ensure BovEco is well suited for the problem at hand. Feedback and
+				further consideration were also gathered at conferences and initiatives
+				the team attended, including agricultural conferences, collaborations
+				and meet-ups with other iGEM teams, and a tour of a local dairy farm.
+			</p>
+			<br />
+			<p>
+				To learn more about our integrated human practices approach, explore the
+				sections below!
+			</p>
+		</Card>
+		<button class="btn1">Stakeholders & Experts</button>
+		<button class="btn2">Events & Initiatives</button>
 	</main>
 </HPLayout>
+
+<style lang="scss">
+	@import '../global.scss';
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		button {
+			font-family: inherit;
+			font-size: 2rem;
+			background-color: ($accent-1, 0.8);
+			color: $secondary;
+			padding: 0.5em 1em;
+			border: none;
+			border-radius: 5px;
+			margin: 1.5rem;
+			box-shadow:
+				2px 2px 0 $secondary,
+				4px 4px 0 $accent-2;
+			cursor: pointer;
+			@include transition-ease;
+
+			&:hover {
+				background-color: ($primary, 0.5);
+				color: $hp;
+			}
+
+			&:active {
+				transform: scale(0.95);
+			}
+		}
+	}
+</style>
