@@ -6,387 +6,244 @@ import Card from '../components/Card.astro';
 
 <WetLabLayout title="Design | BovEco - iGEM 2024">
   <main>
-    <div>
-      ## Considered Approaches & Why Our Solution is Different Our team explored
-      various approaches to reducing ruminant methane emissions with the goal of
-      achieving a cost-effective, animal-safe, and long-term solution.
-      Researched options included traditional feed additives, probiotics, and
-      methanogen gene regulation methods. Traditional feed additives have been
-      explored in the industry for many years now, but the problem of livestock
-      methane emissions persist [1]. Additive-based solutions inherently suffer
-      from uptake challenges due to lack of incentives for farmers to use higher
-      cost feeds, particularly when no significant productivity benefits are
-      offered. Furthermore, some attention-garnering feed additives such as
-      bromoform-producing seaweed may be associated with other environmental and
-      safety concerns, including having heavy-metal content [2]. Probiotics, in
-      addition to vectors carrying methanogen gene regulators were considered.
-      However, due to a lack of evidence for significant bacteria population
-      maintenance, with less efficient metabolisms in the reducing environment,
-      turned us away from this idea. Though we realized the microbiome was
-      likely the key to reducing methane, we needed an external factor that
-      would make it more favourable for bacteria to choose alternative metabolic
-      pathways and deviate from methanogenesis. Based on Meale et al.’s 2021
-      research, shifts of the microbiome activity in young calves induced via
-      direct feeding was shown to be able to sustain methane reduction effects
-      months far beyond additive feeding methods [3]. As such, we searched for
-      biological ways to promote a microbiome shift using feeds. This lead us to
-      the PeiR lytic enzyme, proven to target methanogens at high rates and cut
-      methane emissions. It was also important for our team to keep in mind the
-      advice received from industry experts, in which we engaged with throughout
-      our development process, that feed additives with capabilities of reducing
-      methane, often suffered low uptake by farmers due to added expenses
-      without farmer-focused benefits. In an effort to ideate a novel method to
-      have a feed-based solution without a complex and costly production and
-      delivery process, a solution of 2 complementary stages was proposed.
-      First, we would recombine microalgae to express our protein. The algae
-      cells provide protein stabilization in a reducing environment, and, due to
-      the polysaccharide cell wall susceptible to degradation in the rumen,
-      eliminates the need for an elaborate excretion mechanism [4]. This would
-      further act as a proof of concept for our second solution phase involving
-      a vision of GMO feed crops, simplifying the production, distribution, and
-      uptake process for farmers. ## What is PeiR? Pei (pseudomurein endo
-      isopeptidase) enzymes P and W belong to a family of C71 peptidases, and
-      are responsible for the cleavage of the peptides that crosslink the
-      archaean cell wall (Visweswaran et al., 2010). The catalytic domain, C71,
-      is responsible for the peptidase activity and breaks apart pseudomurein at
-      the ϵ (Ala)-Lys bond [5]. The ϵ (Ala)-Lys bond located between adjacent
-      layers of the archaean cell wall is cleaved by PeiP and PeiW (Pei) enzymes
-      [5]. Removal of the C-terminal domain from the Pei proteins disrupts
-      catalytic activity. To note, Pei proteins are highly sensitive to
-      oxidizing agents (a property of the C-H-D catalytic ‘triad’). ![Fig. 1:
-      extracted from Subedi et al., 2021
-      [6].](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/5694998b-cd3e-482e-8497-89bb0cdf8834/Screenshot_2024-09-12_at_7.13.41_PM.png)
-      Fig. 1: extracted from Subedi et al., 2021 [6]. ![Fig. 2: Predicted
-      mechanism of action of PeiR, showing the deprotonation and activation of a
-      cysteine residue and eventual nucleophilic attack of the carbonyl between
-      the Glu and Thr residues of the substrate peptide. Mechanism drawn using
-      ChemDraw. See Computational Biology
-      page.](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/3c8a04c7-6bf9-4d34-bd62-757e16bba551/PeiR_mechanism.jpg)
-      Fig. 2: Predicted mechanism of action of PeiR, showing the deprotonation
-      and activation of a cysteine residue and eventual nucleophilic attack of
-      the carbonyl between the Glu and Thr residues of the substrate peptide.
-      Mechanism drawn using ChemDraw. See Computational Biology page. The endo
-      isopeptidase PeiR is a member of the C39 family of cysteine proteases.
-      PeiR has two pseudomurein-binding repeats (PMBR). The PMBRs bind to
-      N-acetyl glucosamine (NAG), a carbohydrate in the cell wall, positioning
-      the active site to attack the peptide holding the cell wall together. PeiR
-      has been found to cleave a Glu-Thr peptide bond, instead of the Ala-Lys
-      bond that both PeiP and PeiW cleave [7]. This is consistent with the cell
-      wall protein structure of *M. ruminantium* M1, which can have Thr in place
-      of Ala [8]. The above reaction mechanism shows the breakage of the peptide
-      bond between Glu and Thr of the archaeal cell wall. With many proteins
-      that have C-H-D catalytic triads, due to surrounding amino acids, the pKa
-      of the cysteine residue can be low enough to effectively become a C-H
-      catalytic dyad [9]. Not all methanogens have the pseudomurein cell wall
-      that PeiR binds to, however many genuses do, including *Methanobacterium*,
-      *Methanobrevibacter*, *Methanopyrus*, *Methanosphaera*, and
-      *Methanothermus* [7]. Further, PeiR was shown to be quite effective on
-      *Methanobrevibacter sp*. AbM4 cells, having a consistent decrease in
-      optical density [10]. All *Methanobrevibacter* members contain
-      pseudomurein, and several beyond *M. ruminantium* have also been proven to
-      be susceptible to PeiR. This includes *M. smithii*, commonly the dominant
-      methanogen species in the rumen [7]. ## PeiR Expression Test System
-      (E.Coli) *Escherichia coli* (*E. coli*) is a widely accessible model
-      organism not only easy to manipulate but also one that would enable
-      production of the desired enzyme more rapidly than the more complex
-      microalgae we worked with. Despite some *E. coli* strains being
-      rumen-safe, this organism was primarily used for lab-test purposes and
-      enabled testing of 4 different plasmid insert arrangements (shown below)
-      [11]. We used the BL21 (DE3) strain since it expresses the T7 RNA
-      polymerase. The T7 RNAP is required to recognize the T7 promoter. The T7
-      promoter is known to transcribe eight times faster than *E. coli* RNA
-      polymerase [12]. This expression system allows initial efficient biomass
-      growth followed by high protein expression upon IPTG induction [13]. ###
-      Design Considerations: *E. coli* - Plasmid Backbone ![pSB1K3
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/61bbce04-0278-42b9-8355-b80d37df383f/pSB1K3_Map.png)
-      - Recombinant pSB1K3 plasmids - pSB1K3-O1 ![pSB1K3-O1
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/a6650eaf-2844-405c-a192-6b5812dfa2bd/pSB1K3-O1_Map.png)
-      - pSB1K3-O2 ![pO2
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/e46e4110-025b-4760-b0fe-2e8693445e6e/pO2_Map.png)
-      - pSB1K3-O3 ![pO3
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/052f2ac5-06d4-4ff5-808a-b3685babc840/pO3_Map.png)
-      - pSB1K3-O4 ![pO4
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/56099a5a-070a-4ae7-a90f-fd0852ebb196/pO4_Map.png)
-      - Usage of Parts | **Genes of Insert*** | **NT Sequence** | **Varying
-      Parts in Sequence** | | --- | --- | --- | | O1 |
-      taatacgactcactatagggagagtcacacaggaaagtactaatggtccgcttttcgcgtgacatgcttcaggacggggcgaagcgtatgttcaagtggttgcgcaaaggggaaggcttgcccaactatttgattatgtatgacatggaccgtaacaaagaatataagttagtcccaaaagaatacgcaggtttatacgaaagccgcaatatcttttggatcaaaaatgggcgcgaaccgaactatgtcactctgacgtccgttgcccgcaacccgttggtgatggattaccaaaacactaactatacctgttgcccaacctcactttcacttgcgtcacagatgctttaccactataagtctgaaagtgaatgtgccaaggcgttagggacctccaagggaagcggcacgtccccagcccagttaattgctaatgctcccaaattaggttttaagatcattcccattaagcgcgatagtaaagaagtgaaaaaatacctgaagaaaggtttccccgttatctgtcattggcaagttaatcaatcgcgtaattgtaaaggtgactacaccggtaacttcgggcattatggtttaatctgggacatgacctccacacattatgtagtcgccgatccggcaaaaggggtaaaccgcaaatataaattcagctgcctggataacgccaacaaagggtatcgccaaaactactatgtcgtatgccccgcacaccatcaccatcatcactag
-      | - [T7
-      Promoter](https://benchling.com/openbioeconomy/f/lib_4KJRtJcx-promoters/seq_eAWVXH4V-t7_laco/edit)
-      - [RBS](https://parts.igem.org/Part:BBa_J435374) -
-      [peiR](https://www.uniprot.org/uniprotkb/D3DZZ6/entry#sequences) -
-      C-terminus 6xHis-Tag | | O2 |
-      taatacgactcactatagggagagtcacacaggaaagtactaatgcaccaccaccatcaccacgtgcgtttttcccgcgatatgcttcaggatggcgcgaaacgtatgtttaagtggttacgtaagggggaagggttgccgaattatttaatcatgtatgatatggatcgcaataaggagtacaaactggtccctaaagagtatgctggcctgtacgaatctcgtaatattttctggattaaaaatggccgcgaacctaactacgttacgttgacttctgtcgcccgcaaccctttggttatggactaccagaacaccaattatacgtgttgtcccacatccctgtcgttagcatcgcagatgctgtatcactataagagcgagtcagagtgtgcgaaggctctggggacctctaaaggtagtgggacgagtccagctcaacttattgcgaatgctccgaagctggggttcaaaatcatccccatcaagcgtgattctaaggaagtcaaaaagtacttgaagaagggtttcccagtaatctgtcattggcaggtgaatcaatcgcgtaactgcaaaggggactatactggcaattttgggcactacggtctgatttgggatatgacctctacccactatgtggtcgctgacccagcaaaaggggtaaaccgcaaatacaagttctcttgtctggacaacgcgaataaagggtatcgccaaaattactatgtagtgtgcccggcttag
-      | - [T7
-      Promoter](https://benchling.com/openbioeconomy/f/lib_4KJRtJcx-promoters/seq_eAWVXH4V-t7_laco/edit)
-      - N-terminus 6xHis - [RBS](https://parts.igem.org/Part:BBa_J435374) -
-      [peiR](https://www.uniprot.org/uniprotkb/D3DZZ6/entry#sequences) | | O3 |
-      ttgacggctagctcagtcctaggtacagtgctagcagagtcacacaggaaagtactaatggtccgcttttcgcgtgacatgcttcaggacggggcgaagcgtatgttcaagtggttgcgcaaaggggaaggcttgcccaactatttgattatgtatgacatggaccgtaacaaagaatataagttagtcccaaaagaatacgcaggtttatacgaaagccgcaatatcttttggatcaaaaatgggcgcgaaccgaactatgtcactctgacgtccgttgcccgcaacccgttggtgatggattaccaaaacactaactatacctgttgcccaacctcactttcacttgcgtcacagatgctttaccactataagtctgaaagtgaatgtgccaaggcgttagggacctccaagggaagcggcacgtccccagcccagttaattgctaatgctcccaaattaggttttaagatcattcccattaagcgcgatagtaaagaagtgaaaaaatacctgaagaaaggtttccccgttatctgtcattggcaagttaatcaatcgcgtaattgtaaaggtgactacaccggtaacttcgggcattatggtttaatctgggacatgacctccacacattatgtagtcgccgatccggcaaaaggggtaaaccgcaaatataaattcagctgcctggataacgccaacaaagggtatcgccaaaactactatgtcgtatgccccgcacaccatcaccatcatcactag
-      | - [Constitutive
-      Promoter](https://benchling.com/openbioeconomy/f/lib_4KJRtJcx-promoters/seq_3TyQ6O4P-j23100-constitutive-promoter/edit)
-      - [RBS](https://parts.igem.org/Part:BBa_J435374) -
-      [peiR](https://www.uniprot.org/uniprotkb/D3DZZ6/entry#sequences) -
-      C-terminus 6xHis-Tag | | O4 |
-      ttgacggctagctcagtcctaggtacagtgctagcagagtcacacaggaaagtactaatgcaccaccaccatcaccacgtgcgtttttcccgcgatatgcttcaggatggcgcgaaacgtatgtttaagtggttacgtaagggggaagggttgccgaattatttaatcatgtatgatatggatcgcaataaggagtacaaactggtccctaaagagtatgctggcctgtacgaatctcgtaatattttctggattaaaaatggccgcgaacctaactacgttacgttgacttctgtcgcccgcaaccctttggttatggactaccagaacaccaattatacgtgttgtcccacatccctgtcgttagcatcgcagatgctgtatcactataagagcgagtcagagtgtgcgaaggctctggggacctctaaaggtagtgggacgagtccagctcaacttattgcgaatgctccgaagctggggttcaaaatcatccccatcaagcgtgattctaaggaagtcaaaaagtacttgaagaagggtttcccagtaatctgtcattggcaggtgaatcaatcgcgtaactgcaaaggggactatactggcaattttgggcactacggtctgatttgggatatgacctctacccactatgtggtcgctgacccagcaaaaggggtaaaccgcaaatacaagttctcttgtctggacaacgcgaataaagggtatcgccaaaattactatgtagtgtgcccggcttag
-      | - [Constitutive
-      Promoter](https://benchling.com/openbioeconomy/f/lib_4KJRtJcx-promoters/seq_3TyQ6O4P-j23100-constitutive-promoter/edit)
-      - N-terminus 6xHis - [RBS](https://parts.igem.org/Part:BBa_J435374) -
-      [peiR](https://www.uniprot.org/uniprotkb/D3DZZ6/entry#sequences) | *All
-      inserts were inserted at the same site of insertion at positions 207…163
-      in pSB1K3 | **Primer Name** | **Primer Type** | **Sequence 5’ - 3’** |
-      **Length (bp)** | **% GC** | **TM (°C)** | | --- | --- | --- | --- | --- |
-      --- | | Vector_Fwd | Forward | tccggcaaaaaagggcaagg | 20 | 55.0 | 59.0 | |
-      Vector_Rev | Reverse | tccttagctttcgctaaggatgatttctg | 29 | 41.4 | 58.4 |
-      | O1_O2_Fwd | Forward |
-      ttcgctaaggatgatttctgtaatacgactcactatagggagagtcacacag | 52 | 42.3 | 65.5 |
-      | O3-O4_Fwd | Foward | ttcgctaaggatgatttctgttgacggctagctcagtcctagg | 43 |
-      48.8 | 66.8 | | O1_O3_Rev | Reverse |
-      gcacaccatcaccatcatcactagtccggcaaaaaagggcaagg | 44 | 52.3 | 69.1 | |
-      O2-O4_Rev | Reverse | ctatgtagtgtgcccggcttagtccggcaaaaaagggcaagg | 42 |
-      54.8 | 69.4 | ## Solution Part 1: *C. vulgaris* Our intermediate PeiR
-      delivery solution revolves around *C. vulgaris* microalgae, offering both
-      testing- and implementation related benefits, complementary to our final
-      solution vision of GMO crops. Having *C. vulgaris* cultures that express
-      PeiR have promise in reducing methane production effectively without
-      harmful effects to the cow. *C. Vulgaris* has pigments, antioxidants, and
-      vitamins that can be used efficiently by ruminants with potential benefits
-      in health and production [14]. Additionally, despite its increased cost
-      over field crops, a small amount of *C. Vulgaris* supplements can cause
-      optimal positive benefits [14].  Small amounts (2-3% of feed) of *C.
-      vulgaris* without lytic enzymes reduced methane production [15] when
-      replacing feed mixture, however the effects may differ across the
-      substrate feed that *C. vulgaris* is mixed into, with haylage generally
-      showing reduced methane emission and fermentation [16]. As an intermediate
-      solution, *C. vulgaris* as a feed additive would need to be in a form that
-      preserves the active enzyme before it reaches the cow and the rumen.
-      Ideally, the preservation mode maintains cell integrity to sustain the
-      reducing environment used to stabilize PeiR. Storing it as fresh biomass
-      at cool temperatures or dried under vacuum may be effective at stabilizing
-      the cells and/or enzyme [17,18]. Being derived from phage that attack
-      rumenal methanogens, the PeiR enzyme is expected to be active once
-      expressed in the rumen [7]. ### Design Considerations: *C. vulgaris* *C.
-      vulgaris* is a highly studied microalgae [19], and our team obtained the
-      UTEX 395 strain. Further, *C. vulgaris* has an efficient protocol for
-      transformation of genes, allowing for genetic engineering [20]. This
-      transformation method is based on *Agrobacterium tumefaciens*-mediated
-      transformation (AMGT) which is a pathogen towards plants, and is adapted
-      to transform genes to *C. Vulgaris* [20]. AGMT is a method that uses a
-      pathogenic bacteria towards plants as a vector to introduce genes to
-      plants [21]. This method has been adapted to various plants, including
-      corn, a common cow feed [22]. This allows our *C. vulgaris* solution to
-      model and act as a proof of concept for a more holistic solution around
-      plants that farms already grow and cows consume. ### Design
-      Considerations: *C. vulgaris* - Plasmid Backbone ![pcambia1302-sequenced
-      (1)
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/4ac36a26-fd22-4319-8b19-cd4381f00b98/pcambia1302-sequenced__(1)_Map.png)
-      - Usage of Parts | **Gene of Insert*** | **NT Sequence** | Plasmid Site of
-      Insertion | | --- | --- | --- | | peiR_OPT |
-      atggttagattcagcagagacatgctccaggacggagcgaagagaatgttcaagtggctaagaaagggcgaagggttgcctaactacttgataatgtatgacatggacaggaataaggagtataagttggttccaaaggaatatgcaggactgtatgagtccagaaacatattctggattaagaacggaagggagcctaactatgttacactgacttccgttgcaaggaatcctcttgtg
-      atggactaccagaacaccaattacacctgttgcccaaccagtttgtcccttgcctcacaa
-      atgctatatcactataagtcagaaagtgaatgcgctaaggctttgggaactagcaagggc
-      agtggaacaagccctgcacagctgatagccaatgctccgaagttagggttcaagataatt
-      cctatcaaaagagacagcaaggaagtgaagaaatacttgaagaaaggtttccctgtaatc
-      tgccattggcaagtgaaccagagcaggaactgcaagggagactatactggaaacttcggtcattacggtctcatttgggacatgacctcaacccactatgttgtggcagatcctgccaagggagtcaacaggaagtacaaattcagctgcctcgacaatgctaacaagggctacaggcagaactactatgttgtctgtcctgcatag
-      | 7205…6493 | *In this design, we aimed to replace the mgfp5 gene in the
-      plasmid pCAMBIA1302 (located at positions 7205...6493) with the
-      codon-optimized gene peiR_OPT (from Twist Bioscience) for expression in
-      *C. vulgaris*. The plasmid pCAMBIA1302 was specifically suggested by our
-      advisor and gifted to us for driving expression in plant cells. Since the
-      mgfp5 gene is not essential for our experiment, we opted to remove it to
-      make space for the insertion of the peiR_OPT gene, which is central to our
-      work. | **Primer Name** | **Primer Type** | **Sequence 5’ - 3’** |
-      **Length (bp)** | **% GC** | **TM (°C)** | | --- | --- | --- | --- | --- |
-      --- | | pCAMBIA_Fwd | Forward | agtcagatctaccatggtcaagag | 24 | 46.0 |
-      65.3 | | pCAMBIA_Rev | Reverse | gctagccaccaccaccac | 18 | 67.0 | 69.1 | |
-      peiR_Fwd | Forward | tggtggtggtggtggctagcggcagggcaaaccacgtag | 39 | 64.0 |
-      69.4 | | peiR_Rev | Reverse | tgaccatggtagatctgactatggtccgctttagccgg | 38
-      | 53.0 | 68.1 | - Recombinant pCAMBIA1302_peiR plasmid ![pCAMBIA-1302_peiR
-      Map.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/b9de34b2-9c0e-4ade-b5cb-242171e790fc/f1e5512d-2c33-48b5-916f-f22f3bd3c093/pCAMBIA-1302_peiR_Map.png)
-      ## Solution Part 2: Plants Our extended concept extends beyond our 2024
-      lab work, focusing on plants already used in animal feed. Though *C.
-      vulgaris* presents promise as a feed additive, the team wanted to explore
-      the advantages of using a plant system for delivery of PeiR in the
-      interest of developing a solution with minimal production, distribution,
-      ethics-related and cost challenges. Recombinant GMO plants have had
-      widespread use for agricultural purposes. New crop lines are commonly
-      developed using agrobacterium-mediated transformation, the same method
-      used in-lab for *C. vulgaris* [23]. Though our solution could potentially
-      be adaptable to a variety of plants, we wanted to investigate design
-      decisions where we to take our experimental work further. As with our *C.
-      vulgaris* concept, the cell wall polysaccharide material (in this case
-      largely cellulose) degrades in the rumen for enzyme delivery [24]. ###
-      Plant Type: Practical Considerations Common ruminant feed types in
-      commercial agriculture include corn, soy, grassland crops, and some grains
-      such as barley [25]. Grassland crops have not been genetically modified
-      for agricultural use with the exception of one Roundup-Ready Alfalfa line
-      [26]. Grasses are outbreeding plants, meaning their genetic material can
-      be spread to genetically-different plants types [27]. This makes control
-      of the spread of GMO material challenging for grassland crops. Corn and
-      other grains are inbreeding plants and have been extensively developed for
-      GMO use, particularly for pesticide tolerance [23]. An ideal plant
-      candidate for us would also have widespread use as feed. Corn is commonly
-      used not only as a dried grain, but also in silage form for year-round use
-      [28]. A plant used as fresh forage would be advantageous to the delivery
-      of PeiR to maintain intact plant cells with reducing conditions to
-      stabilize the enzyme. Ruminants other than cattle, such as goats and
-      sheep, may also have corn incorporated into feeding rations [27]. Evidence
-      of protein stabilization is further confirmed by the work of Einspanier et
-      al., who tracked recombinant protein traces from GMO corn, finding
-      significant quantities in the rumen and then lower traces further in the
-      gastrointestinal tract, with no significant recombinant protein being
-      detected intact within the surrounding epithelium [29]. In addition, plant
-      structure allows opportunities for future experimentation surrounding
-      fusions, for example to starch synthases, which could allow an adjustment
-      of solubility and hence solubility, activity, and degradation rate
-      [30,31]. The optimally performing PeiR delivery system would involves
-      measurable activity with moderate stability in rumen, and with eventual
-      degradation occurring in subsequent protease-rich, more acidic stomach
-      compartments. ### Plant Type: Demographic and Impact Considerations
-      Further, demographic considerations were taken to assess crops used
-      globally. Brazil and India have the most cattle globally [32]. Though many
-      cattle in Brazil are fed through grazing, hybrid feed models exist, and,
-      corn is the most commonly fed grain their reported by a 2019 survey [33].
-      According to feeding surveys conducted by the FAO, maize is a common feed
-      used in all major regions in India for cattle [34]. Finally, the impact of
-      feed type with respect to methane output was also considered. Grain-rich
-      diets within the limits of cattle dietary requirements have been proven to
-      have some benefits in reducing methane emissions, with corn grain/silage
-      diets resulting in lower methane emissions than grass silages [35]. To
-      maintain optimal animal health with the potential increase in
-      acid-producing pathways, complementary plant-extract additives, already
-      used by farmers primarily for yield benefits, may help maintain a rumenal
-      pH balance [36]. ## References 1. Faizan, M. (2024). Enteric methane
-      production in ruminants: it’s effect on global warming and mitigation
-      strategies-a review. *Pakistan Journal of Science*, *76*(01), 16-38. 2.
-      McGurrin, A., Maguire, J., Tiwari, B. K., & Garcia-Vaquero, M. (2023).
-      Anti-methanogenic potential of seaweeds and seaweed-derived compounds in
-      ruminant feed: current perspectives, risks and future prospects. *Journal
-      of animal science and biotechnology*, *14*(1), 145.
-      https://doi.org/10.1186/s40104-023-00946-w 3. Meale, S. J., Popova, M.,
-      Saro, C., Martin, C., Bernard, A., Lagree, M., Yáñez-Ruiz, D. R., Boudra,
-      H., Duval, S., & Morgavi, D. P. (2021). Early life dietary intervention in
-      dairy calves results in a long-term reduction in methane emissions.
-      *Scientific reports*, *11*(1), 3003.
-      https://doi.org/10.1038/s41598-021-82084-9 4. Weber, S., Grande, P. M.,
-      Blank, L. M., & Klose, H. (2022). Insights into cell wall disintegration
-      of Chlorella vulgaris. *PloS one*, *17*(1), e0262500.
-      https://doi.org/10.1371/journal.pone.0262500 5. Visweswaran, G. R. R.,
-      Dijkstra, B. W., & Kok, J. (2010). Two major archaeal pseudomurein
-      endoisopeptidases: PeiW and PeiP. *Archaea*, *2010*(1), 480492. 6. Subedi,
-      B. P., Martin, W. F., Carbone, V., Duin, E. C., Cronin, B., Sauter, J.,
-      Schofield, L. R., Sutherland-Smith, A. J., & Ronimus, R. S. (2021).
-      Archaeal pseudomurein and bacterial murein cell wall biosynthesis share a
-      common evolutionary ancestry. *FEMS microbes*, *2*, xtab012.
-      https://doi.org/10.1093/femsmc/xtab012 7. Altermann, E., Schofield, L. R.,
-      Ronimus, R. S., Beattie, A. K., & Reilly, K. (2018). Inhibition of rumen
-      methanogens by a novel archaeal lytic enzyme displayed on tailored
-      bionanoparticles. *Frontiers in microbiology*, *9*, 2378. 8. Kandler, O.,
-      & Konig, H. (1993). Cell envelopes of archaea: structure and chemistry.
-      In *New Comprehensive Biochemistry* (Vol. 26, pp. 223-259). Elsevier. 9.
-      Beveridge, A. J. (1996). A theoretical study of the active sites of papain
-      and S195C rat trypsin: Implications for the low reactivity of mutant
-      serine proteinases. *Protein science*, *5*(7), 1355-1365. 10. Addison, M.
-      (2023). *Identification and functional characterisation of novel viral
-      pseudomurein endoisopeptidase proteins from methanogens* (Doctoral
-      dissertation, University of Otago). 11. Kudva, I. T., Stanton, T. B., &
-      Lippolis, J. D. (2014). The Escherichia coli O157:H7 bovine rumen fluid
-      proteome reflects adaptive bacterial responses. *BMC microbiology*, *14*,
-      48. https://doi.org/10.1186/1471-2180-14-48 12. Borkotoky, S., & Murali,
-      A. (2018). The highly efficient T7 RNA polymerase: A wonder macromolecule
-      in biological realm. *International Journal of Biological Macromolecules*,
-      *118*, 49–56. https://doi.org/10.1016/j.ijbiomac.2018.05.198 13. New
-      England Biolabs. (n.d.). *T7 Expression | NEB*.
-      https://www.neb.com/en/products/protein-expression/e-coli-protein-expression-strains/t7-expression/t7-expression
-      14. Kholif, A. E., & Olafadehan, O. A. (2021). Microalgae in ruminant
-      nutrition: a review of the chemical composition and nutritive
-      value. *Annals of Animal Science*, *21*(3), 789-806. 15. Kholif, A. E.,
-      Gouda, G. A., Morsy, T. A., Matloup, O. H., Sallam, S. M., & Patra, A. K.
-      (2023). Associative effects between Chlorella vulgaris microalgae and
-      Moringa oleifera leaf silage used at different levels decreased in vitro
-      ruminal greenhouse gas production and altered ruminal
-      fermentation. *Environmental Science and Pollution Research*, *30*(3),
-      6001-6020. 16. Meehan, D. J., Cabrita, A. R. J., Silva, J. L., Fonseca, A.
-      J. M., & Maia, M. R. G. (2021). Effects of Chlorella vulgaris,
-      Nannochloropsis oceanica and Tetraselmis sp. supplementation levels on in
-      vitro rumen fermentation. *Algal Research (Amsterdam)*, *56*, 102284-.
-      https://doi.org/10.1016/j.algal.2021.102284 17. Pozzobon, V., Levasseur,
-      W., & Camarena-Bernard, C. (2024). Chlorella vulgaris cold preservation
-      (4∘C) as a means to stabilize biomass for bioreactor inoculation: A
-      six-month study. *Aquacultural Engineering*, *107*, 102449. 18. Alavi, N.,
-      & Golmakani, M. T. (2017). Evaluation of synergistic effect of *Chlorella
-      vulgaris* and citric acid on oxidative stability of virgin olive oil.
-      *Food science and biotechnology*, *26*(4), 901–910.
-      https://doi.org/10.1007/s10068-017-0127-x 19. Tan, J. S., Lee, S. Y.,
-      Chew, K. W., Lam, M. K., Lim, J. W., Ho, S. H., & Show, P. L. (2020). A
-      review on microalgae cultivation and harvesting, and their biomass
-      extraction processing using ionic liquids. *Bioengineered*, *11*(1),
-      116-129. 20. Roushan, M. R., Chen, C., Ahmadi, P., & Ward, V. C. (2023).
-      Agrobacterium tumefaciens-Mediated Genetic Engineering of Green
-      Microalgae, Chlorella vulgaris. *Journal of Visualized Experiments: Jove*,
-      (200). 21. Gelvin, S. B. (2003). Agrobacterium-mediated plant
-      transformation: the biology behind the “gene-jockeying” tool.
-      *Microbiology and molecular biology reviews*, *67*(1), 16-37. 22. Sidorov,
-      V., Gilbertson, L., Addae, P., & Duncan, D. (2006). Agrobacterium-mediated
-      transformation of seedling-derived maize callus. *Plant Cell Reports*,
-      *25*, 320-328. 23. Yassitepe, J. E., da Silva, V. C., Hernandes-Lopes, J.,
-      Dante, R. A., Gerhardt, I. R., Fernandes, F. R., da Silva, P. A., Vieira,
-      L. R., Bonatti, V., & Arruda, P. (2021). Maize transformation: From plant
-      material to the release of genetically modified and edited varieties.
-      *Frontiers in Plant Science*, *12*.
-      https://doi.org/10.3389/fpls.2021.766702 24. Hua, D., Hendriks, W. H.,
-      Xiong, B., & Pellikaan, W. F. (2022). Starch and Cellulose Degradation in
-      the Rumen and Applications of Metagenomics on Ruminal Microorganisms.
-      *Animals : an open access journal from MDPI*, *12*(21), 3020.
-      https://doi.org/10.3390/ani12213020 25. Erickson, P. S., & Kalscheur, K.
-      F. (2020). Nutrition and feeding of dairy cattle. *Animal Agriculture*,
-      157–180. https://doi.org/10.1016/B978-0-12-817052-6.00009-4 26. Kesoju, S.
-      R., Kramer, M., Brunet, J., Greene, S. L., Jordan, A., & Martin, R. C.
-      (2021). Gene flow in commercial alfalfa (Medicago sativa subsp. sativa L.)
-      seed production fields: Distance is the primary but not the sole influence
-      on adventitious presence. *PloS one*, *16*(3), e0248746.
-      https://doi.org/10.1371/journal.pone.0248746 27. Wang, Z. Y., & Brummer,
-      E. C. (2012). Is genetic engineering ever going to take off in forage,
-      turf and bioenergy crop breeding?. *Annals of botany*, *110*(6),
-      1317–1325. https://doi.org/10.1093/aob/mcs027 28. Oney, C. R., Gramkow, J.
-      K., Hilscher, F. H., Erickson, G. E., MacDonald, J. C., Klopfenstein, T.
-      J., & Watson, A. K. (2019). Corn silage rumen undegradable protein content
-      and response of growing calves to rumen undegradable protein supplement.
-      *Translational animal science*, *3*(1), 51–59.
-      https://doi.org/10.1093/tas/txz014 29. Einspanier, R., Lutz, B., Rief, S.,
-      Berezina, O., Zverlov, V., Schwarz, W., & Mayer, J. (2004). Tracing
-      residual recombinant feed molecules during digestion and rumen bacterial
-      diversity in cattle fed transgene maize. *European Food Research &
-      Technology.*, *218*(3), 269–273. https://doi.org/10.1007/s00217-003-0842-9
-      30. Altermann, E., Reilly, K., Young, W., Ronimus, R. S., & Muetzel, S.
-      (2022). Tailored Nanoparticles With the Potential to Reduce Ruminant
-      Methane Emissions. *Frontiers in microbiology*, *13*, 816695.
-      https://doi.org/10.3389/fmicb.2022.816695 31. Visser, R., & Vincken, J.-P.
-      (2005, November 23). Expression in plants of starch binding domains and/or
-      of protein fusions containing starch binding domains. 32. Ritchie, H.,
-      Rosado, P., & Roser M. (2023) Agricultural production. Data adapted from
-      Food and Agriculture Organization of the United Nations.
-      https://ourworldindata.org/grapher/cattle-livestock-count-heads 33.
-      Silvestre, A. M., & Millen, D. D. (2021). The 2019 Brazilian survey on
-      Nutritional Practices provided by feedlot cattle consulting nutritionists.
-      *Revista Brasileira de Zootecnia*, *50*.
-      https://doi.org/10.37496/rbz5020200189 34. Badve, V. C. (n.d.). *Feeding
-      systems and problems in the indo-ganges plain: Case study* Feeding dairy
-      cows in the tropics. https://www.fao.org/4/t0413e/T0413E16.htm 35. Jonker,
-      A., Lowe, K., Kittelmann, S., Janssen, P. H., Ledgard, S., & Pacheco, D.
-      (2016). Methane emissions changed nonlinearly with graded substitution of
-      alfalfa silage with corn silage and corn grain in the diet of sheep and
-      relation with rumen fermentation characteristics in vivo and in vitro.
-      *Journal of animal science*, *94*(8), 3464–3475.
-      https://doi.org/10.2527/jas.2015-9912 36. Jaramillo-López, E., Itza-Ortiz,
-      M. F., Peraza-Mercado, G., & Carrera-Chávez, J. M. (2017). Ruminal
-      acidosis: Strategies for its control. *Austral Journal of Veterinary
-      Sciences*, *49*(3), 139–148.
-      https://doi.org/10.4067/s0719-81322017000300139
-    </div>
+    <HeroBanner title="DESIGN" layout="lnd" />
+    <Card heading="Considered Approaches & Why Our Solution is Different" layout="lnd">
+			<p>
+        Our team explored various approaches to reducing ruminant methane emissions with the goal of achieving a cost-effective, animal-safe, and long-term solution. Researched options included traditional feed additives, probiotics, and methanogen gene regulation methods. Traditional feed additives have been explored in the industry for many years now, but the problem of livestock methane emissions persist [1]. Additive-based solutions inherently suffer from uptake challenges due to lack of incentives for farmers to use higher cost feeds, particularly when no significant productivity benefits are offered. Furthermore, some attention-garnering feed additives such as bromoform-producing seaweed may be associated with other environmental and safety concerns, including having heavy-metal content [2].
+			</p>
+      <br />
+      <p>
+        Probiotics, in addition to vectors carrying methanogen gene regulators were considered. However, due to a lack of evidence for significant bacteria population maintenance, with less efficient metabolisms in the reducing environment, turned us away from this idea. Though we realized the microbiome was likely the key to reducing methane, we needed an external factor that would make it more favourable for bacteria to choose alternative metabolic pathways and deviate from methanogenesis.
+			</p>
+      <br />
+      <p>
+        Based on Meale et al.’s 2021 research, shifts of the microbiome activity in young calves induced via direct feeding was shown to be able to sustain methane reduction effects months far beyond additive feeding methods [3]. As such, we searched for biological ways to promote a microbiome shift using feeds. This led us to the PeiR lytic enzyme, proven to target methanogens at high rates and cut methane emissions. It was also important for our team to keep in mind the advice received from industry experts, in which we engaged with throughout our development process, that feed additives with capabilities of reducing methane, often suffered low uptake by farmers due to added expenses without farmer-focused benefits.
+			</p>
+      <br />
+      <p>
+        In an effort to ideate a novel method to have a feed-based solution without a complex and costly production and delivery process, a solution of 2 complementary stages was proposed. First, we would recombine microalgae to express our protein. The algae cells provide protein stabilization in a reducing environment, and, due to the polysaccharide cell wall susceptible to degradation in the rumen, eliminates the need for an elaborate excretion mechanism [4]. This would further act as a proof of concept for our second solution phase involving a vision of GMO feed crops, simplifying the production, distribution, and uptake process for farmers.
+			</p>
+		</Card>
+    <Card heading="What is PeiR?" layout="lnd">
+      <p>
+        Pei (pseudomurein endo isopeptidase) enzymes P and W belong to a family of C71 peptidases, and are responsible for the cleavage of the peptides that crosslink the archaean cell wall [5]. The catalytic domain, C71, is responsible for the peptidase activity and breaks apart pseudomurein at the ϵ (Ala)-Lys bond [5].
+      </p>
+      <br />
+      <p>
+        The ϵ (Ala)-Lys bond located between adjacent layers of the archaean cell wall is cleaved by PeiP and PeiW (Pei) enzymes [5]. Removal of the C-terminal domain from the Pei proteins disrupts catalytic activity. To note, Pei proteins are highly sensitive to oxidizing agents (a property of the C-H-D catalytic ‘triad’).
+      </p>
+      <img
+        src="https://static.igem.wiki/teams/5118/img/design/design-1.webp"
+        alt=""
+      />
+      <img
+      src="https://static.igem.wiki/teams/5118/img/design/design-2.webp"
+      alt=""
+    />
+    <p>
+      The endo isopeptidase PeiR is a member of the C39 family of cysteine proteases. PeiR has two pseudomurein-binding repeats (PMBR). The PMBRs bind to N-acetyl glucosamine (NAG), a carbohydrate in the cell wall, positioning the active site to attack the peptide holding the cell wall together. PeiR has been found to cleave a Glu-Thr peptide bond, instead of the Ala-Lys bond that both PeiP and PeiW cleave [7]. This is consistent with the cell wall protein structure of M. ruminantium M1, which can have Thr in place of Ala [8]. The above reaction mechanism shows the breakage of the peptide bond between Glu and Thr of the archaeal cell wall. With many proteins that have C-H-D catalytic triads, due to surrounding amino acids, the pKa of the cysteine residue can be low enough to effectively become a C-H catalytic dyad [9]. Not all methanogens have the pseudomurein cell wall that PeiR binds to, however many genuses do, including Methanobacterium, Methanobrevibacter, Methanopyrus, Methanosphaera, and Methanothermus [7]. Further, PeiR was shown to be quite effective on Methanobrevibacter sp. AbM4 cells, having a consistent decrease in optical density [10].
+    </p>
+    <br/>
+    <p>
+      All Methanobrevibacter members contain pseudomurein, and several beyond M. ruminantium have also been proven to be susceptible to PeiR. This includes M. smithii, commonly the dominant methanogen species in the rumen [7].
+    </p>
+    </Card>
+    <Card heading="PeiR Expression Test System (E. coli)" layout="lnd">
+      <p>
+        Escherichia coli (E. coli) is a widely accessible model organism not only easy to manipulate but also one that would enable production of the desired enzyme more rapidly than the more complex microalgae we worked with. Despite some E. coli strains being rumen-safe, this organism was primarily used for lab-test purposes and enabled testing of 4 different plasmid insert arrangements (shown below) [11].
+      </p>
+      <br/>
+      <p>
+        We used the BL21 (DE3) strain since it expresses the T7 RNA polymerase. The T7 RNAP is required to recognize the T7 promoter. The T7 promoter is known to transcribe eight times faster than E. coli RNA polymerase [12].  This expression system allows initial efficient biomass growth followed by high protein expression upon IPTG induction [13].
+      </p>
+    </Card>
+    <Card heading="Solution Part 1: C. vulgaris" layout="lnd">
+      <p>
+        Our intermediate PeiR delivery solution revolves around C. vulgaris microalgae, offering both testing- and implementation related benefits, complementary to our final solution vision of GMO crops. Having C. vulgaris cultures that express PeiR have promise in reducing methane production effectively without harmful effects to the cow.
+      </p>
+      <br/>
+      <p>
+        C. Vulgaris has pigments, antioxidants, and vitamins that can be used efficiently by ruminants with potential benefits in health and production [14]. Additionally, despite its increased cost over field crops, a small amount of C. Vulgaris supplements can cause optimal positive benefits [14].  Small amounts (2-3% of feed) of C. vulgaris without lytic enzymes reduced methane production [15] when replacing feed mixture, however the effects may differ across the substrate feed that C. vulgaris is mixed into, with haylage generally showing reduced methane emission and fermentation [16].
+      </p>
+      <br/>
+      <p>
+        As an intermediate solution, C. vulgaris as a feed additive would need to be in a form that preserves the active enzyme before it reaches the cow and the rumen. Ideally, the preservation mode maintains cell integrity to sustain the reducing environment used to stabilize PeiR. Storing it as fresh biomass at cool temperatures or dried under vacuum may be effective at stabilizing the cells and/or enzyme [17,18]. Being derived from phage that attack ruminal methanogens, the PeiR enzyme is expected to be active once expressed in the rumen [7]. 
+      </p>
+    </Card>
+    <Card heading="Design Considerations: C. vulgaris" layout="lnd">
+      <p>
+        C. vulgaris is a highly studied microalgae [19], and our team obtained the UTEX 395 strain. Further, C. vulgaris has an efficient protocol for transformation of genes, allowing for genetic engineering [20]. 
+      </p>
+      <br/>
+      <p>
+        This transformation method is based on Agrobacterium tumefaciens-mediated transformation (AMGT) which is a pathogen towards plants, and is adapted to transform genes to C. Vulgaris [20]. AGMT is a method that uses a pathogenic bacteria towards plants as a vector to introduce genes to plants [21]. This method has been adapted to various plants, including corn, a common cow feed [22]. This allows our C. vulgaris solution to model and act as a proof of concept for a more holistic solution around plants that farms already grow and cows consume. 
+      </p>
+    </Card>
+    <Card heading="Solution Part 2: Plants" layout="lnd">
+      <p>
+        Our extended concept extends beyond our 2024 lab work, focusing on plants already used in animal feed. Though C. vulgaris presents promise as a feed additive, the team wanted to explore the advantages of using a plant system for delivery of PeiR in the interest of developing a solution with minimal production, distribution, ethics-related and cost challenges.
+      </p>
+      <br/>
+      <p>
+        Recombinant GMO plants have had widespread use for agricultural purposes. New crop lines are commonly developed using agrobacterium-mediated transformation, the same method used in-lab for C. vulgaris [23].
+      </p>
+      <p>
+        Though our solution could potentially be adaptable to a variety of plants, we wanted to investigate design decisions where we to take our experimental work further. As with our C. vulgaris concept, the cell wall polysaccharide material (in this case largely cellulose) degrades in the rumen for enzyme delivery [24].
+      </p>
+    </Card>
+    <Card heading="Plant Type: Practical Considerations" layout="lnd">
+      <p>
+        Common ruminant feed types in commercial agriculture include corn, soy, grassland crops, and some grains such as barley [25]. Grassland crops have not been genetically modified for agricultural use with the exception of one Roundup-Ready Alfalfa line [26]. Grasses are outbreeding plants, meaning their genetic material can be spread to genetically-different plants types [27]. This makes control of the spread of GMO material challenging for grassland crops.
+      </p>
+      <br/>
+      <p>
+        Corn and other grains are inbreeding plants and have been extensively developed for GMO use, particularly for pesticide tolerance [23]. 
+      </p>
+      <br/>
+      <p>
+        An ideal plant candidate for us would also have widespread use as feed. Corn is commonly used not only as a dried grain, but also in silage form for year-round use [28]. A plant used as fresh forage would be advantageous to the delivery of PeiR to maintain intact plant cells with reducing conditions to stabilize the enzyme. Ruminants other than cattle, such as goats and sheep, may also have corn incorporated into feeding rations [27].
+      </p>
+      <br/>
+      <p>
+        Evidence of protein stabilization is further confirmed by the work of Einspanier et al., who tracked recombinant protein traces from GMO corn, finding significant quantities in the rumen and then lower traces further in the gastrointestinal tract, with no significant recombinant protein being detected intact within the surrounding epithelium [29]. In addition, plant structure allows opportunities for future experimentation surrounding fusions, for example to starch synthases, which could allow an adjustment of solubility and hence activity, and degradation rate [30,31]. The optimally performing PeiR delivery system would involve measurable activity with moderate stability in rumen, and with eventual degradation occurring in subsequent protease-rich, more acidic stomach compartments.
+      </p>
+    </Card>
+    <Card heading="Plant Type: Demographic and Impact Considerations" layout="lnd">
+      <p>
+        Further, demographic considerations were taken to assess crops used globally. Brazil and India have the most cattle globally [32]. Though many cattle in Brazil are fed through grazing, hybrid feed models exist, and, corn is the most commonly fed grain reported by a 2019 survey [33]. According to feeding surveys conducted by the FAO, maize is a common feed used in all major regions in India for cattle [34].
+      </p>
+      <br/>
+      <p>
+        Finally, the impact of feed type with respect to methane output was also considered. Grain-rich diets within the limits of cattle dietary requirements have been proven to have some benefits in reducing methane emissions, with corn grain/silage diets resulting in lower methane emissions than grass silages [35]. To maintain optimal animal health with the potential increase in acid-producing pathways, complementary plant-extract additives, already used by farmers primarily for yield benefits, may help maintain a rumenal pH balance [36].
+      </p>
+    </Card>
+    <Card heading="References" layout="lnd">
+      <ol>
+        <li>
+          Faizan, M. (2024). Enteric methane production in ruminants: it’s effect on global warming and mitigation strategies-a review. Pakistan Journal of Science, 76(01), 16-38.
+        </li>
+        <li>
+          McGurrin, A., Maguire, J., Tiwari, B. K., & Garcia-Vaquero, M. (2023). Anti-methanogenic potential of seaweeds and seaweed-derived compounds in ruminant feed: current perspectives, 
+          risks and future prospects. Journal of animal science and biotechnology, 14(1), 145. https://doi.org/10.1186/s40104-023-00946-w
+        </li>
+        <li>
+          Meale, S. J., Popova, M., Saro, C., Martin, C., Bernard, A., Lagree, M., Yáñez-Ruiz, D. R., Boudra, H., Duval, S., & Morgavi, D. P. (2021). Early life dietary intervention in dairy calves results in a long-term reduction in methane emissions. Scientific reports, 11(1), 3003. https://doi.org/10.1038/s41598-021-82084-9
+        </li>
+        <li>
+          Weber, S., Grande, P. M., Blank, L. M., & Klose, H. (2022). Insights into cell wall disintegration of Chlorella vulgaris. PloS one, 17(1), e0262500. https://doi.org/10.1371/journal.pone.0262500
+        </li>
+        <li>
+          Visweswaran, G. R. R., Dijkstra, B. W., & Kok, J. (2010). Two major archaeal pseudomurein endoisopeptidases: PeiW and PeiP. Archaea, 2010(1), 480492.
+        </li>
+        <li>
+          Subedi, B. P., Martin, W. F., Carbone, V., Duin, E. C., Cronin, B., Sauter, J., Schofield, L. R., Sutherland-Smith, A. J., & Ronimus, R. S. (2021). Archaeal pseudomurein and bacterial murein cell wall biosynthesis share a common evolutionary ancestry. FEMS microbes, 2, xtab012. https://doi.org/10.1093/femsmc/xtab012
+        </li>
+        <li>
+          Altermann, E., Schofield, L. R., Ronimus, R. S., Beattie, A. K., & Reilly, K. (2018). Inhibition of rumen methanogens by a novel archaeal lytic enzyme displayed on tailored bionanoparticles. Frontiers in microbiology, 9, 2378.
+        </li>  
+        <li>
+          Kandler, O., & Konig, H. (1993). Cell envelopes of archaea: structure and chemistry. In New Comprehensive Biochemistry (Vol. 26, pp. 223-259). Elsevier.
+        </li>      
+        <li>
+          Beveridge, A. J. (1996). A theoretical study of the active sites of papain and S195C rat trypsin: Implications for the low reactivity of mutant serine proteinases. Protein science, 5(7), 1355-1365.
+        </li>      
+        <li>
+          Addison, M. (2023). Identification and functional characterisation of novel viral pseudomurein endoisopeptidase proteins from methanogens (Doctoral dissertation, University of Otago).
+        </li>      
+        <li>
+          Kudva, I. T., Stanton, T. B., & Lippolis, J. D. (2014). The Escherichia coli O157:H7 bovine rumen fluid proteome reflects adaptive bacterial responses. BMC microbiology, 14, 48. https://doi.org/10.1186/1471-2180-14-48
+        </li>   
+        <li>
+          Borkotoky, S., & Murali, A. (2018). The highly efficient T7 RNA polymerase: A wonder macromolecule in biological realm. International Journal of Biological Macromolecules, 118, 49–56. https://doi.org/10.1016/j.ijbiomac.2018.05.198
+        </li>    
+        <li>
+          New England Biolabs. (n.d.). T7 Expression | NEB. https://www.neb.com/en/products/protein-expression/e-coli-protein-expression-strains/t7-expression/t7-expression
+        </li>    
+        <li>
+          Kholif, A. E., & Olafadehan, O. A. (2021). Microalgae in ruminant nutrition: a review of the chemical composition and nutritive value. Annals of Animal Science, 21(3), 789-806.
+        </li>    
+        <li>
+          Kholif, A. E., Gouda, G. A., Morsy, T. A., Matloup, O. H., Sallam, S. M., & Patra, A. K. (2023). Associative effects between Chlorella vulgaris microalgae and Moringa oleifera leaf silage used at different levels decreased in vitro ruminal greenhouse gas production and altered ruminal fermentation. Environmental Science and Pollution Research, 30(3), 6001-6020.
+        </li>    
+        <li>
+          Meehan, D. J., Cabrita, A. R. J., Silva, J. L., Fonseca, A. J. M., & Maia, M. R. G. (2021). Effects of Chlorella vulgaris, Nannochloropsis oceanica and Tetraselmis sp. supplementation levels on in vitro rumen fermentation. Algal Research (Amsterdam), 56, 102284-. https://doi.org/10.1016/j.algal.2021.102284
+        </li>    
+        <li>
+          Pozzobon, V., Levasseur, W., & Camarena-Bernard, C. (2024). Chlorella vulgaris cold preservation (4∘C) as a means to stabilize biomass for bioreactor inoculation: A six-month study. Aquacultural Engineering, 107, 102449.
+        </li>    
+        <li>
+          Alavi, N., & Golmakani, M. T. (2017). Evaluation of synergistic effect of Chlorella vulgaris and citric acid on oxidative stability of virgin olive oil. Food science and biotechnology, 26(4), 901–910. https://doi.org/10.1007/s10068-017-0127-x
+        </li>    
+        <li>
+          Tan, J. S., Lee, S. Y., Chew, K. W., Lam, M. K., Lim, J. W., Ho, S. H., & Show, P. L. (2020). A review on microalgae cultivation and harvesting, and their biomass extraction processing using ionic liquids. Bioengineered, 11(1), 116-129.
+        </li>    
+        <li>
+          Roushan, M. R., Chen, C., Ahmadi, P., & Ward, V. C. (2023). Agrobacterium tumefaciens-Mediated Genetic Engineering of Green Microalgae, Chlorella vulgaris. Journal of Visualized Experiments: Jove, (200).
+        </li>    
+        <li>
+          Gelvin, S. B. (2003). Agrobacterium-mediated plant transformation: the biology behind the “gene-jockeying” tool. Microbiology and molecular biology reviews, 67(1), 16-37.
+        </li>    
+        <li>
+          Sidorov, V., Gilbertson, L., Addae, P., & Duncan, D. (2006). Agrobacterium-mediated transformation of seedling-derived maize callus. Plant Cell Reports, 25, 320-328.
+        </li>    
+        <li>
+          Yassitepe, J. E., da Silva, V. C., Hernandes-Lopes, J., Dante, R. A., Gerhardt, I. R., Fernandes, F. R., da Silva, P. A., Vieira, L. R., Bonatti, V., & Arruda, P. (2021). Maize transformation: From plant material to the release of genetically modified and edited varieties. Frontiers in Plant Science, 12. https://doi.org/10.3389/fpls.2021.766702 
+        </li>    
+        <li>
+          Hua, D., Hendriks, W. H., Xiong, B., & Pellikaan, W. F. (2022). Starch and Cellulose Degradation in the Rumen and Applications of Metagenomics on Ruminal Microorganisms. Animals : an open access journal from MDPI, 12(21), 3020. https://doi.org/10.3390/ani12213020
+        </li>    
+        <li>
+          Erickson, P. S., & Kalscheur, K. F. (2020). Nutrition and feeding of dairy cattle. Animal Agriculture, 157–180. https://doi.org/10.1016/B978-0-12-817052-6.00009-4
+        </li>    
+        <li>
+          Kesoju, S. R., Kramer, M., Brunet, J., Greene, S. L., Jordan, A., & Martin, R. C. (2021). Gene flow in commercial alfalfa (Medicago sativa subsp. sativa L.) seed production fields: Distance is the primary but not the sole influence on adventitious presence. PloS one, 16(3), e0248746. https://doi.org/10.1371/journal.pone.0248746
+        </li>    
+        <li>
+          Wang, Z. Y., & Brummer, E. C. (2012). Is genetic engineering ever going to take off in forage, turf and bioenergy crop breeding?. Annals of botany, 110(6), 1317–1325. https://doi.org/10.1093/aob/mcs027
+        </li>    
+        <li>
+          Oney, C. R., Gramkow, J. K., Hilscher, F. H., Erickson, G. E., MacDonald, J. C., Klopfenstein, T. J., & Watson, A. K. (2019). Corn silage rumen undegradable protein content and response of growing calves to rumen undegradable protein supplement. Translational animal science, 3(1), 51–59. https://doi.org/10.1093/tas/txz014
+        </li>    
+        <li>
+          Einspanier, R., Lutz, B., Rief, S., Berezina, O., Zverlov, V., Schwarz, W., & Mayer, J. (2004). Tracing residual recombinant feed molecules during digestion and rumen bacterial diversity in cattle fed transgene maize. European Food Research & Technology., 218(3), 269–273. https://doi.org/10.1007/s00217-003-0842-9
+        </li>    
+        <li>
+          Altermann, E., Reilly, K., Young, W., Ronimus, R. S., & Muetzel, S. (2022). Tailored Nanoparticles With the Potential to Reduce Ruminant Methane Emissions. Frontiers in microbiology, 13, 816695. https://doi.org/10.3389/fmicb.2022.816695
+        </li>    
+        <li>
+          Visser, R., & Vincken, J.-P. (2005, November 23). Expression in plants of starch binding domains and/or of protein fusions containing starch binding domains. 
+        </li>    
+        <li>
+          Ritchie, H., Rosado, P., & Roser M. (2023) Agricultural production. Data adapted from Food and Agriculture Organization of the United Nations.  https://ourworldindata.org/grapher/cattle-livestock-count-heads
+        </li>    
+        <li>
+          Silvestre, A. M., & Millen, D. D. (2021). The 2019 Brazilian survey on Nutritional Practices provided by feedlot cattle consulting nutritionists. Revista Brasileira de Zootecnia, 50. https://doi.org/10.37496/rbz5020200189 
+        </li>    
+        <li>
+          Badve, V. C. (n.d.). Feeding systems and problems in the indo-ganges plain: Case study Feeding dairy cows in the tropics. https://www.fao.org/4/t0413e/T0413E16.htm 
+        </li>    
+        <li>
+          Jonker, A., Lowe, K., Kittelmann, S., Janssen, P. H., Ledgard, S., & Pacheco, D. (2016). Methane emissions changed nonlinearly with graded substitution of alfalfa silage with corn silage and corn grain in the diet of sheep and relation with rumen fermentation characteristics in vivo and in vitro. Journal of animal science, 94(8), 3464–3475. https://doi.org/10.2527/jas.2015-9912
+        </li>    
+        <li>
+          Jaramillo-López, E., Itza-Ortiz, M. F., Peraza-Mercado, G., & Carrera-Chávez, J. M. (2017). Ruminal acidosis: Strategies for its control. Austral Journal of Veterinary Sciences, 49(3), 139–148. https://doi.org/10.4067/s0719-81322017000300139 
+        </li>          
+      </ol>
+    </Card>
   </main>
 </WetLabLayout>
 
-<style>
-  div {
-    font-family: 'Quartzo', sans-serif;
-  }
+<style lang="scss">
+	@import '../global.scss';
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+    img {
+      margin: 0 auto;
+    }
+
+	}
 </style>
