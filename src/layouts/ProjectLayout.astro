@@ -1,7 +1,7 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import CursorParticles from '../components/CursorParticles.astro';
 import NavBar from '../components/NavBar.astro';
-import HeroBanner from '../components/HeroBanner.astro';
+import Cloud from '../components/Cloud.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -31,15 +31,14 @@ const { title } = Astro.props;
 		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-		<!-- <ViewTransitions /> -->
 	</head>
 	<body>
+		<CursorParticles />
 		<NavBar />
-		<!-- <div transition:animate="slide">
-			<slot />
-		</div> -->
+		<Cloud />
+		<Cloud />
 		<slot />
-		<!-- <Footer /> -->
+		<Footer />
 	</body>
 </html>
 
