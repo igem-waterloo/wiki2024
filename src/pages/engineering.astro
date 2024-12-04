@@ -4,20 +4,27 @@ import ProjectLayout from '../layouts/ProjectLayout.astro';
 
 <ProjectLayout title="Engineering | BovEco - iGEM 2024">
 	<main>
-		<div>
-			# Engineering Success ## Iteration #1: First PCR and Gel attempts of
-			E.coli system **Design:** We aimed to validate the lytic enzyme PeiR [1]
-			by cloning it into *E. coli* using the pSB1K3 [2] plasmid vector. Our
-			construct included two different promoters: the T7 promoter and a
-			Constitutive promoter, as there is no existing research on which would
-			yield higher enzyme expression efficiency. Based on our advisors’
-			recommendations we selected both promoters to compare their performance in
-			driving PeiR expression. Additionally, we incorporated sequences such as
-			the RBS and His-tag to facilitate the expression and purification of PeiR.
-			The His-tags were chosen for their minimal impact on protein function,
-			unlike larger markers like GFP, ensuring that PeiR’s activity remains
-			unaltered. **Build:** The lytic enzyme PeiR from the prophage, psiM2 [2],
-			along with several other parts, was constructed into a single sequence and
+		<h1 class="welcome-text">Engineering Success</h1>
+		<div class="line-h1"></div>
+
+		<h2>Iteration #1: First PCR and Gel Attempts of E. coli System</h2>
+		<div class="line-h2"></div>
+
+		<div class="box gold">
+			<u>DESIGN</u>: We aimed to validate the lytic enzyme PeiR [1] by cloning
+			it into <i> E. coli </i> using the pSB1K3 [2] plasmid vector. Our construct
+			included two different promoters: the T7 promoter and a Constitutive promoter,
+			as there is no existing research on which would yield higher enzyme expression
+			efficiency. Based on our advisors’ recommendations we selected both promoters
+			to compare their performance in driving PeiR expression. Additionally, we incorporated
+			sequences such as the RBS and His-tag to facilitate the expression and purification
+			of PeiR. The His-tags were chosen for their minimal impact on protein function,
+			unlike larger markers like GFP, ensuring that PeiR’s activity remains unaltered.
+		</div>
+
+		<div class="box">
+			<u>BUILD</u>: The lytic enzyme PeiR from the prophage, psiM2 [2], along
+			with several other parts, was constructed into a single sequence and
 			ordered as gBlocks from IDT. Different variations of these sequences were
 			designed to include the BioBrick prefix and suffix to facilitate Gibson
 			Assembly. We tested four plasmid systems with different gene sequence
@@ -32,51 +39,65 @@ import ProjectLayout from '../layouts/ProjectLayout.astro';
 			purification techniques like Immobilized Metal Affinity Chromatography
 			(IMAC).
 		</div>
-		<div>
-			**Test:** We used PCR to amplify the four gBlocks (O1 to O4), via NEB Q5
-			Hi-Fi 2X Master Mix protocol. The PCR amplification of the restriction
+
+		<div class="box gold">
+			<u>TEST</u>: We used PCR to amplify the four gBlocks (O1 to O4), via NEB
+			Q5 Hi-Fi 2X Master Mix protocol. The PCR amplification of the restriction
 			enzyme (RE) digested pSB1K3 vector, as per iGEM’s protocol [5] was
 			unsuccessful on the gel electrophoresis, as no bands appeared.
 			Additionally, the A260/A280 ratio increased significantly from 1.8 after
 			every PCR reaction.
 		</div>
-		<div>
-			**Learn:** The increase in the A260/A280 ratio during our gel
+
+		<div class="box">
+			<u>LEARN</u>: The increase in the A260/A280 ratio during our gel
 			electrophoresis testing implied a problem with the digestion process. We
 			decided to remove the BioBrick prefix suffix sites for the gene inserts O1
 			to O4 and pSB1K3. This then inspired a new iteration of redesigning
 			primers for the Engineering Design Cycle with new gene inserts in our
 			finalized recombinant plasmids.
 		</div>
-		<div>
-			## Iteration #2: PCR Optimization of pSBK13 Design: After redesigning our
-			primers, we initially attempted to use a digested pSB1K3. However, due to
-			iGEM rules stating that linearized plasmid backbones must be cut with
-			EcoRI and PstI and adjusted to 25 ng/µL at 50 µL, we encountered issues
-			when no bands appeared following digestion. As a result, we decided to
-			skip the restriction enzyme (RE) digestion of the vector and use the
-			amplified linearized vector for Gibson assembly. To facilitate this
-			process, we redesigned the primers to include the sequence without the
-			BioBrick prefix and suffix. Build: Utilized the same methodology as
-			Iteration #1 to design new primers on SnapGene and ordered from IDT.
-			However, our PCR optimization included performing a PCR gradient to find
-			the proper annealing temperature and adjusting the initial DNA
-			concentration for better amplification of pSB1K3. Test: We conducted tests
-			on the four gene constructs (O1 to O4) under similar PCR conditions for
-			50uL reactions based on NEB’s Q5 Master Mix protocol [6]. For pSB1K3, we
-			performed a PCR gradient, adjusting the annealing temperatures from 66°C
-			to 64°C. Initially, we used higher primer concentrations of approximately
-			0.5 µM; however, we decreased this to ~0.25 µM for the lower annealing
-			temperatures to optimize amplification results. The annealing temperatures
-			of 63°C and 64°C and the primer concentration of 0.25 µM were successful
-			changes. Furthermore, the inserts O1 to O4, were each ligated into the
-			vector pSB1K3 via Gibson assembly. After electroporation the cultures were
-			spread onto KanR plates, however, no colonies appeared.
+
+		<h2>Iteration #2: PCR Optimization of pSBK13</h2>
+		<div class="line-h2"></div>
+
+		<div class="box gold">
+			<u>DESIGN</u>: After redesigning our primers, we initially attempted to
+			use a digested pSB1K3. However, due to iGEM rules stating that linearized
+			plasmid backbones must be cut with EcoRI and PstI and adjusted to 25 ng/µL
+			at 50 µL, we encountered issues when no bands appeared following
+			digestion. As a result, we decided to skip the restriction enzyme (RE)
+			digestion of the vector and use the amplified linearized vector for Gibson
+			assembly. To facilitate this process, we redesigned the primers to include
+			the sequence without the BioBrick prefix and suffix.
 		</div>
-		<div>
-			Learn: The results from our testing show that various factors, such as
-			primer concentration and annealing temperatures, significantly impact PCR
-			amplification and the success of Gibson assembly. By adjusting these
+
+		<div class="box">
+			<u>BUILD</u>: Utilized the same methodology as Iteration #1 to design new
+			primers on SnapGene and ordered from IDT. However, our PCR optimization
+			included performing a PCR gradient to find the proper annealing
+			temperature and adjusting the initial DNA concentration for better
+			amplification of pSB1K3.
+		</div>
+
+		<div class="box gold">
+			<u>TEST</u>: We conducted tests on the four gene constructs (O1 to O4)
+			under similar PCR conditions for 50uL reactions based on NEB’s Q5 Master
+			Mix protocol [6]. For pSB1K3, we performed a PCR gradient, adjusting the
+			annealing temperatures from 66°C to 64°C. Initially, we used higher primer
+			concentrations of approximately 0.5 µM; however, we decreased this to
+			~0.25 µM for the lower annealing temperatures to optimize amplification
+			results. The annealing temperatures of 63°C and 64°C and the primer
+			concentration of 0.25 µM were successful changes. Furthermore, the inserts
+			O1 to O4, were each ligated into the vector pSB1K3 via Gibson assembly.
+			After electroporation the cultures were spread onto KanR plates, however,
+			no colonies appeared.
+		</div>
+
+		<div class="box">
+			<u>LEARN</u>: The results from our testing show that various factors, such
+			as primer concentration and annealing temperatures, significantly impact
+			PCR amplification and the success of Gibson assembly. By adjusting these
 			variables and troubleshooting them one at a time, we can effectively
 			improve our amplification results. This process highlighted the importance
 			of optimizing conditions, including ensuring the correct DNA ratio between
@@ -85,121 +106,151 @@ import ProjectLayout from '../layouts/ProjectLayout.astro';
 			incubation processes, as well as systematically testing these variables to
 			improve the assembly's success rate. This knowledge not only enhances our
 			current project but also provides valuable insights for future iGEM
-			projects, enabling us to engineer *C. vulgaris* to express PeiR with
+			projects, enabling us to engineer <i> C. vulgaris </i> to express PeiR with
 			greater efficiency.
 		</div>
-		<div>
-			## Iteration # 3: First cloning attempts of C.vulgaris system Design: We
-			aim to engineer *Chlorella vulgaris* (C. *vulgaris*) to express PeiR, a
-			lytic enzyme that targets *Methanobrevibacter ruminantium* M1. The goal is
-			to reduce methane emissions from cattle by applying this system to crops
-			like corn and wheat. The PeiR gene was optimized for *C. vulgaris* from
-			Twist Bioscience. This design serves as a proof-of-concept for plant-based
-			methane reduction solutions. Build: To transform *C. vulgaris*, an
-			Agrobacterium-mediated transformation system (AGMT) was implemented [7].
-			AGMT employs pathogenic bacteria as a vector to introduce genes into
-			plants. *C. vulgaris* was subcultured from a stock solution, and our plant
-			expression vector, pCAMBIA1302, was isolated from DH5α. *A. tumefaciens*
-			cells were selected as the (AGL1) electrocompetent cells due to their
-			ability to infect plant cells and transfer a specific DNA sequence. *A.
-			tumefaciens* (AGL1) cells were prepared as electrocompetent cells for gene
-			transfer. The plasmid pCAMBIA1302, given to us by our advisors, and the
-			PeiR_OPT gene was purchased from IDT. Primer design was completed using
-			NEBuilder, and all sequences were verified for alignment. Test:
-			pCAMBIA1302 [7] and the insert PeiR_OPT were successfully amplified and a
-			gel was run to confirm their lengths. We encountered issues after Gibson
-			Assembly, with no appearance of bands for gel extraction after DPNI
-			digestion. This likely resulted from inconsistent DNA concentrations or
-			incomplete digestion, as the A260/A280 ratios were significantly greater
-			than 1.8. *The stop codon was removed with inserted within the plasmid to
-			ensure that the PeiR_OPT insert as well as the His-tag were within the
-			ORF.
+
+		<h2>Iteration #3: First Cloning Attempts of C. vulgaris System</h2>
+		<div class="line-h2"></div>
+
+		<div class="box gold">
+			<u>DESIGN</u>: We aim to engineer Chlorella vulgaris (C. vulgaris) to
+			express PeiR, a lytic enzyme that targets Methanobrevibacter ruminantium
+			M1. The goal is to reduce methane emissions from cattle by applying this
+			system to crops like corn and wheat. The PeiR gene was optimized for C.
+			vulgaris from Twist Bioscience. This design serves as a proof-of-concept
+			for plant-based methane reduction solutions.
 		</div>
-		<div>
-			Learn: The process provided insights into the need for better preparation,
-			such as timing experiments and ensuring all media/reagents are ready in
-			advance. Further concentration checks and adjustments to the digestion
-			protocol are planned before attempting the assembly again. The challenges
-			in the transfection process of *A. tumefaciens* into *C. vulgaris*
-			highlighted procedural gaps. Additionally, feedback from stakeholders
-			raised concerns about the enzyme's potential impact on anaerobic
-			digesters. As a result, experiments are being designed to test enzyme
-			stability across varying pH levels in the cow’s stomach compartments,
-			ensuring proper degradation before reaching waste.
+
+		<div class="box">
+			<u>BUILD</u>: To transform <i>C. vulgaris</i>, an Agrobacterium-mediated
+			transformation system (AGMT) was implemented [7]. AGMT employs pathogenic
+			bacteria as a vector to introduce genes into plants. <i>C. vulgaris </i> was
+			subcultured from a stock solution, and our plant expression vector, pCAMBIA1302,
+			was isolated from DH5α. <i>A. tumefaciens </i> cells were selected as the (AGL1)
+			electrocompetent cells due to their ability to infect plant cells and transfer
+			a specific DNA sequence. <i>A. tumefaciens </i> (AGL1) cells were prepared as electrocompetent
+			cells for gene transfer. The plasmid pCAMBIA1302, given to us by our advisors,
+			and the PeiR_OPT gene was purchased from IDT. Primer design was completed using
+			NEBuilder, and all sequences were verified for alignment.
 		</div>
-		<div>
-			## References: 1. Leahy, S. C., Kelly, W. J., Altermann, E., Ronimus, R.
-			S., Yeoman, C. J., Pacheco, D. M., Li, D., Kong, Z., McTavish, S., Sang,
-			C., Lambie, S. C., Janssen, P. H., Dey, D., & Attwood, G. T. (2010). The
-			genome sequence of the rumen methanogen Methanobrevibacter ruminantium
-			reveals new possibilities for controlling ruminant methane emissions.
-			*PloS one*, *5*(1), e8926. https://doi.org/10.1371/journal.pone.0008926 2.
-			iGEM. (2019). *DNA Repository Plates and Boxes*. Registry of Standard
-			Biological Parts. https://parts.igem.org/assembly/plates.cgi?id=6368 3.
-			Pfister, P., Wasserfallen, A., Stettler, R., & Leisinger, T. (1998).
-			*Methanobacterium phage PSIM2, complete genome - nucleotide - NCBI*.
-			National Center for Biotechnology Information.
-			https://www.ncbi.nlm.nih.gov/nuccore/NC_001902.1?report=genbank&from=22562&to=23479
-			4. Knight, T. (2003). *Help:Standards/Assembly/RFC10*. Registry of
-			Standard Biological Parts.
-			https://parts.igem.org/Help:Standards/Assembly/RFC10 5. iGEM. (2003).
-			*Help:Protocols/Linearized Plasmid Backbones*. Registry of Standard
-			Biological Parts.
-			https://parts.igem.org/Help:Protocols/Linearized_Plasmid_Backbones 6.
-			Biolabs, N. E. (2024). *Protocol for Q5 High-Fidelity 2X master mix*. NEB.
-			https://www.neb.com/en/protocols/2012/12/07/protocol-for-q5-high-fidelity-2x-master-mix-m0492
-			7. Roushan, M. R., Chen, C., Ahmadi, P., Ward, V. C. A. *Agrobacterium
-			tumefaciens*-Mediated Genetic Engineering of Green Microalgae, *Chlorella
-			vulgaris*. *J. Vis. Exp.* (200), e65382, doi:10.3791/65382 (2023).
+
+		<div class="box gold">
+			<u>TEST</u>: pCAMBIA1302 [7] and the insert PeiR_OPT were successfully amplified and a gel was run to confirm their lengths. We encountered issues after Gibson Assembly, with no appearance of bands for gel extraction after DPNI digestion. This likely resulted from inconsistent DNA concentrations or incomplete digestion, as the A260/A280 ratios were significantly greater than 1.8.
+		</div>
+
+		<div class="box">
+			<u>LEARN</u>: The process provided insights into the need for better preparation, such as timing experiments and ensuring all media/reagents are ready in advance. Further concentration checks and adjustments to the digestion protocol are planned before attempting the assembly again. The challenges in the transfection process of A. tumefaciens into <i>C. vulgaris </i> highlighted procedural gaps. Additionally, feedback from stakeholders raised concerns about the enzyme's potential impact on anaerobic digesters. As a result, experiments are being designed to test enzyme stability across varying pH levels in the cow’s stomach compartments, ensuring proper degradation before reaching waste.
+		</div>
+
+		<h2>References</h2>
+		<div class="line-h2"></div>
+
+		<div class="references">
+			<ol>
+				<li>
+					Leahy, S. C., Kelly, W. J., Altermann, E.,  Ronimus, R. S., Yeoman, C. J., Pacheco, D. M., Li, D., Kong, Z., McTavish, S., Sang, C., Lambie, S. C., Janssen, P. H., Dey, D., &  Attwood, G. T. (2010). The genome sequence of the rumen methanogen Methanobrevibacter ruminantium reveals new possibilities for controlling ruminant methane emissions. PloS one, 5(1), e8926. https://doi.org/10.1371/journal.pone.0008926 
+				</li>
+				<li>
+					iGEM. (2019). DNA Repository Plates and Boxes. Registry of Standard Biological Parts. https://parts.igem.org/assembly/plates.cgi?id=6368 
+				</li>
+				<li>
+					Pfister, P., Wasserfallen, A., Stettler, R., & Leisinger, T. (1998). Methanobacterium phage PSIM2, complete genome - nucleotide - NCBI. National Center for Biotechnology Information. https://www.ncbi.nlm.nih.gov/nuccore/NC_001902.1?report=genbank&from=22562&to=23479 
+				</li>
+				<li>
+					Knight, T. (2003). Help:Standards/Assembly/RFC10. Registry of Standard Biological Parts. https://parts.igem.org/Help:Standards/Assembly/RFC10 
+				</li>
+				<li>
+					iGEM. (2003). Help:Protocols/Linearized Plasmid Backbones. Registry of Standard Biological Parts. https://parts.igem.org/Help:Protocols/Linearized_Plasmid_Backbones 
+				<li>
+					Biolabs, N. E. (2024). Protocol for Q5 High-Fidelity 2X master mix. NEB. https://www.neb.com/en/protocols/2012/12/07/protocol-for-q5-high-fidelity-2x-master-mix-m0492 
+				</li>
+				<li>
+					Roushan, M. R., Chen, C., Ahmadi, P., Ward, V. C. A. Agrobacterium tumefaciens-Mediated Genetic Engineering of Green Microalgae, Chlorella vulgaris. J. Vis. Exp. (200), e65382, doi:10.3791/65382 (2023).
+				</li>
+			</ol>
 		</div>
 	</main>
 </ProjectLayout>
 
 <style lang="scss">
 	@import '../global.scss';
+
 	main {
-		max-width: 800px;
-		margin: 0 auto;
-		padding: 20px;
-		font-family: Arial, sans-serif;
-		line-height: 1.6;
-		background-color: #f9f9f9;
-		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	}
+		h1,
+		h2 {
+			display: flex;
+			justify-content: center;
+			margin-top: 2.5rem;
+			z-index: -10;
+		}
 
-	h1,
-	h2 {
-		color: #333;
-		margin-top: 20px;
-	}
+		h1 {
+			font-size: 7.5rem;
+			text-shadow: 5px 5px 0 $accent-3;
+			color: $accent-1;
+		}
 
-	h1 {
-		font-size: 2rem;
-	}
+		h2 {
+			font-size: 2.5rem;
+			text-shadow: 2.5px 2.5px 0 $accent-2;
+			color: $accent-3;
+			
+			&:last-of-type {
+				font-size: 3.5rem;
+			}
+		}
 
-	h2 {
-		font-size: 1.5rem;
-	}
+		.line-h1,
+		.line-h2 {
+			z-index: -10;
+			position: relative;
+		}
 
-	div {
-		margin-bottom: 20px;
-		padding: 15px;
-		background-color: #fff;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-	}
+		.line-h1 {
+			background-color: rgba($accent-2, 0.7);
+			top: -2rem;
+		}
 
-	strong {
-		color: #007bff;
-	}
+		.line-h2 {
+			background-color: rgba($accent-4, 0.2);
+			top: -1.5rem;
+		}
 
-	a {
-		color: #007bff;
-		text-decoration: none;
-	}
+		div {
+			margin-bottom: 20px;
+			padding: 15px;
+			background: $primary;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			transition: box-shadow 0.3s ease;
 
-	a:hover {
-		text-decoration: underline;
+			&:hover {
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			}
+		}
+
+		.gold {
+			background-color: rgba(#f7ba67, 0.7);
+		}
+
+		.box {
+			text-align: center;
+			width: 75%;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 2em;
+			border: 3px solid $accent-3;
+			font-size: 1.25rem;
+		}
+
+		.references {
+			line-height: 1.2;
+			text-align: left;
+			background-color: $accent-gradient-1;
+			padding: 15px 1.5em;
+			border: 1px solid $accent-4;
+			border-radius: 5px;
+		}
 	}
 </style>
